@@ -1,0 +1,53 @@
+/* PAWSOME Custom Cursor - Optimized Implementation */
+
+/* ===== UNIVERSAL CURSOR APPLICATION ===== */
+/* Apply cursor.png to everything in the project */
+
+* {
+  cursor: url('../cursors/cursor.png') 0 0, auto !important;
+}
+
+/* ===== ALL INTERACTIVE STATES USE SAME CURSOR ===== */
+*:hover, *:active, *:focus, 
+button, input, textarea, select, a,
+[onclick], [data-click], .clickable {
+  cursor: url('../cursors/cursor.png') 0 0, auto !important;
+}
+
+/* ===== DISABLED ELEMENTS ===== */
+button:disabled, input:disabled, 
+textarea:disabled, select:disabled, .disabled {
+  cursor: url('../cursors/cursor.png') 0 0, auto !important;
+  opacity: 0.6;
+}
+
+/* ===== MOBILE COMPATIBILITY ===== */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    cursor: url('../cursors/cursor.png') 0 0, auto !important;
+  }
+}
+
+/* ===== BROWSER COMPATIBILITY ===== */
+@-moz-document url-prefix() {
+  * { cursor: url('../cursors/cursor.png') 0 0, auto !important; }
+}
+
+@supports (-webkit-appearance: none) {
+  * { cursor: url('../cursors/cursor.png') 0 0, auto !important; }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  * { cursor: url('../cursors/cursor.png') 0 0, auto !important; }
+}
+
+/* ===== TEXT SELECTION ===== */
+*::selection, *::-moz-selection {
+  background: rgba(0, 0, 0, 0.2);
+  cursor: url('../cursors/cursor.png') 0 0, auto !important;
+}
+
+/* ===== SCROLLBARS ===== */
+::-webkit-scrollbar, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {
+  cursor: url('../cursors/cursor.png') 0 0, auto !important;
+}

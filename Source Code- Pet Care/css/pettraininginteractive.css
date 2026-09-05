@@ -1,0 +1,59 @@
+/* Pet Training Interactive Page Styles */
+
+/* Font family definition */
+.font-spline {
+  font-family: "Spline Sans", "Noto Sans", sans-serif;
+}
+
+/* Avatar background image */
+.avatar-training {
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC84OmFL7jYiayoWNHgKVppP5V8uG00-ZWyuYgdqUb2wb5PaYu3HwOjD8FFp0TEnluSLEpguRSKUDbpmWbegcrvrvHYn6LqyLxPp22YPyv_XFiN-4BykxW59Jlfu7tb_WfCq2LOTn3gEdQ5-XyRCf-ggqnCuPm9GWPJ7x-ul-YFhSVvBnS_mKpdLRdrNIWpdG77sg5LcEX1rb1ibdIjsK-VY1wGrXmd8V2azaVIfDsEEiWblNj6uhbmK9gjmCdSQLVM4wbdPEUnehlu");
+}
+
+/* Training card images */
+.training-sit {
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDZ5lLF904sgX99w67EROQroraCbSOdpfrnMAfS-SqOLlXZn5DvL9ksGjoN585lOYNOz5VdVd2QI0DPXRO6kneyw3tKpK-erYdg1j3mMJ9NFerUIxOAmD-bujcO_Ajs3joNp8k_bLBteF2mWPiKyNwetMTQUXRclgDsZUM8H8gQ4Wp5ac6osc-GsifRtWj2j0G9TmmZLGBKiifh8DPUuOvI46-Tc6uU-8xRIyCiguOXciMZ653ZlgPp_aeccWZzEtPpTNPIskEAbuFb");
+}
+
+.training-stay {
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC8BTcf5aeUXewRvTnnDKjaVJiQiOC5myohOhuBbu40tH35_AaoxnPRabs94qZGnnSRsBlEfCJjDV-YD_19UZoJjKbSAPkToLNkc36e8uR-FBeG8CA1VgNO6raz2CccywqONY9yuuo40Djfx3rxHoME9SGBCDh0K_N4dOF6WVQWM_Q1_ZhvDQFAi_HU7G1nMhkmlHXrs18KHjjMpjTFbgJjL92SgnAXXX5HaUmsEvTLWXNXsiU4Wd3WpOXbSzTBeh8UCj9jwdNnYupo");
+}
+
+.training-paw {
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBSm_nuHfE8ec0yfWYVF9fHC8S2Me7PKz_Tp5TBwmXB7amUhUiOWKjb0atUdWRatwTlS-Yf3WRIZRzSJj8S7UN603HP7VdkPfArHU1KnUhPos7INbLST0-u2g6jyHZHnZkK8_ppiEbjOguWC0It9rMoBJa71Oul0h6XLF1viQMDIjFxMB7WbBnP2U64T5v7nRywOrRA7NQ2AH_vvaQDITR4P-9F1clwSOwV6WYLARHMvXgQewkkY6VKRh8ylNYGcXO653NkLL0E7zwn");
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  header {
+    padding: 0.75rem 1rem !important;
+    flex-wrap: wrap;
+  }
+  
+  .flex.justify-center {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  
+  main {
+    padding: 1rem !important;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .border-b {
+    flex-wrap: wrap !important;
+    justify-content: center;
+  }
+  
+  button {
+    min-height: 44px;
+  }
+}

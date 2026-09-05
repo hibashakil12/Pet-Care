@@ -1,0 +1,59 @@
+/* Pet Care Quiz Page Styles */
+
+:root {
+  --primary-color: #f9f506;
+}
+
+/* Font family definition */
+.font-spline {
+  font-family: "Spline Sans", "Noto Sans", sans-serif;
+}
+
+/* Avatar background image */
+.avatar-quiz {
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBpSLTB8GRsURWvqrvCLd9OtjbhOwh_A8OK_3hcVCcS_kPfG5mxG0-OBwSb8GhDNF1NKvCMsBjN-6miatsa6fsVUb8DbKRZaTiVOOjtcCPRmPvmev-1qKtPwOon4it4d7mC4Ni9CU6pc9ATVWhQXGAbu6hvRw2gQnqzYNagB1P4rpldk6EQ7upoy1b1kr4R5cVhRxHaTcexZBNFmjO_sZA0fXa7depw7OTvUMpwziZ5pekAmvYgpI7rqzyLO3C5H2xbTVJ-Duw3MoKm");
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  header {
+    padding: 0.75rem 1rem !important;
+    flex-wrap: wrap;
+  }
+  
+  .hidden.md\:flex {
+    display: none !important;
+  }
+  
+  main {
+    padding: 1rem !important;
+  }
+  
+  .layout-content-container {
+    max-width: 100% !important;
+    padding: 0 0.5rem !important;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  button, input {
+    min-height: 44px;
+  }
+  
+  .space-y-6 > * + * {
+    margin-top: 1rem !important;
+  }
+  
+  .bg-white {
+    margin: 0.5rem;
+    padding: 1.5rem !important;
+  }
+  
+  .flex.flex-col.sm\:flex-row {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+}

@@ -1,0 +1,61 @@
+/* AI SYMPTOM CHECKER - Comprehensive styling for the AI-powered pet health analysis system */
+
+:root {
+  --alert-color: #993d15;
+  --primary-brown: #8B4513;
+  --secondary-brown: #A0522D;
+  --light-brown: #CD853F;
+  --highlight-gold: #FFD700;
+  --urgent-red: #dc2626;
+  --moderate-orange: #f59e0b;
+  --low-green: #10b981;
+  --info-blue: #3b82f6;
+}
+
+/* Font family definition */
+.font-spline {
+  font-family: 'Spline_Sans', 'Noto_Sans', sans-serif;
+}
+
+/* Avatar background image */
+.avatar-symptom-checker {
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBRo3-VTtiVgY3twXtMBsYrYCmxBvEqWe60cRIm2VNuGo21pPhgMmDpu8aegoRz1I1dAzSI5mIs0dxD8aNg-roKd3j7QoQBYUpj-ZDT8tyQ5R3oL7EmJ6-JkuspbIuE1mD-0WP933Td3gSQ7LqN0O990ELvYwMNXBKSETXF0Zte2BxJ68jwpSo_qBTiuNH9zwTqfuV_y5uRkmpis4K1BrvZrWmJCLk79pUfR6MSZBvHVaQp7DivxBrsS3GoDEd2M92Pvu4dgbLgl1lj");
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  header {
+    padding: 0.75rem 1rem !important;
+    flex-wrap: wrap;
+  }
+  
+  nav {
+    gap: 1rem !important;
+    justify-content: center;
+  }
+  
+  nav a {
+    font-size: 0.9rem;
+  }
+  
+  main {
+    padding: 1rem !important;
+  }
+  
+  .bg-white {
+    margin: 0 0.5rem;
+    padding: 1.5rem !important;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  button, input, textarea {
+    min-height: 44px;
+  }
+  
+  #symptom-results {
+    margin-top: 1rem;
+  }
+}

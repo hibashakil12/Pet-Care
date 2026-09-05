@@ -1,0 +1,36 @@
+/* Pet Breed Selector Page Styles */
+
+:root {
+  --primary-color: #993d15;
+}
+
+/* Font family definition */
+.font-spline {
+  font-family: "Spline Sans", "Noto Sans", sans-serif;
+}
+
+/* Avatar background image */
+.avatar-breed-selector {
+  background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBrZ1kg8NYLrQkDEFVs5VCIUJbuk5MRI-Az0fYnl5ExqQG4DzJlUEpxft59ExZANs2snI5g9dwPR9jUJKAbN0B9TRjB6fyOsqj4q9OqTg17Xc4cBT3EgdvB7IJsZG4xb7LqJIkZhae5MBYkD4numuzoet-AEqHqgklle3UJB7rp9EsNPCB5joPQAIei5L_z4loQg1vJCfd4X90UErnEIkWSwNZFQ0b1NxUaN2kptHDJKL_GDNMTqSBFK0NQv4olY4kV8jcWKFvX7oiE");
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  /* Removed conflicting header styles - using global.css instead */
+
+  main {
+    padding: 1rem !important;
+  }
+
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  button, label {
+    min-height: 44px;
+  }
+
+  .grid {
+    gap: 1rem !important;
+  }
+}

@@ -1,0 +1,781 @@
+/* HEALTHTRACK.CSS - Pet Heart Rate Calculator Styling */
+
+/* ===== ANIMATED BACKGROUND ELEMENTS ===== */
+.medical-element {
+  position: fixed;
+  font-size: 50px;
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+  animation-timing-function: ease-in-out;
+}
+
+.element-1 { top: 10%; left: -100px; animation: medicalMoveRight 20s linear infinite; }
+.element-2 { top: 25%; right: -100px; animation: medicalMoveLeft 18s linear infinite; animation-delay: 2s; }
+.element-3 { top: 45%; left: -100px; animation: medicalMoveRight 25s linear infinite; animation-delay: 5s; }
+.element-4 { top: 65%; right: -100px; animation: medicalMoveLeft 22s linear infinite; animation-delay: 8s; }
+.element-5 { top: 15%; left: -100px; animation: medicalMoveRight 28s linear infinite; animation-delay: 11s; }
+.element-6 { top: 80%; right: -100px; animation: medicalMoveLeft 16s linear infinite; animation-delay: 14s; }
+.element-7 { top: 35%; left: -100px; animation: medicalMoveRight 30s linear infinite; animation-delay: 3s; }
+.element-8 { top: 55%; right: -100px; animation: medicalMoveLeft 24s linear infinite; animation-delay: 7s; }
+.element-9 { top: 20%; left: -80px; animation: medicalMoveRight 32s linear infinite; animation-delay: 1s; font-size: 40px; opacity: 0.15; }
+.element-10 { top: 40%; right: -80px; animation: medicalMoveLeft 19s linear infinite; animation-delay: 4s; font-size: 40px; opacity: 0.15; }
+.element-11 { top: 60%; left: -80px; animation: medicalMoveRight 27s linear infinite; animation-delay: 6s; font-size: 40px; opacity: 0.15; }
+.element-12 { top: 75%; right: -80px; animation: medicalMoveLeft 21s linear infinite; animation-delay: 9s; font-size: 40px; opacity: 0.15; }
+
+@keyframes medicalMoveRight {
+  0% { transform: translateX(0) rotate(0deg) scale(0.8); opacity: 0; }
+  10% { opacity: 0.2; }
+  50% { transform: translateX(50vw) rotate(180deg) scale(1.2); opacity: 0.25; }
+  90% { opacity: 0.2; }
+  100% { transform: translateX(calc(100vw + 200px)) rotate(360deg) scale(0.8); opacity: 0; }
+}
+
+@keyframes medicalMoveLeft {
+  0% { transform: translateX(0) rotate(0deg) scale(0.8); opacity: 0; }
+  10% { opacity: 0.2; }
+  50% { transform: translateX(-50vw) rotate(-180deg) scale(1.2); opacity: 0.25; }
+  90% { opacity: 0.2; }
+  100% { transform: translateX(calc(-100vw - 200px)) rotate(-360deg) scale(0.8); opacity: 0; }
+}
+
+/* ===== TEXT ANIMATIONS & UTILITIES ===== */
+.heartbeat-animation {
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1.2); }
+  75% { transform: scale(1.1); }
+}
+
+.bounce-animation {
+  animation: gentleBounce 3s ease-in-out infinite;
+}
+
+@keyframes gentleBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.slide-in-down {
+  animation: slideInDown 0.8s ease-out;
+}
+
+@keyframes slideInDown {
+  0% { opacity: 0; transform: translateY(-30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in-up {
+  animation: slideInUp 0.8s ease-out 0.3s both;
+}
+
+@keyframes slideInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.text-shadow-brown {
+  text-shadow: 2px 2px 4px rgba(92, 36, 13, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.text-shadow-sm {
+  text-shadow: 1px 1px 2px rgba(92, 36, 13, 0.6);
+}
+
+/* ===== START CONTAINER ===== */
+.health-start-container {
+  background: linear-gradient(135deg, 
+    rgba(139, 69, 19, 0.9) 0%, 
+    rgba(160, 82, 45, 0.85) 25%, 
+    rgba(210, 180, 140, 0.8) 50%, 
+    rgba(160, 82, 45, 0.85) 75%, 
+    rgba(139, 69, 19, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 25px 60px rgba(139, 69, 19, 0.3),
+    0 15px 40px rgba(160, 82, 45, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  animation: containerSlideIn 1s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.health-start-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+  animation: rotateGlow 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes containerSlideIn {
+  0% { opacity: 0; transform: translateY(50px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes rotateGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== BUTTONS ===== */
+.health-start-btn {
+  background: linear-gradient(135deg, #8B4513, #A0522D, #CD853F, #A0522D, #8B4513);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.health-start-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.health-start-btn:hover::before {
+  left: 100%;
+}
+
+.health-start-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(139, 69, 19, 0.4);
+}
+
+.health-start-btn:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* ===== OPTION CARDS ===== */
+.health-option-card {
+  background: linear-gradient(135deg, 
+    rgba(139, 69, 19, 0.85) 0%, 
+    rgba(160, 82, 45, 0.8) 50%, 
+    rgba(139, 69, 19, 0.85) 100%);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 15px 35px rgba(139, 69, 19, 0.2);
+  animation: cardSlideUp 0.6s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.health-option-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.health-option-card .card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.1), rgba(255, 215, 0, 0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 18px;
+  pointer-events: none;
+}
+
+.health-option-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.health-option-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 25px 50px rgba(139, 69, 19, 0.3);
+  border-color: rgba(218, 165, 32, 0.6);
+}
+
+@keyframes cardSlideUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== DETAIL CONTAINER ===== */
+.health-detail-container {
+  animation: detailFadeIn 0.6s ease-out;
+}
+
+@keyframes detailFadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== FORM ELEMENTS ===== */
+.health-form-card {
+  background: linear-gradient(135deg, 
+    rgba(139, 69, 19, 0.9) 0%, 
+    rgba(160, 82, 45, 0.85) 25%, 
+    rgba(210, 180, 140, 0.8) 50%, 
+    rgba(160, 82, 45, 0.85) 75%, 
+    rgba(139, 69, 19, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  box-shadow: 
+    0 25px 60px rgba(139, 69, 19, 0.3),
+    0 15px 40px rgba(160, 82, 45, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.back-btn {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.back-btn:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.2));
+  transform: translateX(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.health-info-box {
+  background: linear-gradient(135deg, 
+    rgba(59, 130, 246, 0.2) 0%, 
+    rgba(147, 51, 234, 0.15) 100%);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.1);
+  animation: infoBoxGlow 3s ease-in-out infinite;
+}
+
+.info-icon {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes infoBoxGlow {
+  0%, 100% { box-shadow: 0 8px 20px rgba(59, 130, 246, 0.1); }
+  50% { box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2); }
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* ===== INPUT STYLING ===== */
+.input-group {
+  position: relative;
+  animation: inputSlideIn 0.5s ease-out;
+}
+
+.input-group:nth-child(n+2) { animation-delay: 0.1s; }
+.input-group:nth-child(n+3) { animation-delay: 0.2s; }
+.input-group:nth-child(n+4) { animation-delay: 0.3s; }
+
+@keyframes inputSlideIn {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.input-label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 4px rgba(92, 36, 13, 0.8);
+  transition: color 0.3s ease;
+}
+
+.health-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(139, 69, 19, 0.3);
+  background: linear-gradient(135deg, 
+    rgba(245, 222, 179, 0.9) 0%, 
+    rgba(255, 239, 213, 0.85) 100%);
+  color: #2d1810;
+  font-weight: 500;
+  font-size: 16px;
+  backdrop-filter: blur(8px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.health-input::placeholder {
+  color: rgba(45, 24, 16, 0.6);
+  font-style: italic;
+  transition: opacity 0.3s ease;
+}
+
+.health-input:focus {
+  outline: none;
+  border-color: rgba(218, 165, 32, 0.8);
+  background: linear-gradient(135deg, 
+    rgba(255, 239, 213, 0.95) 0%, 
+    rgba(255, 248, 220, 0.9) 100%);
+  box-shadow: 
+    inset 0 2px 4px rgba(0, 0, 0, 0.1),
+    0 0 0 3px rgba(218, 165, 32, 0.2),
+    0 8px 25px rgba(139, 69, 19, 0.2);
+  transform: translateY(-2px);
+}
+
+.health-input:focus::placeholder {
+  opacity: 0.4;
+}
+
+/* ===== TIMER HELPER ===== */
+.heartbeat-counter {
+  position: relative;
+}
+
+.timer-helper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 15px;
+}
+
+.timer-btn {
+  background: linear-gradient(135deg, #059669, #10b981, #34d399);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
+}
+
+.timer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
+}
+
+.timer-display {
+  background: rgba(0, 0, 0, 0.3);
+  color: #10b981;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 60px;
+  text-align: center;
+  animation: timerPulse 1s ease-in-out infinite;
+}
+
+@keyframes timerPulse {
+  0%, 100% { background: rgba(0, 0, 0, 0.3); }
+  50% { background: rgba(16, 185, 129, 0.2); }
+}
+
+/* ===== FILE UPLOAD ===== */
+.file-upload-area {
+  position: relative;
+  border: 2px dashed rgba(139, 69, 19, 0.4);
+  border-radius: 12px;
+  background: linear-gradient(135deg, 
+    rgba(245, 222, 179, 0.7) 0%, 
+    rgba(255, 239, 213, 0.6) 100%);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-upload-area:hover {
+  border-color: rgba(218, 165, 32, 0.6);
+  background: linear-gradient(135deg, 
+    rgba(245, 222, 179, 0.9) 0%, 
+    rgba(255, 239, 213, 0.8) 100%);
+  transform: translateY(-2px);
+}
+
+.health-file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.upload-placeholder {
+  text-align: center;
+  color: #2d1810;
+  pointer-events: none;
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+  animation: uploadFloat 2s ease-in-out infinite;
+}
+
+@keyframes uploadFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.image-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.preview-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.remove-image {
+  background: rgba(239, 68, 68, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.remove-image:hover {
+  background: rgba(239, 68, 68, 1);
+  transform: scale(1.1);
+}
+
+/* ===== ACTION BUTTONS ===== */
+.health-calculate-btn,
+.health-analyze-btn {
+  width: 100%;
+  padding: 15px 24px;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.health-calculate-btn {
+  background: linear-gradient(135deg, #059669, #10b981, #34d399);
+  color: white;
+  box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+}
+
+.health-analyze-btn {
+  background: linear-gradient(135deg, #7c3aed, #a855f7, #c084fc);
+  color: white;
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+}
+
+.btn-ripple {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.health-calculate-btn:hover .btn-ripple,
+.health-analyze-btn:hover .btn-ripple {
+  left: 100%;
+}
+
+.health-calculate-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(5, 150, 105, 0.4);
+}
+
+.health-analyze-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(124, 58, 237, 0.4);
+}
+
+/* ===== RESULTS & LOADING ===== */
+.health-result {
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  font-weight: 600;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(139, 69, 19, 0.3);
+  background: linear-gradient(135deg, 
+    rgba(245, 158, 11, 0.2) 0%, 
+    rgba(251, 191, 36, 0.15) 100%);
+  color: #92400e;
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.1);
+  animation: resultSlideIn 0.6s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.health-result::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  animation: resultShimmer 2s ease-in-out infinite;
+}
+
+@keyframes resultSlideIn {
+  0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes resultShimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.health-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #a855f7;
+  font-weight: 500;
+  margin-top: 20px;
+  padding: 20px;
+  gap: 15px;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(168, 85, 247, 0.2);
+  border-top: 4px solid #a855f7;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.health-loading p {
+  animation: loadingPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .medical-element {
+    font-size: 35px;
+    opacity: 0.15;
+  }
+  
+  .element-9, .element-10, .element-11, .element-12 {
+    font-size: 25px;
+    opacity: 0.1;
+  }
+  
+  .form-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-header h2 {
+    order: -1;
+  }
+  
+  .timer-helper {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .health-start-btn,
+  .health-calculate-btn,
+  .health-analyze-btn {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .medical-element {
+    font-size: 25px;
+    opacity: 0.1;
+  }
+  
+  .health-start-container,
+  .health-form-card {
+    margin: 0 10px;
+    padding: 20px !important;
+  }
+  
+  .health-option-card {
+    padding: 20px;
+  }
+  
+  .input-label {
+    font-size: 16px;
+  }
+  
+  .health-input {
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  .medical-element,
+  .heartbeat-animation,
+  .bounce-animation,
+  .loading-spinner {
+    animation: none;
+  }
+  
+  .health-start-container::before {
+    animation: none;
+  }
+}
+
+/* ===== FOCUS STYLES ===== */
+.health-start-btn:focus,
+.health-calculate-btn:focus,
+.health-analyze-btn:focus,
+.back-btn:focus,
+.timer-btn:focus {
+  outline: 3px solid rgba(255, 215, 0, 0.6);
+  outline-offset: 2px;
+}
+
+.health-option-card:focus {
+  outline: 3px solid rgba(218, 165, 32, 0.8);
+  outline-offset: 4px;
+}
+
+/* ===== ADDITIONAL ENHANCEMENTS ===== */
+.health-start-btn,
+.health-calculate-btn,
+.health-analyze-btn {
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.health-start-btn:active,
+.health-calculate-btn:active,
+.health-analyze-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.health-option-card {
+  transform-style: preserve-3d;
+}
+
+.health-option-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 215, 0, 0.1), transparent, rgba(255, 215, 0, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 18px;
+  pointer-events: none;
+}
+
+.health-option-card:hover::after {
+  opacity: 1;
+}

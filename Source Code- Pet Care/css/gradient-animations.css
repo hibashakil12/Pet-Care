@@ -1,0 +1,229 @@
+/* ==================== PAWSOME GRADIENT ANIMATIONS ==================== */
+/* This file provides standardized gradient animations across all pages */
+
+/* Hero Section Animated Gradient - 9 seconds */
+.animated-hero {
+  position: relative;
+  background: linear-gradient(-45deg, #f09902, #993d15, #f09902, #993d15);
+  background-size: 400% 400%;
+  animation: heroGradientShift 9s ease-in-out infinite;
+}
+
+@keyframes heroGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Navbar Animated Gradient - 10 seconds */
+.animated-navbar {
+  position: relative;
+  background: linear-gradient(-45deg, #f09902, #993d15, #f09902, #993d15) !important;
+  background-size: 400% 400% !important;
+  animation: navbarGradientShift 10s ease-in-out infinite;
+}
+
+@keyframes navbarGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Ensure navbar animation overrides any existing background */
+.animated-navbar,
+.navbar.animated-navbar,
+header.animated-navbar {
+  background: linear-gradient(-45deg, #f09902, #993d15, #f09902, #993d15) !important;
+  background-size: 400% 400% !important;
+}
+
+/* Additional gradient effects for other sections */
+.animated-footer {
+  position: relative;
+  background: linear-gradient(-45deg, #f09902, #993d15, #f09902, #993d15) !important;
+  background-size: 400% 400% !important;
+  animation: navbarGradientShift 12s ease-in-out infinite;
+}
+
+/* Card gradient animations */
+.animated-card {
+  position: relative;
+  background: linear-gradient(-45deg, rgba(240,153,2,0.1), rgba(153,61,21,0.1), rgba(240,153,2,0.1), rgba(153,61,21,0.1));
+  background-size: 400% 400%;
+  animation: cardGradientShift 15s ease-in-out infinite;
+}
+
+@keyframes cardGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Button hover gradient animations */
+.gradient-hover-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.gradient-hover-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #f09902, #993d15, #f09902, #993d15);
+  background-size: 400% 400%;
+  animation: gradientFlow 2s ease-in-out infinite;
+  z-index: -1;
+  transition: left 0.5s ease;
+}
+
+.gradient-hover-btn:hover::before {
+  left: 0;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Smooth transitions for all animated elements */
+.animated-hero,
+.animated-navbar,
+.animated-footer,
+.animated-card {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ==================== DROPDOWN ANIMATIONS ==================== */
+
+/* Enhanced dropdown menu animations - 0.4s transition */
+.dropdown-enhanced {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+  transform: translateY(-12px) scale(0.92);
+  opacity: 0;
+}
+
+.dropdown-enhanced.show {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Dropdown button gold-brown gradient hover */
+.dropdown-btn-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dropdown-btn-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #D4AF37, #f09902, #FFD700);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.dropdown-btn-enhanced:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.dropdown-btn-enhanced:hover::before {
+  opacity: 0.2;
+}
+
+.dropdown-btn-enhanced:hover .material-symbols-outlined {
+  color: #FFD700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced dropdown item hover with gold-brown gradient */
+.dropdown-item-enhanced {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 0;
+}
+
+.dropdown-item-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #D4AF37, #f09902, #FFD700, #993d15);
+  background-size: 400% 400%;
+  animation: gradientShimmer 2s ease-in-out infinite;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+@keyframes gradientShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.dropdown-item-enhanced:hover {
+  transform: translateX(8px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  border-radius: 0px 25px 25px 0px;
+  color: #FFD700;
+}
+
+.dropdown-item-enhanced:hover::before {
+  left: 0;
+  opacity: 0.15;
+}
+
+.dropdown-item-enhanced:active {
+  transform: translateX(6px) scale(1.02);
+  transition: all 0.1s ease;
+}
+
+/* Performance optimizations */
+.animated-hero,
+.animated-navbar,
+.animated-footer,
+.animated-card,
+.dropdown-enhanced,
+.dropdown-btn-enhanced,
+.dropdown-item-enhanced {
+  will-change: background-position, opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
