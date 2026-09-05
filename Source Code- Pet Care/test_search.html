@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Test - PAWSOME</title>
+    <link href="css/global.css" rel="stylesheet"/>
+    <link href="css/home.css" rel="stylesheet"/>
+    <style>
+        body {
+            padding: 2rem;
+            background: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .search-container {
+            position: relative;
+            margin: 2rem 0;
+        }
+        .test-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+        .debug-info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f0f0f0;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 0.9rem;
+        }
+        #test-dropdown, #test-dropdown-2 {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #e5e5e5;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            margin-top: 0.5rem;
+        }
+        #test-dropdown.show, #test-dropdown-2.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>PAWSOME Search Functionality Test</h1>
+        
+        <h2>Test Search 1 (Hero Style)</h2>
+        <div class="search-container">
+            <input id="test-search-1" class="test-input" placeholder="Search for pet care tips, breeds, or symptoms" />
+            <div id="test-dropdown"></div>
+        </div>
+
+        <h2>Test Search 2 (Tips Style)</h2>
+        <div class="search-container">
+            <input id="test-search-2" class="test-input" placeholder="Search pet tips, breeds..." />
+            <div id="test-dropdown-2"></div>
+        </div>
+        
+        <div id="debug-info" class="debug-info">
+Debug information will appear here...
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/tips.js"></script>
+    <script src="js/data-exports.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const debugDiv = document.getElementById('debug-info');
+            
+            function updateDebug(message) {
+                const timestamp = new Date().toLocaleTimeString();
+                debugDiv.textContent += `[${timestamp}] ${message}\n`;
+            }
+            
+            updateDebug('DOM Content Loaded - Starting tests...');
+            
+            // Check data availability
+            updateDebug(`petTips available: ${!!window.petTips}, count: ${window.petTips?.length || 0}`);
+            updateDebug(`dogBreeds available: ${!!window.dogBreeds}, count: ${window.dogBreeds?.length || 0}`);
+            updateDebug(`catBreeds available: ${!!window.catBreeds}, count: ${window.catBreeds?.length || 0}`);
+            
+            // Show first entries for debugging
+            if (window.petTips && window.petTips[0]) {
+                updateDebug(`First tip: ${window.petTips[0].title}`);
+            }
+            if (window.dogBreeds && window.dogBreeds[0]) {
+                updateDebug(`First dog breed: ${window.dogBreeds[0].name}`);
+                updateDebug(`Dog breed has 'behaviors' field: ${!!window.dogBreeds[0].behaviors}`);
+                updateDebug(`Dog breed has 'personality' field: ${!!window.dogBreeds[0].personality}`);
+            }
+            if (window.catBreeds && window.catBreeds[0]) {
+                updateDebug(`First cat breed: ${window.catBreeds[0].name}`);
+                updateDebug(`Cat breed has 'behaviors' field: ${!!window.catBreeds[0].behaviors}`);
+            }
+            
+            // Test search functionality directly
+            updateDebug('Testing direct search functionality...');
+            const heroSearchInput = document.getElementById('test-search-1');
+            if (heroSearchInput) {
+                updateDebug('Setting test search value to "dog"...');
+                heroSearchInput.value = 'dog';
+                heroSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+                
+                setTimeout(() => {
+                    const dropdown = document.getElementById('test-dropdown');
+                    const hasResults = dropdown && dropdown.classList.contains('show');
+                    updateDebug(`Search dropdown visible: ${hasResults}`);
+                    if (dropdown) {
+                        updateDebug(`Dropdown content length: ${dropdown.innerHTML.length}`);
+                    }
+                }, 300);
+            }
+            
+            // Test search functionality
+            setTimeout(() => {
+                updateDebug('Testing search functionality...');
+                
+                const searchInput1 = document.getElementById('test-search-1');
+                const searchInput2 = document.getElementById('test-search-2');
+                
+                if (searchInput1 && searchInput2) {
+                    updateDebug('Search inputs found, attempting to attach search...');
+                    
+                    // Use the global attachSearch function if it exists
+                    if (typeof window.attachSearch === 'function') {
+                        window.attachSearch('test-search-1', 'test-dropdown');
+                        window.attachSearch('test-search-2', 'test-dropdown-2');
+                        updateDebug('Search attached via global function');
+                    } else {
+                        updateDebug('Global attachSearch function not found - search may not work');
+                    }
+                } else {
+                    updateDebug('Search inputs not found!');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

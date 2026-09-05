@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pet Personality Quiz</title>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="favicon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta name="theme-color" content="#f09902"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="css/global.css" rel="stylesheet"/>
+<link href="css/gradient-animations.css" rel="stylesheet"/>
+<link href="css/quantum-animations.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+:root{
+  --primary-brown:#8B4513;
+  --light-brown:#D2691E;
+  --glass:rgba(255,255,255,0.85);
+  --shadow:0 8px 25px rgba(139,69,19,0.15);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Poppins",sans-serif;
+  background:linear-gradient(160deg,#eafaf6,#fff5f1);
+  min-height:100vh;
+  padding:0px;color:#123;
+}
+
+/* Start Box */
+#startBox{
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  padding:50px;
+  border-radius:20px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  animation:fadeIn 1s;
+}
+#startBox h1{margin:15px 0;font-size:28px;}
+#startBox p{margin-bottom:25px;}
+.start-btn{
+  background:linear-gradient(90deg,var(--primary-brown),var(--light-brown));
+  border:none;padding:12px 24px;border-radius:14px;
+  color:white;font-weight:600;font-size:16px;
+  cursor:pointer;box-shadow:0 6px 20px rgba(139,69,19,0.3);
+  transition:.2s;
+  margin-top:15px;
+}
+.start-btn:hover{transform:scale(1.05)}
+
+/* Hide quiz elements when not active */
+#quizBox{
+  display:none !important;
+}
+#resultCard{
+  display:none !important;
+}
+
+/* Question Cards */
+#quizBox{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  width:100%;
+  max-width:500px;
+}
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  padding:30px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:var(--shadow);
+  width:100%;
+  text-align:center;
+  transition:0.3s;
+}
+.card h2{margin-bottom:20px;}
+.options button{
+  display:block;
+  width:80%;
+  margin:10px auto;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(90deg,var(--primary-brown),var(--light-brown));
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.2s;
+  box-shadow:0 4px 12px rgba(139,69,19,0.2);
+}
+.options button:hover{transform:scale(1.05)}
+
+/* Progress Bar - Hidden */
+#progressContainer{
+  display: none !important;
+  width:100%;
+  background:#ddd;
+  border-radius:12px;
+  margin-top:20px;
+  height:12px;
+}
+#progressBar{
+  width:0%;
+  height:100%;
+  background:linear-gradient(90deg,var(--primary-brown),var(--light-brown));
+  border-radius:12px;
+  transition:0.3s;
+}
+
+/* Result Card */
+#resultCard{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  background:var(--glass);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  max-width:500px;
+  text-align:center;
+}
+#resultCard h2{margin-bottom:15px;}
+#resultCard p{margin:8px 0;}
+.emoji{font-size:50px;display:block;margin-bottom:10px;animation:bounce 1s infinite;}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+@keyframes fadeIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+/* Dropdown Styling */
+.dropdown-wrapper {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.pet-dropdown {
+  width: 90%;
+  max-width: 400px;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(135deg, var(--primary-brown), var(--light-brown));
+  color: black;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(139,69,19,0.3);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="black" d="M6 8L0 2h12z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  padding-right: 50px;
+  /* Remove all hover animations */
+}
+
+.pet-dropdown:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(139,69,19,0.3);
+}
+
+.pet-dropdown option {
+  background: white;
+  color: var(--primary-brown);
+  padding: 10px;
+  font-weight: 500;
+}
+
+/* Center form elements better */
+#startBox, #quizBox, #resultCard {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#quizBox {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Animated Dog Treats Background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40">🦴</text></svg>') repeat;
+  background-size: 80px 80px;
+  opacity: 0.1;
+  z-index: -1;
+  animation: treatFloat 20s linear infinite;
+}
+
+/* Multiple dog treat layers for better animation */
+.dog-treat {
+  position: fixed;
+  font-size: 60px;
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.treat-1 {
+  top: 10%;
+  left: -100px;
+  animation: treatMoveRight 25s linear infinite;
+}
+
+.treat-2 {
+  top: 30%;
+  right: -100px;
+  animation: treatMoveLeft 20s linear infinite;
+  animation-delay: 3s;
+}
+
+.treat-3 {
+  top: 50%;
+  left: -100px;
+  animation: treatMoveRight 30s linear infinite;
+  animation-delay: 6s;
+}
+
+.treat-4 {
+  top: 70%;
+  right: -100px;
+  animation: treatMoveLeft 18s linear infinite;
+  animation-delay: 9s;
+}
+
+.treat-5 {
+  top: 20%;
+  left: -100px;
+  animation: treatMoveRight 22s linear infinite;
+  animation-delay: 12s;
+}
+
+.treat-6 {
+  top: 80%;
+  right: -100px;
+  animation: treatMoveLeft 28s linear infinite;
+  animation-delay: 15s;
+}
+
+.treat-7 {
+  top: 40%;
+  left: -100px;
+  animation: treatMoveRight 24s linear infinite;
+  animation-delay: 18s;
+}
+
+.treat-8 {
+  top: 60%;
+  right: -100px;
+  animation: treatMoveLeft 26s linear infinite;
+  animation-delay: 21s;
+}
+
+@keyframes treatMoveRight {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateX(50vw) rotate(180deg) scale(1.2);
+    opacity: 0.2;
+  }
+  90% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)) rotate(360deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes treatMoveLeft {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.15;
+  }
+  50% {
+    transform: translateX(-50vw) rotate(-180deg) scale(1.2);
+    opacity: 0.2;
+  }
+  90% {
+    opacity: 0.15;
+  }
+  100% {
+    transform: translateX(calc(-100vw - 200px)) rotate(-360deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes treatFloat {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100px);
+  }
+}
+
+</style>
+</head>
+<body class="bg-gradient-to-br from-[#f09902] to-[#993d15] font-spline">
+
+<!-- Animated Dog Treats Background -->
+<div class="dog-treat treat-1">🦴</div>
+<div class="dog-treat treat-2">🦴</div>
+<div class="dog-treat treat-3">🦴</div>
+<div class="dog-treat treat-4">🦴</div>
+<div class="dog-treat treat-5">🦴</div>
+<div class="dog-treat treat-6">🦴</div>
+<div class="dog-treat treat-7">🦴</div>
+<div class="dog-treat treat-8">🦴</div>
+
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="navbar bg-gradient-to-r from-[#f09902] to-[#993d15] animated-navbar">
+<div class="nav-left">
+<a href="home.html"><img src="logo/p-removebg-preview.png" alt="PAWSOME Logo" class="nav-logo"></a>
+<div class="nav-links">
+</div>
+<button id="hamburger-btn"><span class="material-symbols-outlined">menu</span></button>
+</div>
+<div class="nav-right">
+<label class="header-search">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 text-white/70"><span class="material-symbols-outlined text-lg">search</span></div>
+<input id="tips-search" class="form-input w-full rounded-full text-white focus:outline-0 focus:ring-2 focus:ring-white border-none bg-white/20 placeholder:text-white/70 pl-10 pr-4 text-base font-normal" placeholder="Search pet tips, breeds..." />
+<div id="tips-dropdown"></div>
+</label>
+<button id="nav-dropdown-btn" class="quantum-btn flex items-center justify-center rounded-full h-10 w-10 bg-white/20 text-white hover:bg-white/30 transition-colors ml-3"><span class="material-symbols-outlined">expand_more</span></button>
+</div>
+<div id="nav-dropdown-menu" class="quantum-menu">
+<a href="aisymptomchecker.html" class="nav-dropdown-item quantum-item"><span class="material-symbols-outlined text-base">medical_services</span>AI Symptom Checker</a>
+<a href="bodyposture.html" class="nav-dropdown-item quantum-item"><span class="material-symbols-outlined text-base">accessibility</span>Body Posture</a>
+<a href="pethealthcalculator.html" class="nav-dropdown-item quantum-item"><span class="material-symbols-outlined text-base">calculate</span>Pet Health Calculator</a>
+<a href="petbreedselector.html" class="nav-dropdown-item quantum-item"><span class="material-symbols-outlined text-base">pets</span>Breed Selector</a>
+<a href="pettraininginteractive.html" class="nav-dropdown-item quantum-item"><span class="material-symbols-outlined text-base">school</span>Pet Training Guide</a>
+<a href="personality.html" class="nav-dropdown-item quantum-item"><span class="material-symbols-outlined text-base">psychology</span>Personality Quiz</a>
+<a href="healthtrack.html" class="nav-dropdown-item quantum-item"><span class="material-symbols-outlined text-base">favorite</span>Health Track</a>
+</div>
+<div id="mobile-menu">
+<a href="aisymptomchecker.html" class="block py-2 px-4 text-white hover:bg-white/10">AI Symptom Checker</a>
+<a href="bodyposture.html" class="block py-2 px-4 text-white hover:bg-white/10">Body Posture</a>
+<a href="pethealthcalculator.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Health Calculator</a>
+<a href="petbreedselector.html" class="block py-2 px-4 text-white hover:bg-white/10">Breed Selector</a>
+<a href="pettraininginteractive.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Training Guide</a>
+<a href="personality.html" class="block py-2 px-4 text-white hover:bg-white/10">Personality Quiz</a>
+<a href="healthtrack.html" class="block py-2 px-4 text-white hover:bg-white/10">Health Track</a>
+</div>
+</header>
+<main class="flex-1 flex items-center justify-center py-10">
+<div class="w-full max-w-2xl mx-auto flex flex-col items-center justify-center min-h-[calc(100vh-200px)]">
+
+<!-- Start -->
+<div id="startBox">
+  <h1>Pet Personality Quiz</h1>
+  <p>Discover your pet's personality, weaknesses, and tips 🐾</p>
+  <button class="start-btn" onclick="startQuiz()">Start</button>
+</div>
+
+<!-- Quiz -->
+<div id="quizBox">
+  <div id="progressContainer">
+    <div id="progressBar"></div>
+  </div>
+  <div class="card" id="questionCard">
+    <h2 id="questionText"></h2>
+    <div class="options" id="optionsContainer"></div>
+  </div>
+</div>
+
+<!-- Result -->
+<div id="resultCard">
+  <span class="emoji" id="resultEmoji"></span>
+  <h2 id="petNature"></h2>
+  <p id="weakness"></p>
+  <p id="medicalTip"></p>
+  <p id="physicalTip"></p>
+  <p id="desiTip"></p>
+</div>
+
+<script>
+// Questions & options
+const questions=[
+  {q:"Select your pet type",options:["Dog","Cat","Parrot","Rabbit","Hamster","Guinea Pig","Ferret","Horse","Cow","Goat","Sheep","Pig","Chicken","Duck","Pigeon","Canary","Turtle","Snake","Lizard","Frog","Fish","Elephant","Camel","Donkey","Kangaroo","Monkey","Owl","Eagle","Peacock"]},
+  {q:"How active is your pet?",options:["Low 💤","Medium ⚡","High 🔥"]},
+  {q:"Favorite time of day?",options:["Morning 🌅","Afternoon ☀️","Night 🌙"]},
+  {q:"Playfulness level?",options:["Low 🛋️","Medium ⚽","High 🎾"]},
+  {q:"Interaction with other pets?",options:["Avoids","Friendly","Dominant"]},
+];
+
+let current=0;
+let answers=[];
+function startQuiz(){
+  document.getElementById("startBox").style.display="none";
+  document.getElementById("quizBox").style.display="flex";
+  document.getElementById("quizBox").style.setProperty('display', 'flex', 'important');
+  showQuestion();
+}
+
+function showQuestion(){
+  const q=questions[current];
+  document.getElementById("questionText").textContent=q.q;
+  const container=document.getElementById("optionsContainer");
+  container.innerHTML="";
+  
+  // Special handling for first question (pet selection) - create dropdown
+  if(current === 0) {
+    const dropdownWrapper = document.createElement("div");
+    dropdownWrapper.className = "dropdown-wrapper";
+    
+    const select = document.createElement("select");
+    select.className = "pet-dropdown";
+    select.innerHTML = '<option value="" disabled selected>Choose your pet...</option>';
+    
+    q.options.forEach(opt => {
+      const option = document.createElement("option");
+      option.value = opt;
+      option.textContent = opt;
+      select.appendChild(option);
+    });
+    
+    select.onchange = () => {
+      if(select.value) {
+        selectAnswer(select.value);
+      }
+    };
+    
+    dropdownWrapper.appendChild(select);
+    container.appendChild(dropdownWrapper);
+  } else {
+    // Regular button options for other questions
+    q.options.forEach(opt=>{
+      const btn=document.createElement("button");
+      btn.textContent=opt;
+      btn.onclick=()=>{selectAnswer(opt);}
+      container.appendChild(btn);
+    });
+  }
+  updateProgress();
+}
+
+function selectAnswer(opt){
+  answers.push(opt);
+  current++;
+  if(current<questions.length) showQuestion();
+  else showResult();
+}
+
+function updateProgress(){
+  const progress=(current/questions.length)*100;
+  document.getElementById("progressBar").style.width=progress+"%";
+}
+
+function showResult(){
+  document.getElementById("quizBox").style.display="none";
+  document.getElementById("resultCard").style.display="flex";
+  document.getElementById("resultCard").style.setProperty('display', 'flex', 'important');
+
+  const pet=answers[0];
+  const activity=answers[1];
+  const play=answers[3];
+
+  // Personality fun mapping
+  let nature="",emoji="",weakness="",medicalTip="",physicalTip="",desiTip="";
+  if(pet==="Dog"){nature="Playful Pup";emoji="🐶";}
+  if(pet==="Cat"){nature="Lazy Cuddler";emoji="🐱";}
+  if(pet==="Parrot"){nature="Chatterbox";emoji="🦜";}
+  if(pet==="Rabbit"){nature="Hopper";emoji="🐇";}
+  if(pet==="Hamster"){nature="Busy Squirrel";emoji="🐹";}
+  if(pet==="Guinea Pig"){nature="Gentle Nibbler";emoji="🐭";}
+  if(pet==="Ferret"){nature="Curious Explorer";emoji="🦡";}
+  if(pet==="Horse"){nature="Galloper";emoji="🐴";}
+  if(pet==="Cow"){nature="Calm Grazer";emoji="🐄";}
+  if(pet==="Goat"){nature="Agile Climber";emoji="🐐";}
+  if(pet==="Sheep"){nature="Wooly Friend";emoji="🐑";}
+  if(pet==="Pig"){nature="Smart Sniffer";emoji="🐖";}
+  if(pet==="Chicken"){nature="Clucky Friend";emoji="🐔";}
+  if(pet==="Duck"){nature="Quacky Swimmer";emoji="🦆";}
+  if(pet==="Pigeon"){nature="City Flyer";emoji="🕊️";}
+  if(pet==="Canary"){nature="Melodious Singer";emoji="🐤";}
+  if(pet==="Turtle"){nature="Slow Mover";emoji="🐢";}
+  if(pet==="Snake"){nature="Sly Slider";emoji="🐍";}
+  if(pet==="Lizard"){nature="Sun Bather";emoji="🦎";}
+  if(pet==="Frog"){nature="Jumpy Hopper";emoji="🐸";}
+  if(pet==="Fish"){nature="Silent Swimmer";emoji="🐟";}
+  if(pet==="Elephant"){nature="Gentle Giant";emoji="🐘";}
+  if(pet==="Camel"){nature="Desert Wanderer";emoji="🐫";}
+  if(pet==="Donkey"){nature="Stubborn Buddy";emoji="🐴";}
+  if(pet==="Kangaroo"){nature="Bouncy Boxer";emoji="🦘";}
+  if(pet==="Monkey"){nature="Cheeky Climber";emoji="🐒";}
+  if(pet==="Owl"){nature="Wise Watcher";emoji="🦉";}
+  if(pet==="Eagle"){nature="Sharp Flyer";emoji="🦅";}
+  if(pet==="Peacock"){nature="Showy Dancer";emoji="🦚";}
+  
+  // Weakness
+  if(activity.includes("Low")) weakness="May get lazy or gain weight 💤";
+  else if(activity.includes("Medium")) weakness="Sometimes lacks energy ⚡";
+  else weakness="High activity, can get tired quickly 🔥";
+
+  // Medical tips
+  medicalTip="Regular checkups & proper diet recommended 🩺";
+
+  // Physical tips
+  physicalTip="Daily exercise/playtime suited to pet type 🏃‍♂️";
+
+  // Desi tips / totka
+  const desiTips={
+    "Dog":"Give a pinch of turmeric in milk weekly 🐶💛",
+    "Cat":"Brush teeth & sprinkle catnip 🐱✨",
+    "Parrot":"Provide fresh neem leaves or fruits 🦜🍎",
+    "Rabbit":"Add mint/coriander in diet 🐇🍀",
+    "Hamster":"Provide wheel & chew toys 🐹🎡",
+    "Guinea Pig":"Feed fresh veggies daily 🐭🥬",
+    "Ferret":"Interactive toys & short play 🦡🎾",
+    "Horse":"Daily grooming & short ride 🐴🌿",
+    "Cow":"Grass feeding & clean shelter 🐄🌾",
+    "Goat":"Climb-friendly space & fresh water 🐐💧",
+    "Sheep":"Soft bedding & gentle handling 🐑🛏️",
+    "Pig":"Mud bath & fresh feed 🐖💦",
+    "Chicken":"Clean coop & small treats 🐔🥚",
+    "Duck":"Paddling space & fresh feed 🦆💦",
+    "Pigeon":"Short flight sessions & grains 🕊️🌾",
+    "Canary":"Music/interaction daily 🐤🎶",
+    "Turtle":"UV light & balanced diet 🐢☀️",
+    "Snake":"Proper temperature & safe handling 🐍🔥",
+    "Lizard":"Sunbathing & insect diet 🦎☀️",
+    "Frog":"Moist habitat & small insects 🐸💧",
+    "Fish":"Clean tank & proper food 🐟💧",
+    "Elephant":"Walks & water baths 🐘🚿",
+    "Camel":"Sandy exercise & hydration 🐫💦",
+    "Donkey":"Gentle work & grass feeding 🐴🌾",
+    "Kangaroo":"Jump space & fruit treats 🦘🍎",
+    "Monkey":"Interactive toys & climbing 🐒🧗",
+    "Owl":"Quiet space & hunting games 🦉🌙",
+    "Eagle":"Flight practice & safe space 🦅🏞️",
+    "Peacock":"Sunbathing & display area 🦚☀️"
+  };
+
+  document.getElementById("resultEmoji").textContent=emoji;
+  document.getElementById("petNature").textContent=nature;
+  document.getElementById("weakness").textContent="Weakness: "+weakness;
+  document.getElementById("medicalTip").textContent="Medical Tip: "+medicalTip;
+  document.getElementById("physicalTip").textContent="Physical Tip: "+physicalTip;
+  document.getElementById("desiTip").textContent="other Tip: "+desiTips[pet]||"";
+}
+
+
+</script>
+</div>
+</main>
+</div>
+</div>
+
+<!-- Enhanced Footer -->
+<footer class="bg-gradient-to-r from-[#f09902] to-[#993d15] text-white py-8 relative overflow-hidden">
+  <!-- Moving Paw Prints Background -->
+  <div class="absolute inset-0 opacity-40">
+    <div class="paw-print paw-1">🐾</div>
+    <div class="paw-print paw-2">🐾</div>
+    <div class="paw-print paw-3">🐾</div>
+    <div class="paw-print paw-4">🐾</div>
+    <div class="paw-print paw-5">🐾</div>
+    <div class="paw-print paw-6">🐾</div>
+    <div class="paw-print paw-7">🐾</div>
+    <div class="paw-print paw-8">🐾</div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Contact Info -->
+      <div class="contact-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 contact-icon">contact_mail</span>
+          Contact Us
+        </h3>
+        <div class="space-y-3">
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">email</span>
+            <a href="mailto:pawsome@gmail.com" class="hover:text-orange-200 transition-colors">pawsome@gmail.com</a>
+          </div>
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">phone</span>
+            <a href="tel:03063063533" class="hover:text-orange-200 transition-colors">03063063533</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Members -->
+      <div class="team-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 team-icon">group</span>
+          Our Team
+        </h3>
+        <div class="grid grid-cols-2 gap-2">
+          
+          <div class="team-member">Sheeza</div>
+          <div class="team-member">Ashir Arif</div>
+          <div class="team-member">Ahmed Rehan</div>
+          <div class="team-member">M.Ali</div>
+          <div class="team-member">M.Waleed</div>
+          <div class="team-member">Hiba Shakeel</div>
+        </div>
+      </div>
+
+      <!-- Brand Info -->
+      <div class="brand-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 brand-icon">pets</span>
+          PAWSOME
+        </h3>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Your trusted companion for pet care, health monitoring, and breed information. 
+          Making pet ownership easier and more enjoyable.
+        </p>
+        <div class="social-links mt-4 flex space-x-3">
+          <div class="social-icon">🐾</div>
+          <div class="social-icon">❤️</div>
+          <div class="social-icon">🏠</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/20 mt-8 pt-6 text-center">
+      <p class="text-sm opacity-80">
+        © 2024 PAWSOME. Made with ❤️ for pets and their humans.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* Ensure proper scrolling */
+html, body {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Paw Print Moving Animation */
+.paw-print {
+  position: absolute;
+  font-size: 32px;
+  animation: pawWalk 15s linear infinite;
+  opacity: 0.8;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+.paw-1 {
+  top: 15%;
+  left: -60px;
+  animation-duration: 8s;
+  animation-delay: 0s;
+}
+
+.paw-2 {
+  top: 35%;
+  left: -80px;
+  animation-duration: 25s;
+  animation-delay: 2s;
+  transform: rotate(25deg);
+}
+
+.paw-3 {
+  top: 55%;
+  left: -100px;
+  animation-duration: 15s;
+  animation-delay: 4s;
+  transform: rotate(-15deg);
+}
+
+.paw-4 {
+  top: 75%;
+  left: -70px;
+  animation-duration: 6s;
+  animation-delay: 6s;
+  transform: rotate(45deg);
+}
+
+.paw-5 {
+  top: 25%;
+  right: -60px;
+  animation-duration: 30s;
+  animation-delay: 1s;
+  animation-direction: reverse;
+}
+
+.paw-6 {
+  top: 45%;
+  right: -90px;
+  animation-duration: 10s;
+  animation-delay: 3s;
+  animation-direction: reverse;
+  transform: rotate(-30deg);
+}
+
+.paw-7 {
+  top: 65%;
+  right: -110px;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  animation-direction: reverse;
+  transform: rotate(60deg);
+}
+
+.paw-8 {
+  top: 85%;
+  right: -80px;
+  animation-duration: 4s;
+  animation-delay: 7s;
+  animation-direction: reverse;
+  transform: rotate(-45deg);
+}
+
+@keyframes pawWalk {
+  0% {
+    transform: translateX(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Footer Animations */
+.contact-section, .team-section, .brand-section {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-section { animation-delay: 0.2s; }
+.team-section { animation-delay: 0.4s; }
+.brand-section { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-icon, .team-icon, .brand-icon {
+  animation: iconBounce 2s ease-in-out infinite;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.contact-item {
+  transition: all 0.3s ease;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 4px 0;
+}
+
+.contact-item:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.contact-item a:hover {
+  color: #FFD700 !important;
+  text-shadow: 0 0 5px rgba(255,215,0,0.5);
+}
+
+.team-member {
+  padding: 10px 18px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+  animation: teamPulse 3s ease-in-out infinite;
+}
+
+.team-member:nth-child(1) { animation-delay: 0s; }
+.team-member:nth-child(2) { animation-delay: 0.6s; }
+.team-member:nth-child(3) { animation-delay: 1.2s; }
+.team-member:nth-child(4) { animation-delay: 1.8s; }
+.team-member:nth-child(5) { animation-delay: 2.4s; }
+
+@keyframes teamPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 2px 8px rgba(255,215,0,0.1); }
+  50% { transform: scale(1.02); box-shadow: 0 4px 16px rgba(255,215,0,0.2); }
+}
+
+.team-member::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.team-member::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #FFD700, #f09902, #FFD700);
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team-member:hover::before {
+  left: 100%;
+}
+
+.team-member:hover::after {
+  opacity: 1;
+  animation: borderSpin 1s linear infinite;
+}
+
+@keyframes borderSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.team-member:hover {
+  background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,153,2,0.2));
+  transform: translateY(-8px) scale(1.12) rotateZ(2deg);
+  box-shadow: 0 12px 30px rgba(240,153,2,0.4);
+  border-color: rgba(255,215,0,0.8);
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255,215,0,0.6);
+  animation: teamBounce 0.6s ease-in-out;
+}
+
+@keyframes teamBounce {
+  0% { transform: translateY(-8px) scale(1.12) rotateZ(2deg); }
+  25% { transform: translateY(-12px) scale(1.15) rotateZ(-1deg); }
+  50% { transform: translateY(-10px) scale(1.13) rotateZ(1deg); }
+  75% { transform: translateY(-11px) scale(1.14) rotateZ(-0.5deg); }
+  100% { transform: translateY(-8px) scale(1.12) rotateZ(2deg); }
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: socialFloat 4s ease-in-out infinite;
+  border: 2px solid rgba(255,255,255,0.2);
+  font-size: 18px;
+}
+
+.social-icon:nth-child(1) { animation-delay: 0s; }
+.social-icon:nth-child(2) { animation-delay: 1.3s; }
+.social-icon:nth-child(3) { animation-delay: 2.6s; }
+
+@keyframes socialFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(90deg); }
+  50% { transform: translateY(-4px) rotate(180deg); }
+  75% { transform: translateY(-12px) rotate(270deg); }
+}
+
+.social-icon:hover {
+  background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,153,2,0.2));
+  transform: translateY(-8px) scale(1.25) rotate(360deg);
+  box-shadow: 0 10px 25px rgba(240,153,2,0.4);
+  border-color: rgba(255,215,0,0.8);
+}
+
+footer h3 {
+  position: relative;
+  color: #FFD700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-weight: 700;
+}
+
+footer h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FFD700, #f09902, transparent);
+  animation: lineGrow 2s ease-out forwards;
+  border-radius: 2px;
+}
+
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 50px; }
+}
+
+/* Enhanced footer background */
+footer {
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255,215,0,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(240,153,2,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255,215,0,0.1) 0%, transparent 50%);
+  animation: backgroundPulse 6s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Bottom bar styling */
+footer .border-t {
+  border-color: rgba(255,215,0,0.3) !important;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+footer p {
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 6px;
+  }
+  
+  .team-member {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+</style>
+
+<script src="js/global.js"></script>
+<script src="js/tips.js"></script>
+<script src="js/breeds.js"></script>
+</body>
+</html>

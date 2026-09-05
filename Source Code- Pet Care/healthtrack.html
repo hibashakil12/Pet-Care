@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Health Track - PAWSOME</title>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="favicon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta name="theme-color" content="#f09902"/>
+<link href="css/global.css" rel="stylesheet"/>
+<link href="css/healthtrack.css" rel="stylesheet"/>
+<link href="css/gradient-animations.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body class="bg-gradient-to-br from-[#f09902] to-[#993d15] font-spline">
+
+<!-- Animated Medical Elements Background -->
+<div class="medical-element element-1">❤️</div>
+<div class="medical-element element-2">🩺</div>
+<div class="medical-element element-3">💊</div>
+<div class="medical-element element-4">🏥</div>
+<div class="medical-element element-5">❤️</div>
+<div class="medical-element element-6">🩺</div>
+<div class="medical-element element-7">💊</div>
+<div class="medical-element element-8">🏥</div>
+<div class="medical-element element-9">❤️</div>
+<div class="medical-element element-10">🩺</div>
+<div class="medical-element element-11">💊</div>
+<div class="medical-element element-12">🏥</div>
+
+<div class="relative flex size-full min-h-screen flex-col overflow-x-hidden group/design-root">
+<div class="layout-container flex h-full grow flex-col">
+<header class="navbar bg-gradient-to-r from-[#f09902] to-[#993d15] animated-navbar">
+<div class="nav-left">
+<a href="home.html"><img src="logo/p-removebg-preview.png" alt="PAWSOME Logo" class="nav-logo"></a>
+<div class="nav-links">
+</div>
+<button id="hamburger-btn"><span class="material-symbols-outlined">menu</span></button>
+</div>
+<div class="nav-right">
+<label class="header-search">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 text-white/70"><span class="material-symbols-outlined text-lg">search</span></div>
+<input id="tips-search" class="form-input w-full rounded-full text-white focus:outline-0 focus:ring-2 focus:ring-white border-none bg-white/20 placeholder:text-white/70 pl-10 pr-4 text-base font-normal" placeholder="Search pet tips, breeds..." />
+<div id="tips-dropdown"></div>
+</label>
+<button id="nav-dropdown-btn" class="flex items-center justify-center rounded-full h-10 w-10 bg-white/20 text-white hover:bg-white/30 transition-colors ml-3"><span class="material-symbols-outlined">expand_more</span></button>
+</div>
+<div id="nav-dropdown-menu">
+<a href="aisymptomchecker.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">medical_services</span>AI Symptom Checker</a>
+<a href="bodyposture.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">accessibility</span>Body Posture</a>
+<a href="pethealthcalculator.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">calculate</span>Pet Health Calculator</a>
+<a href="petbreedselector.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">pets</span>Breed Selector</a>
+<a href="pettraininginteractive.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">school</span>Pet Training Guide</a>
+<a href="personality.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">psychology</span>Personality Quiz</a>
+<a href="healthtrack.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">favorite</span>Health Track</a>
+</div>
+<div id="mobile-menu">
+<a href="aisymptomchecker.html" class="block py-2 px-4 text-white hover:bg-white/10">AI Symptom Checker</a>
+<a href="bodyposture.html" class="block py-2 px-4 text-white hover:bg-white/10">Body Posture</a>
+<a href="pethealthcalculator.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Health Calculator</a>
+<a href="petbreedselector.html" class="block py-2 px-4 text-white hover:bg-white/10">Breed Selector</a>
+<a href="pettraininginteractive.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Training Guide</a>
+<a href="personality.html" class="block py-2 px-4 text-white hover:bg-white/10">Personality Quiz</a>
+<a href="healthtrack.html" class="block py-2 px-4 text-white hover:bg-white/10">Health Track</a>
+</div>
+</header>
+<main class="flex flex-1 items-center justify-center py-10 px-4">
+<div class="w-full max-w-4xl mx-auto">
+
+<!-- Start Box -->
+<div id="startBox" class="health-start-container text-center p-8 rounded-[5rem]">
+  <div class="text-6xl mb-4 heartbeat-animation">❤️</div>
+  <h1 class="text-4xl font-bold text-white mb-4 text-shadow-brown slide-in-down">Pet Heart Rate Calculator</h1>
+  <p class="text-amber-100 text-lg mb-6 text-shadow-sm slide-in-up">Choose Manual or Camera method. Camera method verifies the image using AI before calculating.</p>
+  <button class="health-start-btn" onclick="startApp()">
+    <span class="material-symbols-outlined mr-2">favorite</span>
+    Start Assessment
+  </button>
+</div>
+
+<!-- Options -->
+<div id="options" class="hidden grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+  <div class="health-option-card" onclick="showDetail('manual')">
+    <div class="text-5xl mb-4 bounce-animation">✍️</div>
+    <h3 class="text-2xl font-bold text-white mb-2">Manual Method</h3>
+    <p class="text-amber-100">Calculate heart rate using manual measurements</p>
+    <div class="card-overlay"></div>
+  </div>
+  <div class="health-option-card" onclick="showDetail('camera')">
+    <div class="text-5xl mb-4 bounce-animation" style="animation-delay: 0.2s;">📷</div>
+    <h3 class="text-2xl font-bold text-white mb-2">Camera (AI Verified)</h3>
+    <p class="text-amber-100">Use AI image verification with heart rate calculation</p>
+    <div class="card-overlay"></div>
+  </div>
+</div>
+
+<!-- Manual Method -->
+<div id="manual" class="health-detail-container hidden">
+  <div class="health-form-card p-8">
+    <div class="form-header">
+      <button class="back-btn" onclick="goBack()">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Back to Options
+      </button>
+      <h2 class="text-3xl font-bold text-white mb-6 text-center text-shadow-brown">Manual Method</h2>
+    </div>
+    
+    <div class="health-info-box mb-6">
+      <span class="material-symbols-outlined text-blue-400 mr-3 info-icon">info</span>
+      <p class="text-blue-100 text-sm">Manually count your pet's heartbeats for 15 seconds and enter the data below.</p>
+    </div>
+    
+    <form class="space-y-6" onsubmit="event.preventDefault(); calcManual();">
+      <div class="input-group">
+        <label class="input-label">Pet Type</label>
+        <select id="petType" class="health-input" required>
+          <option value="">Select Pet Type</option>
+          <option value="dog">🐶 Dog</option><option value="cat">🐱 Cat</option><option value="parrot">🦜 Parrot</option>
+          <option value="rabbit">🐰 Rabbit</option><option value="hamster">🐹 Hamster</option><option value="guineapig">🐭 Guinea Pig</option>
+          <option value="ferret">🦝 Ferret</option><option value="horse">🐴 Horse</option><option value="cow">🐄 Cow</option>
+          <option value="goat">🐐 Goat</option><option value="sheep">🐑 Sheep</option><option value="pig">🐖 Pig</option>
+          <option value="chicken">🐔 Chicken</option><option value="duck">🦆 Duck</option><option value="pigeon">🕊️ Pigeon</option>
+          <option value="canary">🐤 Canary</option><option value="turtle">🐢 Turtle</option><option value="snake">🐍 Snake</option>
+          <option value="lizard">🦎 Lizard</option><option value="frog">🐸 Frog</option><option value="fish">🐟 Fish</option>
+        </select>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="input-group">
+          <label class="input-label">Age (years)</label>
+          <input id="age" placeholder="e.g. 3" type="number" class="health-input">
+        </div>
+        <div class="input-group">
+          <label class="input-label">Weight (kg)</label>
+          <input id="weight" placeholder="e.g. 7.5" type="number" class="health-input">
+        </div>
+      </div>
+      
+      <div class="input-group heartbeat-counter">
+        <label class="input-label">Heartbeats in 15 seconds</label>
+        <input id="beats" placeholder="Count for 15 seconds" type="number" class="health-input" required>
+        <div class="timer-helper">
+          <button type="button" class="timer-btn" onclick="startTimer()">
+            <span class="material-symbols-outlined">timer</span>
+            Start 15s Timer
+          </button>
+          <div id="timer-display" class="timer-display hidden">00:15</div>
+        </div>
+      </div>
+      
+      <button type="submit" class="health-calculate-btn">
+        <span class="material-symbols-outlined mr-2">calculate</span>
+        Calculate Heart Rate
+        <div class="btn-ripple"></div>
+      </button>
+      
+      <div id="manualResult" class="health-result hidden"></div>
+    </form>
+  </div>
+</div>
+
+<!-- Camera Method -->
+<div id="camera" class="health-detail-container hidden">
+  <div class="health-form-card p-8">
+    <div class="form-header">
+      <button class="back-btn" onclick="goBack()">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Back to Options
+      </button>
+      <h2 class="text-3xl font-bold text-white mb-6 text-center text-shadow-brown">Camera Method (AI Verified)</h2>
+    </div>
+    
+    <div class="health-info-box mb-6">
+      <span class="material-symbols-outlined text-purple-400 mr-3 info-icon">photo_camera</span>
+      <p class="text-purple-100 text-sm">Upload a photo of your pet. Our AI will verify the image and calculate heart rate based on advanced algorithms.</p>
+    </div>
+    
+    <form class="space-y-6" onsubmit="event.preventDefault(); calcCamera();">
+      <div class="input-group">
+        <label class="input-label">Pet Type</label>
+        <select id="camPetType" class="health-input" required>
+          <option value="">Select Pet Type</option>
+          <option value="dog">🐶 Dog</option><option value="cat">🐱 Cat</option><option value="parrot">🦜 Parrot</option>
+          <option value="rabbit">🐰 Rabbit</option><option value="hamster">🐹 Hamster</option><option value="guineapig">🐭 Guinea Pig</option>
+          <option value="ferret">🦝 Ferret</option><option value="horse">🐴 Horse</option><option value="cow">🐄 Cow</option>
+          <option value="goat">🐐 Goat</option><option value="sheep">🐑 Sheep</option><option value="pig">🐖 Pig</option>
+          <option value="chicken">🐔 Chicken</option><option value="duck">🦆 Duck</option><option value="pigeon">🕊️ Pigeon</option>
+          <option value="canary">🐤 Canary</option><option value="turtle">🐢 Turtle</option><option value="snake">🐍 Snake</option>
+          <option value="lizard">🦎 Lizard</option><option value="frog">🐸 Frog</option><option value="fish">🐟 Fish</option>
+        </select>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="input-group">
+          <label class="input-label">Age (years)</label>
+          <input id="camAge" placeholder="e.g. 3" type="number" class="health-input">
+        </div>
+        <div class="input-group">
+          <label class="input-label">Weight (kg)</label>
+          <input id="camWeight" placeholder="e.g. 7.5" type="number" class="health-input">
+        </div>
+      </div>
+      
+      <div class="input-group">
+        <label class="input-label">Pet Photo</label>
+        <div class="file-upload-area" id="fileUploadArea">
+          <input type="file" id="petPic" accept="image/*" class="health-file-input" required>
+          <div class="upload-placeholder">
+            <span class="material-symbols-outlined upload-icon">cloud_upload</span>
+            <p>Click to upload or drag and drop your pet's photo</p>
+            <small>Supports JPG, PNG, GIF (Max 5MB)</small>
+          </div>
+          <div class="image-preview hidden" id="imagePreview">
+            <img id="previewImg" src="" alt="Preview">
+            <div class="preview-overlay">
+              <button type="button" class="remove-image" onclick="removeImage()">
+                <span class="material-symbols-outlined">close</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button type="submit" class="health-analyze-btn">
+        <span class="material-symbols-outlined mr-2">smart_toy</span>
+        Analyze with AI
+        <div class="btn-ripple"></div>
+      </button>
+      
+      <div id="loadingMsg" class="health-loading hidden">
+        <div class="loading-spinner"></div>
+        <p>Analyzing image with AI...</p>
+      </div>
+      <div id="cameraResult" class="health-result">
+        <span class="material-symbols-outlined mr-2">upload</span>
+        Upload image and click Analyze to get started
+      </div>
+    </form>
+  </div>
+</div>
+
+</div>
+</main>
+
+<!-- Enhanced Footer -->
+<footer class="bg-gradient-to-r from-[#f09902] to-[#993d15] text-white py-8 mt-auto relative overflow-hidden">
+  <!-- Moving Paw Prints Background -->
+  <div class="absolute inset-0 opacity-40">
+    <div class="paw-print paw-1">🐾</div>
+    <div class="paw-print paw-2">🐾</div>
+    <div class="paw-print paw-3">🐾</div>
+    <div class="paw-print paw-4">🐾</div>
+    <div class="paw-print paw-5">🐾</div>
+    <div class="paw-print paw-6">🐾</div>
+    <div class="paw-print paw-7">🐾</div>
+    <div class="paw-print paw-8">🐾</div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Contact Info -->
+      <div class="contact-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 contact-icon">contact_mail</span>
+          Contact Us
+        </h3>
+        <div class="space-y-3">
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">email</span>
+            <a href="mailto:pawsome@gmail.com" class="hover:text-orange-200 transition-colors">pawsome@gmail.com</a>
+          </div>
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">phone</span>
+            <a href="tel:03063063533" class="hover:text-orange-200 transition-colors">03063063533</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Members -->
+      <div class="team-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 team-icon">group</span>
+          Our Team
+        </h3>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="team-member">Sheeza</div>
+          <div class="team-member">Ashir Arif</div>
+          <div class="team-member">Ahmed Rehan</div>
+          <div class="team-member">M.Ali</div>
+          <div class="team-member">M.Waleed</div>
+          <div class="team-member">Hiba Shakeel</div>
+        </div>
+      </div>
+
+      <!-- Brand Info -->
+      <div class="brand-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 brand-icon">pets</span>
+          PAWSOME
+        </h3>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Your trusted companion for pet care, health monitoring, and breed information. 
+          Making pet ownership easier and more enjoyable.
+        </p>
+        <div class="social-links mt-4 flex space-x-3">
+          <div class="social-icon">🐾</div>
+          <div class="social-icon">❤️</div>
+          <div class="social-icon">🏠</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/20 mt-8 pt-6 text-center">
+      <p class="text-sm opacity-80">
+        © 2024 PAWSOME. Made with ❤️ for pets and their humans.
+      </p>
+    </div>
+</div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
+<script src="js/global.js"></script>
+<script src="js/healthtrack.js"></script>
+</body>
+</html>

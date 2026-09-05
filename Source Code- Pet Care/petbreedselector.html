@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="css/global.css?v=2" rel="stylesheet"/>
+<link href="css/petbreedselector.css?v=2" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body class="bg-gradient-to-br from-[#f09902] to-[#993d15] font-spline">
+
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="navbar bg-gradient-to-r from-[#f09902] to-[#993d15]">
+<div class="nav-left">
+<a href="home.html"><img src="logo/p-removebg-preview.png" alt="PAWSOME Logo" class="nav-logo"></a>
+<div class="nav-links">
+</div>
+<button id="hamburger-btn"><span class="material-symbols-outlined">menu</span></button>
+</div>
+<div class="nav-right">
+<label class="header-search">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 text-white/70"><span class="material-symbols-outlined text-lg">search</span></div>
+<input id="tips-search" class="form-input w-full rounded-full text-white focus:outline-0 focus:ring-2 focus:ring-white border-none bg-white/20 placeholder:text-white/70 pl-10 pr-4 text-base font-normal" placeholder="Search pet tips, breeds..." />
+<div id="tips-dropdown"></div>
+</label>
+<button id="nav-dropdown-btn" class="flex items-center justify-center rounded-full h-10 w-10 bg-white/20 text-white hover:bg-white/30 transition-colors ml-3"><span class="material-symbols-outlined">expand_more</span></button>
+</div>
+<div id="nav-dropdown-menu">
+<a href="aisymptomchecker.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">medical_services</span>AI Symptom Checker</a>
+<a href="bodyposture.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">accessibility</span>Body Posture</a>
+<a href="pethealthcalculator.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">calculate</span>Pet Health Calculator</a>
+<a href="petbreedselector.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">pets</span>Breed Selector</a>
+<a href="pettraininginteractive.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">school</span>Pet Training Guide</a>
+<a href="personality.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">psychology</span>Personality Quiz</a>
+<a href="healthtrack.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">favorite</span>Health Track</a>
+</div>
+<div id="mobile-menu">
+<a href="aisymptomchecker.html" class="block py-2 px-4 text-white hover:bg-white/10">AI Symptom Checker</a>
+<a href="bodyposture.html" class="block py-2 px-4 text-white hover:bg-white/10">Body Posture</a>
+<a href="pethealthcalculator.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Health Calculator</a>
+<a href="petbreedselector.html" class="block py-2 px-4 text-white hover:bg-white/10">Breed Selector</a>
+<a href="pettraininginteractive.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Training Guide</a>
+<a href="personality.html" class="block py-2 px-4 text-white hover:bg-white/10">Personality Quiz</a>
+<a href="healthtrack.html" class="block py-2 px-4 text-white hover:bg-white/10">Health Track</a>
+</div>
+</header>
+<main class="flex-1 flex items-center justify-center py-10 px-4" style="min-height: calc(100vh - 120px);">
+<div class="w-full max-w-4xl flex items-center justify-center relative">
+  <!-- Enhanced floating background shapes -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <div class="card" style="width: 900px; max-width: 95vw;">
+    <h1 class="text-4xl font-bold tracking-tight text-[#1c1c0d] sm:text-5xl mb-4">Find Your Perfect Pet</h1>
+    <p class="mt-4 text-lg text-gray-600 mb-8">Answer a few questions to discover the ideal pet breed for your lifestyle.</p>
+    
+    <div id="breed-progress" class="w-full mb-8"></div>
+    <div id="breed-selector-container" class="w-full"></div>
+  </div>
+</div>
+</main>
+</div>
+</div>
+
+<!-- Enhanced Footer -->
+<footer class="bg-gradient-to-r from-[#f09902] to-[#993d15] text-white py-8 relative overflow-hidden">
+  <!-- Moving Paw Prints Background -->
+  <div class="absolute inset-0 opacity-40">
+    <div class="paw-print paw-1">🐾</div>
+    <div class="paw-print paw-2">🐾</div>
+    <div class="paw-print paw-3">🐾</div>
+    <div class="paw-print paw-4">🐾</div>
+    <div class="paw-print paw-5">🐾</div>
+    <div class="paw-print paw-6">🐾</div>
+    <div class="paw-print paw-7">🐾</div>
+    <div class="paw-print paw-8">🐾</div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Contact Info -->
+      <div class="contact-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 contact-icon">contact_mail</span>
+          Contact Us
+        </h3>
+        <div class="space-y-3">
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">email</span>
+            <a href="mailto:pawsome@gmail.com" class="hover:text-orange-200 transition-colors">pawsome@gmail.com</a>
+          </div>
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">phone</span>
+            <a href="tel:03063063533" class="hover:text-orange-200 transition-colors">03063063533</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Members -->
+      <div class="team-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 team-icon">group</span>
+          Our Team
+        </h3>
+        <div class="grid grid-cols-2 gap-2">
+          
+          <div class="team-member">Sheeza</div>
+          <div class="team-member">Ashir Arif</div>
+          <div class="team-member">Ahmed Rehan</div>
+          <div class="team-member">M.Ali</div>
+          <div class="team-member">M.Waleed</div>
+          <div class="team-member">Hiba Shakeel</div>
+        </div>
+      </div>
+
+      <!-- Brand Info -->
+      <div class="brand-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 brand-icon">pets</span>
+          PAWSOME
+        </h3>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Your trusted companion for pet care, health monitoring, and breed information. 
+          Making pet ownership easier and more enjoyable.
+        </p>
+        <div class="social-links mt-4 flex space-x-3">
+          <div class="social-icon">🐾</div>
+          <div class="social-icon">❤️</div>
+          <div class="social-icon">🏠</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/20 mt-8 pt-6 text-center">
+      <p class="text-sm opacity-80">
+        © 2024 PAWSOME. Made with ❤️ for pets and their humans.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* Main Page Styling - Match pethealthcalculator.html */
+body {
+  margin:0;
+  font-family:"Poppins",sans-serif;
+  background:linear-gradient(135deg,#a8edea 0%, #fed6e3 100%);
+  min-height:100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Enhanced floating circles background */
+.circle {
+  position:absolute;
+  border-radius:50%;
+  background:rgba(139,69,19,0.1);
+  animation:float 8s infinite ease-in-out;
+  backdrop-filter: blur(2px);
+}
+.circle:nth-child(1){width:180px;height:180px;top:8%;left:12%;animation-delay:0s;}
+.circle:nth-child(2){width:250px;height:250px;bottom:10%;right:8%;animation-delay:2s;}
+.circle:nth-child(3){width:120px;height:120px;top:65%;left:20%;animation-delay:4s;}
+.circle:nth-child(4){width:90px;height:90px;top:25%;right:25%;animation-delay:6s;}
+.circle:nth-child(5){width:160px;height:160px;bottom:35%;left:5%;animation-delay:1s;}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  33%{transform:translateY(-25px) rotate(120deg);}
+  66%{transform:translateY(-15px) rotate(240deg);}
+}
+
+.card {
+  position:relative;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(20px);
+  padding:35px 30px;
+  border-radius:25px;
+  box-shadow:0 20px 60px rgba(139,69,19,0.2);
+  text-align:center;
+  width:400px;
+  max-width:90vw;
+  z-index:1;
+  animation:slideInScale 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  border: 3px solid rgba(139,69,19,0.1);
+  transform: translateY(50px) scale(0.9);
+  opacity: 0;
+}
+
+@keyframes slideInScale {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9) rotateX(15deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(-10px) scale(1.02) rotateX(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotateX(0deg);
+  }
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #8B4513, #D2691E, #8B4513);
+  border-radius: 27px;
+  z-index: -1;
+  animation: borderGlow 3s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+.card h1 {
+  color: #000000;
+  font-size: 26px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(139,69,19,0.1);
+  animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+.card p {
+  color:#555;
+  font-size:14px;
+  margin-bottom:20px;
+  line-height: 1.5;
+}
+
+/* Hover effects for the card */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 70px rgba(139,69,19,0.25);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .card {
+    width: 350px;
+    padding: 25px 20px;
+    margin: 0 10px;
+  }
+  
+  .card h1 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 320px;
+    padding: 20px 15px;
+  }
+  
+  .card h1 {
+    font-size: 20px;
+  }
+}
+
+/* Footer Animations */
+.contact-section, .team-section, .brand-section {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-section { animation-delay: 0.2s; }
+.team-section { animation-delay: 0.4s; }
+.brand-section { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-icon, .team-icon, .brand-icon {
+  animation: iconBounce 2s ease-in-out infinite;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.contact-item {
+  transition: all 0.3s ease;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 4px 0;
+}
+
+.contact-item:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.contact-item a:hover {
+  color: #FFD700 !important;
+  text-shadow: 0 0 5px rgba(255,215,0,0.5);
+}
+
+.team-member {
+  padding: 10px 18px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+  animation: teamPulse 3s ease-in-out infinite;
+}
+
+.team-member:nth-child(1) { animation-delay: 0s; }
+.team-member:nth-child(2) { animation-delay: 0.6s; }
+.team-member:nth-child(3) { animation-delay: 1.2s; }
+.team-member:nth-child(4) { animation-delay: 1.8s; }
+.team-member:nth-child(5) { animation-delay: 2.4s; }
+
+@keyframes teamPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 2px 8px rgba(255,215,0,0.1); }
+  50% { transform: scale(1.02); box-shadow: 0 4px 16px rgba(255,215,0,0.2); }
+}
+
+.team-member::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.team-member::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #FFD700, #f09902, #FFD700);
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team-member:hover::before {
+  left: 100%;
+}
+
+.team-member:hover::after {
+  opacity: 1;
+  animation: borderSpin 1s linear infinite;
+}
+
+@keyframes borderSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.team-member:hover {
+  background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,153,2,0.2));
+  transform: translateY(-8px) scale(1.12) rotateZ(2deg);
+  box-shadow: 0 12px 30px rgba(240,153,2,0.4);
+  border-color: rgba(255,215,0,0.8);
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255,215,0,0.6);
+  animation: teamBounce 0.6s ease-in-out;
+}
+
+@keyframes teamBounce {
+  0% { transform: translateY(-8px) scale(1.12) rotateZ(2deg); }
+  25% { transform: translateY(-12px) scale(1.15) rotateZ(-1deg); }
+  50% { transform: translateY(-10px) scale(1.13) rotateZ(1deg); }
+  75% { transform: translateY(-11px) scale(1.14) rotateZ(-0.5deg); }
+  100% { transform: translateY(-8px) scale(1.12) rotateZ(2deg); }
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: socialFloat 4s ease-in-out infinite;
+  border: 2px solid rgba(255,255,255,0.2);
+  font-size: 18px;
+}
+
+.social-icon:nth-child(1) { animation-delay: 0s; }
+.social-icon:nth-child(2) { animation-delay: 1.3s; }
+.social-icon:nth-child(3) { animation-delay: 2.6s; }
+
+@keyframes socialFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(90deg); }
+  50% { transform: translateY(-4px) rotate(180deg); }
+  75% { transform: translateY(-12px) rotate(270deg); }
+}
+
+.social-icon:hover {
+  background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,153,2,0.2));
+  transform: translateY(-8px) scale(1.25) rotate(360deg);
+  box-shadow: 0 10px 25px rgba(240,153,2,0.4);
+  border-color: rgba(255,215,0,0.8);
+}
+
+footer h3 {
+  position: relative;
+  color: #FFD700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-weight: 700;
+}
+
+footer h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FFD700, #f09902, transparent);
+  animation: lineGrow 2s ease-out forwards;
+  border-radius: 2px;
+}
+
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 50px; }
+}
+
+/* Enhanced footer background */
+footer {
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255,215,0,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(240,153,2,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255,215,0,0.1) 0%, transparent 50%);
+  animation: backgroundPulse 6s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Bottom bar styling */
+footer .border-t {
+  border-color: rgba(255,215,0,0.3) !important;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+footer p {
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 6px;
+  }
+  
+  .team-member {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Progress Bar Smooth Animation */
+#breed-progress .bg-gray-200 {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: progressGlow 2s ease-in-out infinite;
+  box-shadow: 0 2px 8px rgba(139,69,19,0.2);
+}
+
+#breed-progress div[style*="width"] {
+  transition: width 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  animation: progressShine 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #8B4513, #D2691E) !important;
+}
+
+#breed-progress div[style*="width"]::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  animation: shine 2s infinite;
+}
+
+@keyframes progressGlow {
+  0%, 100% { 
+    box-shadow: 0 0 10px rgba(139,69,19,0.3);
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(139,69,19,0.5), 0 0 30px rgba(210,105,30,0.3);
+  }
+}
+
+@keyframes progressShine {
+  0%, 100% { 
+    background: linear-gradient(90deg, #8B4513, #D2691E);
+  }
+  50% { 
+    background: linear-gradient(90deg, #D2691E, #FFB347, #8B4513);
+  }
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Smooth Card Animations */
+#breed-selector-container .space-y-6 {
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: cardFloat 4s ease-in-out infinite;
+}
+
+#breed-selector-container .space-y-6:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 70px rgba(139,69,19,0.3);
+}
+
+@keyframes cardFloat {
+  0%, 100% { 
+    transform: translateY(0px);
+  }
+  50% { 
+    transform: translateY(-3px);
+  }
+}
+
+/* Answer Button Smooth Animations */
+label.relative {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: buttonPulse 3s ease-in-out infinite;
+}
+
+label.relative:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(139,69,19,0.4);
+  animation: buttonGlow 0.6s ease-in-out;
+}
+
+@keyframes buttonPulse {
+  0%, 100% { 
+    box-shadow: 0 4px 12px rgba(139,69,19,0.2);
+  }
+  50% { 
+    box-shadow: 0 6px 18px rgba(139,69,19,0.3);
+  }
+}
+
+@keyframes buttonGlow {
+  0% { 
+    box-shadow: 0 15px 40px rgba(139,69,19,0.4);
+  }
+  50% { 
+    box-shadow: 0 20px 60px rgba(210,105,30,0.5), 0 0 30px rgba(255,179,71,0.3);
+  }
+  100% { 
+    box-shadow: 0 15px 40px rgba(139,69,19,0.4);
+  }
+}
+
+/* Next Question Button Animation */
+button[onclick*="nextQuestion"] {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: nextBtnPulse 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+button[onclick*="nextQuestion"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+button[onclick*="nextQuestion"]:hover::before {
+  left: 100%;
+}
+
+button[onclick*="nextQuestion"]:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow: 0 20px 50px rgba(139,69,19,0.5);
+}
+
+@keyframes nextBtnPulse {
+  0%, 100% { 
+    box-shadow: 0 8px 25px rgba(139,69,19,0.3);
+  }
+  50% { 
+    box-shadow: 0 12px 35px rgba(139,69,19,0.4);
+  }
+}
+
+/* Enhanced Background Circles - Make them more visible and animated */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(139,69,19,0.15); /* Make more visible */
+  animation: float 8s infinite ease-in-out;
+  backdrop-filter: blur(2px);
+  border: 2px solid rgba(210,105,30,0.1);
+  box-shadow: 0 0 20px rgba(139,69,19,0.1);
+}
+
+.circle:nth-child(1) { 
+  width: 180px; 
+  height: 180px; 
+  top: 8%; 
+  left: 12%; 
+  animation-delay: 0s;
+  animation-duration: 12s;
+}
+
+.circle:nth-child(2) { 
+  width: 250px; 
+  height: 250px; 
+  bottom: 10%; 
+  right: 8%; 
+  animation-delay: 2s;
+  animation-duration: 15s;
+}
+
+.circle:nth-child(3) { 
+  width: 120px; 
+  height: 120px; 
+  top: 65%; 
+  left: 20%; 
+  animation-delay: 4s;
+  animation-duration: 10s;
+}
+
+.circle:nth-child(4) { 
+  width: 90px; 
+  height: 90px; 
+  top: 25%; 
+  right: 25%; 
+  animation-delay: 6s;
+  animation-duration: 14s;
+}
+
+.circle:nth-child(5) { 
+  width: 160px; 
+  height: 160px; 
+  bottom: 35%; 
+  left: 5%; 
+  animation-delay: 1s;
+  animation-duration: 18s;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 0.6;
+  }
+  25% { 
+    transform: translateY(-30px) rotate(90deg) scale(1.1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-20px) rotate(180deg) scale(0.9);
+    opacity: 1;
+  }
+  75% { 
+    transform: translateY(-40px) rotate(270deg) scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+/* Paw Print Moving Animation for Footer */
+.paw-print {
+  position: absolute;
+  font-size: 32px;
+  animation: pawWalk 15s linear infinite;
+  opacity: 0.8;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+.paw-1 {
+  top: 15%;
+  left: -60px;
+  animation-duration: 8s;
+  animation-delay: 0s;
+}
+
+.paw-2 {
+  top: 35%;
+  left: -80px;
+  animation-duration: 25s;
+  animation-delay: 2s;
+  transform: rotate(25deg);
+}
+
+.paw-3 {
+  top: 55%;
+  left: -100px;
+  animation-duration: 15s;
+  animation-delay: 4s;
+  transform: rotate(-15deg);
+}
+
+.paw-4 {
+  top: 75%;
+  left: -70px;
+  animation-duration: 6s;
+  animation-delay: 6s;
+  transform: rotate(45deg);
+}
+
+.paw-5 {
+  top: 25%;
+  right: -60px;
+  animation-duration: 30s;
+  animation-delay: 1s;
+  animation-direction: reverse;
+}
+
+.paw-6 {
+  top: 45%;
+  right: -90px;
+  animation-duration: 10s;
+  animation-delay: 3s;
+  animation-direction: reverse;
+  transform: rotate(-30deg);
+}
+
+.paw-7 {
+  top: 65%;
+  right: -110px;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  animation-direction: reverse;
+  transform: rotate(60deg);
+}
+
+.paw-8 {
+  top: 85%;
+  right: -80px;
+  animation-duration: 4s;
+  animation-delay: 7s;
+  animation-direction: reverse;
+  transform: rotate(-45deg);
+}
+
+@keyframes pawWalk {
+  0% {
+    transform: translateX(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Final Results Button */
+button[onclick*="showResults"] {
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+button[onclick*="showResults"]:hover {
+  transform: scale(1.15) rotate(2deg);
+  box-shadow: 0 25px 60px rgba(139,69,19,0.6);
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+</style>
+
+<script src="js/global.js"></script>
+<script src="js/tips.js"></script>
+<script src="js/breeds.js"></script>
+<script src="js/breedselector.js"></script>
+</body></html>

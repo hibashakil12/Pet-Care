@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Visibility Test - PAWSOME</title>
+    <link href="css/global.css" rel="stylesheet"/>
+    <link href="css/home.css" rel="stylesheet"/>
+    <style>
+        body {
+            padding: 2rem;
+            background: linear-gradient(135deg, #f09902 0%, #993d15 100%);
+            font-family: 'Arial', sans-serif;
+            min-height: 100vh;
+        }
+        
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        
+        .hero-test {
+            background: linear-gradient(135deg, #f09902 0%, #993d15 100%);
+            padding: 3rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-search-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: none;
+            border-radius: 2rem 0 0 2rem;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-btn {
+            padding: 1rem 2rem;
+            border: none;
+            background: #993d15;
+            color: white;
+            border-radius: 0 2rem 2rem 0;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .search-btn:hover {
+            background: #7a3111;
+        }
+        
+        .test-dropdown {
+            background: red !important;
+            color: white !important;
+            padding: 1rem !important;
+            border: 2px solid yellow !important;
+            font-weight: bold !important;
+            font-size: 1.2rem !important;
+        }
+        
+        .visible-test {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: lime !important;
+            color: black !important;
+            padding: 1rem;
+            border: 2px solid red;
+            z-index: 99999;
+            margin-top: 0.5rem;
+        }
+        
+        .debug-info {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f0f0f0;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            white-space: pre-wrap;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔍 Dropdown Visibility Test</h1>
+        <p>This page tests whether dropdowns are visible and working correctly.</p>
+        
+        <div class="hero-test">
+            <div class="hero-search-container">
+                <div style="display: flex; width: 100%;">
+                    <input id="hero-search" class="search-input" placeholder="Type 'dog' or 'cat' to test search..." autocomplete="off"/>
+                    <button id="hero-search-btn" class="search-btn">Search</button>
+                </div>
+                
+                <!-- Regular dropdown -->
+                <div id="hero-dropdown" class="hero-search-dropdown test-dropdown">
+                    Regular Dropdown (should be hidden initially)
+                </div>
+                
+                <!-- Always visible test dropdown -->
+                <div class="visible-test">
+                    ✅ This dropdown should ALWAYS be visible for comparison
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <h3>Manual Test Controls:</h3>
+            <button onclick="showTestDropdown()" style="padding: 0.5rem 1rem; margin: 0.5rem; background: green; color: white; border: none; border-radius: 0.5rem; cursor: pointer;">
+                🟢 Show Dropdown Manually
+            </button>
+            <button onclick="hideTestDropdown()" style="padding: 0.5rem 1rem; margin: 0.5rem; background: red; color: white; border: none; border-radius: 0.5rem; cursor: pointer;">
+                🔴 Hide Dropdown Manually  
+            </button>
+            <button onclick="forceVisibility()" style="padding: 0.5rem 1rem; margin: 0.5rem; background: blue; color: white; border: none; border-radius: 0.5rem; cursor: pointer;">
+                🔵 Force Visibility with Inline Styles
+            </button>
+        </div>
+        
+        <div id="debug-info" class="debug-info">
+Debug information will appear here...
+        </div>
+    </div>
+
+    <script src="js/global.js"></script>
+    <script src="js/tips.js"></script>
+    <script src="js/data-exports.js"></script>
+    
+    <script>
+        const debugDiv = document.getElementById('debug-info');
+        const dropdown = document.getElementById('hero-dropdown');
+        
+        function updateDebug(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            debugDiv.textContent += `[${timestamp}] ${message}\n`;
+            debugDiv.scrollTop = debugDiv.scrollHeight;
+        }
+        
+        function showTestDropdown() {
+            dropdown.classList.add('show');
+            updateDebug('Added "show" class to dropdown');
+            checkDropdownState();
+        }
+        
+        function hideTestDropdown() {
+            dropdown.classList.remove('show');
+            updateDebug('Removed "show" class from dropdown');
+            checkDropdownState();
+        }
+        
+        function forceVisibility() {
+            dropdown.style.display = 'block';
+            dropdown.style.visibility = 'visible';
+            dropdown.style.opacity = '1';
+            dropdown.style.zIndex = '99999';
+            dropdown.style.position = 'absolute';
+            dropdown.style.background = 'red';
+            dropdown.style.color = 'white';
+            dropdown.style.padding = '2rem';
+            dropdown.style.border = '3px solid yellow';
+            dropdown.innerHTML = '🎉 FORCED VISIBLE! If you can see this, CSS is working!';
+            updateDebug('Applied forced visibility styles');
+            checkDropdownState();
+        }
+        
+        function checkDropdownState() {
+            const computed = window.getComputedStyle(dropdown);
+            updateDebug(`Dropdown classes: ${dropdown.className}`);
+            updateDebug(`Computed display: ${computed.display}`);
+            updateDebug(`Computed visibility: ${computed.visibility}`);
+            updateDebug(`Computed opacity: ${computed.opacity}`);
+            updateDebug(`Computed z-index: ${computed.zIndex}`);
+            updateDebug(`Computed position: ${computed.position}`);
+            updateDebug(`Bounding rect: ${JSON.stringify(dropdown.getBoundingClientRect())}`);
+            updateDebug('---');
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            updateDebug('DOM Content Loaded');
+            
+            // Check initial state
+            checkDropdownState();
+            
+            // Set up search input listener
+            const searchInput = document.getElementById('hero-search');
+            searchInput.addEventListener('input', function() {
+                const query = this.value.trim().toLowerCase();
+                updateDebug(`Input changed: "${query}"`);
+                
+                if (query.length >= 2) {
+                    dropdown.innerHTML = `
+                        <div class="dropdown-section">
+                            <div class="section-header">Test Results for "${query}"</div>
+                            <div class="tip-item">
+                                <div class="tip-category">TEST</div>
+                                <div class="tip-title">Search Result for: ${query}</div>
+                                <div class="tip-summary">This proves the dropdown is working!</div>
+                            </div>
+                        </div>
+                    `;
+                    showTestDropdown();
+                } else {
+                    hideTestDropdown();
+                }
+            });
+            
+            // Check if global search is working
+            setTimeout(() => {
+                updateDebug('Checking global search availability...');
+                updateDebug(`petTips available: ${!!window.petTips}`);
+                updateDebug(`dogBreeds available: ${!!window.dogBreeds}`);
+                updateDebug(`catBreeds available: ${!!window.catBreeds}`);
+                updateDebug(`attachSearch function available: ${typeof window.attachSearch}`);
+                
+                if (typeof window.attachSearch === 'function') {
+                    updateDebug('Attempting to attach global search...');
+                    try {
+                        window.attachSearch('hero-search', 'hero-dropdown');
+                        updateDebug('✅ Global search attached successfully');
+                    } catch (e) {
+                        updateDebug('❌ Error attaching global search: ' + e.message);
+                    }
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

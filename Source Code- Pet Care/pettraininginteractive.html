@@ -1,0 +1,2248 @@
+<html><head>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<link href="css/global.css" rel="stylesheet"/>
+<link href="css/pettraininginteractive.css" rel="stylesheet"/>
+<link href="css/gradient-animations.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body class="bg-gradient-to-br from-[#f09902] to-[#993d15] font-spline">
+
+<!-- Animated Dog Treats Background -->
+<div class="dog-treat treat-1">🦴</div>
+<div class="dog-treat treat-2">🦴</div>
+<div class="dog-treat treat-3">🦴</div>
+<div class="dog-treat treat-4">🦴</div>
+<div class="dog-treat treat-5">🦴</div>
+<div class="dog-treat treat-6">🦴</div>
+<div class="dog-treat treat-7">🦴</div>
+<div class="dog-treat treat-8">🦴</div>
+<div class="dog-treat treat-9">🐾</div>
+<div class="dog-treat treat-10">🐾</div>
+<div class="dog-treat treat-11">🐾</div>
+<div class="dog-treat treat-12">🐾</div>
+<div class="relative flex w-full min-h-screen flex-col group/design-root overflow-x-hidden font-spline">
+<div class="layout-container flex grow flex-col">
+<header class="navbar bg-gradient-to-r from-[#f09902] to-[#993d15] animated-navbar">
+<div class="nav-left">
+<a href="home.html"><img src="logo/p-removebg-preview.png" alt="PAWSOME Logo" class="nav-logo"></a>
+<div class="nav-links">
+</div>
+<button id="hamburger-btn"><span class="material-symbols-outlined">menu</span></button>
+</div>
+<div class="nav-right">
+<label class="header-search">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 text-white/70"><span class="material-symbols-outlined text-lg">search</span></div>
+<input id="tips-search" class="form-input w-full rounded-full text-white focus:outline-0 focus:ring-2 focus:ring-white border-none bg-white/20 placeholder:text-white/70 pl-10 pr-4 text-base font-normal" placeholder="Search pet tips, breeds..." />
+<div id="tips-dropdown"></div>
+</label>
+<button id="nav-dropdown-btn" class="flex items-center justify-center rounded-full h-10 w-10 bg-white/20 text-white hover:bg-white/30 transition-colors ml-3"><span class="material-symbols-outlined">expand_more</span></button>
+</div>
+<div id="nav-dropdown-menu">
+<a href="aisymptomchecker.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">medical_services</span>AI Symptom Checker</a>
+<a href="bodyposture.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">accessibility</span>Body Posture</a>
+<a href="pethealthcalculator.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">calculate</span>Pet Health Calculator</a>
+<a href="petbreedselector.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">pets</span>Breed Selector</a>
+<a href="pettraininginteractive.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">school</span>Pet Training Guide</a>
+<a href="personality.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">psychology</span>Personality Quiz</a>
+<a href="healthtrack.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">favorite</span>Health Track</a>
+</div>
+<div id="mobile-menu">
+<a href="aisymptomchecker.html" class="block py-2 px-4 text-white hover:bg-white/10">AI Symptom Checker</a>
+<a href="bodyposture.html" class="block py-2 px-4 text-white hover:bg-white/10">Body Posture</a>
+<a href="pethealthcalculator.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Health Calculator</a>
+<a href="petbreedselector.html" class="block py-2 px-4 text-white hover:bg-white/10">Breed Selector</a>
+<a href="pettraininginteractive.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Training Guide</a>
+<a href="personality.html" class="block py-2 px-4 text-white hover:bg-white/10">Personality Quiz</a>
+<a href="healthtrack.html" class="block py-2 px-4 text-white hover:bg-white/10">Health Track</a>
+</div>
+</header>
+<main class="flex-1 px-10 py-8">
+<div class="mx-auto max-w-5xl">
+<div class="text-center mb-12">
+<h1 class="text-[#1c1c0d] text-5xl font-bold tracking-tighter">Training Guide</h1>
+<p class="text-slate-500 text-lg mt-2">Learn how to train your furry friend with our step-by-step guides.</p>
+</div>
+<div class="mb-10">
+<div class="flex justify-center border-b border-[#e9e8ce]">
+<button class="px-6 py-3 text-base font-bold text-[#1c1c0d] border-b-2 border-[#993d15]">Basics</button>
+<button class="px-6 py-3 text-base font-bold text-slate-500 hover:text-[#1c1c0d] hover:border-b-2 hover:border-[#993d15] transition-colors">Tricks</button>
+<button class="px-6 py-3 text-base font-bold text-slate-500 hover:text-[#1c1c0d] hover:border-b-2 hover:border-[#993d15] transition-colors">Advanced</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+<div class="relative">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg training-sit"></div>
+<div class="absolute top-2 right-2 bg-[#993d15] text-white text-xs font-bold px-2 py-1 rounded-full">Step 1/3</div>
+</div>
+<div class="flex-1">
+<h3 class="text-[#1c1c0d] text-xl font-bold">Sit</h3>
+<p class="text-slate-500 text-sm mt-1">Teach your dog to sit on command with this simple guide.</p>
+</div>
+<button class="w-full flex items-center justify-center gap-2 rounded-full h-11 px-6 bg-[#993d15] text-white text-base font-bold hover:bg-opacity-90 transition-colors">
+<span>Start Training</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+<div class="relative">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg training-stay"></div>
+<div class="absolute top-2 right-2 bg-[#993d15] text-white text-xs font-bold px-2 py-1 rounded-full">Step 2/3</div>
+</div>
+<div class="flex-1">
+<h3 class="text-[#1c1c0d] text-xl font-bold">Stay</h3>
+<p class="text-slate-500 text-sm mt-1">Train your dog to stay in place until released.</p>
+</div>
+<button class="w-full flex items-center justify-center gap-2 rounded-full h-11 px-6 bg-[#993d15] text-white text-base font-bold hover:bg-opacity-90 transition-colors">
+<span>Start Training</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow">
+<div class="relative">
+<div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg training-paw"></div>
+<div class="absolute top-2 right-2 bg-[#993d15] text-white text-xs font-bold px-2 py-1 rounded-full">Step 3/3</div>
+</div>
+<div class="flex-1">
+<h3 class="text-[#1c1c0d] text-xl font-bold">Paw Shake</h3>
+<p class="text-slate-500 text-sm mt-1">Teach your dog to shake hands with this fun trick.</p>
+</div>
+<button class="w-full flex items-center justify-center gap-2 rounded-full h-11 px-6 bg-[#993d15] text-white text-base font-bold hover:bg-opacity-90 transition-colors">
+<span>Start Training</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+<!-- Enhanced Footer -->
+<footer class="bg-gradient-to-r from-[#f09902] to-[#993d15] text-white py-8 relative overflow-hidden">
+  <!-- Moving Paw Prints Background -->
+  <div class="absolute inset-0 opacity-40">
+    <div class="paw-print paw-1">🐾</div>
+    <div class="paw-print paw-2">🐾</div>
+    <div class="paw-print paw-3">🐾</div>
+    <div class="paw-print paw-4">🐾</div>
+    <div class="paw-print paw-5">🐾</div>
+    <div class="paw-print paw-6">🐾</div>
+    <div class="paw-print paw-7">🐾</div>
+    <div class="paw-print paw-8">🐾</div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Contact Info -->
+      <div class="contact-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 contact-icon">contact_mail</span>
+          Contact Us
+        </h3>
+        <div class="space-y-3">
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">email</span>
+            <a href="mailto:pawsome@gmail.com" class="hover:text-orange-200 transition-colors">pawsome@gmail.com</a>
+          </div>
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">phone</span>
+            <a href="tel:03063063533" class="hover:text-orange-200 transition-colors">03063063533</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Members -->
+      <div class="team-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 team-icon">group</span>
+          Our Team
+        </h3>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="team-member">Sheeza</div>
+          <div class="team-member">Ashir Arif</div>
+          <div class="team-member">Ahmed Rehan</div>
+          <div class="team-member">M.Ali</div>
+          <div class="team-member">M.Waleed</div>
+          <div class="team-member">Hiba Shakeel</div>
+        </div>
+      </div>
+
+      <!-- Brand Info -->
+      <div class="brand-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 brand-icon">pets</span>
+          PAWSOME
+        </h3>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Your trusted companion for pet care, health monitoring, and breed information. 
+          Making pet ownership easier and more enjoyable.
+        </p>
+        <div class="social-links mt-4 flex space-x-3">
+          <div class="social-icon">🐾</div>
+          <div class="social-icon">❤️</div>
+          <div class="social-icon">🏠</div>
+</div>
+</div>
+</div>
+
+<!-- Training Modal -->
+<div id="trainingModal" class="modal-overlay hidden">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modalTitle" class="text-2xl font-bold text-[#1c1c0d]">Training Guide</h2>
+      <button id="closeModal" class="close-btn">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="training-progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+        <div id="progressText" class="progress-text">Step 1 of 5</div>
+      </div>
+      <div id="trainingContent" class="training-content">
+        <div class="training-step">
+          <div class="step-image-container">
+            <div id="stepImage" class="step-image"></div>
+          </div>
+          <div class="step-instructions">
+            <h3 id="stepTitle" class="text-xl font-bold mb-3">Step 1: Getting Started</h3>
+            <p id="stepDescription" class="text-gray-700 mb-4">Instructions will appear here...</p>
+            <div class="step-tips">
+              <h4 class="font-semibold mb-2 text-[#993d15]">💡 Pro Tips:</h4>
+              <ul id="stepTips" class="list-disc list-inside text-sm text-gray-600">
+                <li>Tip will appear here...</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="training-timer">
+          <div id="timerDisplay" class="timer-display">00:00</div>
+          <button id="startTimer" class="timer-btn bg-green-500 hover:bg-green-600 text-white">Start Timer</button>
+          <button id="pauseTimer" class="timer-btn bg-yellow-500 hover:bg-yellow-600 text-white hidden">Pause</button>
+          <button id="resetTimer" class="timer-btn bg-red-500 hover:bg-red-600 text-white">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button id="prevStep" class="btn-secondary" disabled>Previous</button>
+      <button id="nextStep" class="btn-primary">Next Step</button>
+      <button id="completeTraining" class="btn-success hidden">Complete Training</button>
+    </div>
+  </div>
+</div>
+
+<!-- Progress Toast -->
+<div id="progressToast" class="progress-toast hidden">
+  <span class="material-symbols-outlined">check_circle</span>
+  <span id="toastMessage">Great job! Training completed!</span>
+</div>
+
+<!-- Enhanced Footer -->
+    <div class="border-t border-white/20 mt-8 pt-6 text-center">
+      <p class="text-sm opacity-80">
+        © 2024 PAWSOME. Made with ❤️ for pets and their humans.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* Ensure proper scrolling */
+html, body {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Paw Print Moving Animation */
+.paw-print {
+  position: absolute;
+  font-size: 32px;
+  animation: pawWalk 15s linear infinite;
+  opacity: 0.8;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+.paw-1 {
+  top: 15%;
+  left: -60px;
+  animation-duration: 8s;
+  animation-delay: 0s;
+}
+
+.paw-2 {
+  top: 35%;
+  left: -80px;
+  animation-duration: 25s;
+  animation-delay: 2s;
+  transform: rotate(25deg);
+}
+
+.paw-3 {
+  top: 55%;
+  left: -100px;
+  animation-duration: 15s;
+  animation-delay: 4s;
+  transform: rotate(-15deg);
+}
+
+.paw-4 {
+  top: 75%;
+  left: -70px;
+  animation-duration: 6s;
+  animation-delay: 6s;
+  transform: rotate(45deg);
+}
+
+.paw-5 {
+  top: 25%;
+  right: -60px;
+  animation-duration: 30s;
+  animation-delay: 1s;
+  animation-direction: reverse;
+}
+
+.paw-6 {
+  top: 45%;
+  right: -90px;
+  animation-duration: 10s;
+  animation-delay: 3s;
+  animation-direction: reverse;
+  transform: rotate(-30deg);
+}
+
+.paw-7 {
+  top: 65%;
+  right: -110px;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  animation-direction: reverse;
+  transform: rotate(60deg);
+}
+
+.paw-8 {
+  top: 85%;
+  right: -80px;
+  animation-duration: 4s;
+  animation-delay: 7s;
+  animation-direction: reverse;
+  transform: rotate(-45deg);
+}
+
+@keyframes pawWalk {
+  0% {
+    transform: translateX(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Footer Animations */
+.contact-section, .team-section, .brand-section {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-section { animation-delay: 0.2s; }
+.team-section { animation-delay: 0.4s; }
+.brand-section { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-icon, .team-icon, .brand-icon {
+  animation: iconBounce 2s ease-in-out infinite;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.contact-item {
+  transition: all 0.3s ease;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 4px 0;
+}
+
+.contact-item:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.contact-item a:hover {
+  color: #FFD700 !important;
+  text-shadow: 0 0 5px rgba(255,215,0,0.5);
+}
+
+.team-member {
+  padding: 10px 18px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+  animation: teamPulse 3s ease-in-out infinite;
+}
+
+.team-member:nth-child(1) { animation-delay: 0s; }
+.team-member:nth-child(2) { animation-delay: 0.6s; }
+.team-member:nth-child(3) { animation-delay: 1.2s; }
+.team-member:nth-child(4) { animation-delay: 1.8s; }
+.team-member:nth-child(5) { animation-delay: 2.4s; }
+
+@keyframes teamPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 2px 8px rgba(255,215,0,0.1); }
+  50% { transform: scale(1.02); box-shadow: 0 4px 16px rgba(255,215,0,0.2); }
+}
+
+.team-member::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.team-member::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #FFD700, #f09902, #FFD700);
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team-member:hover::before {
+  left: 100%;
+}
+
+.team-member:hover::after {
+  opacity: 1;
+  animation: borderSpin 1s linear infinite;
+}
+
+@keyframes borderSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.team-member:hover {
+  background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,153,2,0.2));
+  transform: translateY(-8px) scale(1.12) rotateZ(2deg);
+  box-shadow: 0 12px 30px rgba(240,153,2,0.4);
+  border-color: rgba(255,215,0,0.8);
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255,215,0,0.6);
+  animation: teamBounce 0.6s ease-in-out;
+}
+
+@keyframes teamBounce {
+  0% { transform: translateY(-8px) scale(1.12) rotateZ(2deg); }
+  25% { transform: translateY(-12px) scale(1.15) rotateZ(-1deg); }
+  50% { transform: translateY(-10px) scale(1.13) rotateZ(1deg); }
+  75% { transform: translateY(-11px) scale(1.14) rotateZ(-0.5deg); }
+  100% { transform: translateY(-8px) scale(1.12) rotateZ(2deg); }
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: socialFloat 4s ease-in-out infinite;
+  border: 2px solid rgba(255,255,255,0.2);
+  font-size: 18px;
+}
+
+.social-icon:nth-child(1) { animation-delay: 0s; }
+.social-icon:nth-child(2) { animation-delay: 1.3s; }
+.social-icon:nth-child(3) { animation-delay: 2.6s; }
+
+@keyframes socialFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(90deg); }
+  50% { transform: translateY(-4px) rotate(180deg); }
+  75% { transform: translateY(-12px) rotate(270deg); }
+}
+
+.social-icon:hover {
+  background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,153,2,0.2));
+  transform: translateY(-8px) scale(1.25) rotate(360deg);
+  box-shadow: 0 10px 25px rgba(240,153,2,0.4);
+  border-color: rgba(255,215,0,0.8);
+}
+
+footer h3 {
+  position: relative;
+  color: #FFD700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-weight: 700;
+}
+
+footer h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FFD700, #f09902, transparent);
+  animation: lineGrow 2s ease-out forwards;
+  border-radius: 2px;
+}
+
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 50px; }
+}
+
+/* Enhanced footer background */
+footer {
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255,215,0,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(240,153,2,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255,215,0,0.1) 0%, transparent 50%);
+  animation: backgroundPulse 6s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Bottom bar styling */
+footer .border-t {
+  border-color: rgba(255,215,0,0.3) !important;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+footer p {
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.show {
+  opacity: 1;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: translate(-50%, -50%) scale(0.9);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 2px solid #f0f0f0;
+  background: linear-gradient(135deg, #f09902, #993d15);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.training-progress-bar {
+  background: #f0f0f0;
+  height: 8px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, #f09902, #993d15);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.progress-text {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #993d15;
+}
+
+.training-content {
+  transition: opacity 0.3s ease;
+}
+
+.training-step {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.step-image-container {
+  position: relative;
+}
+
+.step-image {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #f09902, #993d15);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-image::before {
+  content: '🐕';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
+  opacity: 0.7;
+}
+
+.step-instructions h3 {
+  color: #1c1c0d;
+  margin-bottom: 15px;
+}
+
+.step-tips {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #f09902;
+}
+
+.step-tips h4 {
+  color: #993d15;
+  margin-bottom: 10px;
+}
+
+.training-timer {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.timer-display {
+  font-size: 24px;
+  font-weight: bold;
+  color: #993d15;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #f09902;
+  min-width: 80px;
+  text-align: center;
+}
+
+.timer-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.timer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal-footer {
+  padding: 20px 30px;
+  border-top: 2px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 0 0 20px 20px;
+}
+
+.btn-primary, .btn-secondary, .btn-success {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #f09902, #993d15);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(153, 61, 21, 0.3);
+}
+
+.btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: #545b62;
+  transform: translateY(-2px);
+}
+
+.btn-secondary:disabled {
+  background: #e9ecef;
+  color: #6c757d;
+  cursor: not-allowed;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  animation: pulse-success 2s ease-in-out infinite;
+}
+
+@keyframes pulse-success {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.btn-success:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+}
+
+/* Progress Toast */
+.progress-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 1001;
+  transform: translateX(400px);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.progress-toast.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* Enhanced Training Cards */
+.training-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.training-card.completed {
+  border-color: #28a745;
+  box-shadow: 0 4px 20px rgba(40, 167, 69, 0.2);
+}
+
+.training-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(240, 153, 2, 0.1), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.training-card:hover::before {
+  left: 100%;
+}
+
+.training-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(153, 61, 21, 0.2);
+}
+
+/* Tab Animation Enhancement */
+.flex.justify-center {
+  position: relative;
+}
+
+.flex.justify-center::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #993d15, transparent);
+  width: 100%;
+  z-index: 0;
+}
+
+.flex.justify-center button {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flex.justify-center button:hover {
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .training-step {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .step-image {
+    height: 150px;
+  }
+  
+  .modal-header {
+    padding: 15px 20px;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-footer {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .btn-primary, .btn-secondary, .btn-success {
+    width: 100%;
+  }
+  
+  .training-timer {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .progress-toast {
+    right: 10px;
+    left: 10px;
+    transform: translateY(-100px);
+  }
+  
+  .progress-toast.show {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 6px;
+  }
+  
+  .team-member {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .timer-display {
+    font-size: 18px;
+  }
+  
+  .modal-content {
+    height: 90vh;
+  }
+}
+
+/* Animated Dog Treats Background from personality.html */
+.dog-treat {
+  position: fixed;
+  font-size: 50px;
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+}
+
+.treat-1 {
+  top: 10%;
+  left: -100px;
+  animation: treatMoveRight 25s linear infinite;
+}
+
+.treat-2 {
+  top: 30%;
+  right: -100px;
+  animation: treatMoveLeft 20s linear infinite;
+  animation-delay: 3s;
+}
+
+.treat-3 {
+  top: 50%;
+  left: -100px;
+  animation: treatMoveRight 30s linear infinite;
+  animation-delay: 6s;
+}
+
+.treat-4 {
+  top: 70%;
+  right: -100px;
+  animation: treatMoveLeft 18s linear infinite;
+  animation-delay: 9s;
+}
+
+.treat-5 {
+  top: 20%;
+  left: -100px;
+  animation: treatMoveRight 22s linear infinite;
+  animation-delay: 12s;
+}
+
+.treat-6 {
+  top: 80%;
+  right: -100px;
+  animation: treatMoveLeft 28s linear infinite;
+  animation-delay: 15s;
+}
+
+.treat-7 {
+  top: 40%;
+  left: -100px;
+  animation: treatMoveRight 24s linear infinite;
+  animation-delay: 18s;
+}
+
+.treat-8 {
+  top: 60%;
+  right: -100px;
+  animation: treatMoveLeft 26s linear infinite;
+  animation-delay: 21s;
+}
+
+.treat-9 {
+  top: 15%;
+  left: -80px;
+  animation: treatMoveRight 32s linear infinite;
+  animation-delay: 5s;
+  font-size: 40px;
+}
+
+.treat-10 {
+  top: 35%;
+  right: -80px;
+  animation: treatMoveLeft 19s linear infinite;
+  animation-delay: 8s;
+  font-size: 40px;
+}
+
+.treat-11 {
+  top: 55%;
+  left: -80px;
+  animation: treatMoveRight 27s linear infinite;
+  animation-delay: 11s;
+  font-size: 40px;
+}
+
+.treat-12 {
+  top: 75%;
+  right: -80px;
+  animation: treatMoveLeft 23s linear infinite;
+  animation-delay: 14s;
+  font-size: 40px;
+}
+
+@keyframes treatMoveRight {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(50vw) rotate(180deg) scale(1.2);
+    opacity: 0.25;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)) rotate(360deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes treatMoveLeft {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateX(-50vw) rotate(-180deg) scale(1.2);
+    opacity: 0.25;
+  }
+  90% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(calc(-100vw - 200px)) rotate(-360deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Enhanced Page Animations */
+.text-center {
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.text-center h1 {
+  animation: titleSlideIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
+.text-center p {
+  animation: subtitleFadeIn 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+}
+
+@keyframes titleSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  60% {
+    transform: translateY(10px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes subtitleFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tab Animation */
+.flex.justify-center {
+  animation: tabsSlideIn 0.8s ease-out 0.5s forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+@keyframes tabsSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Button Hover Effects */
+button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(153, 61, 21, 0.3);
+}
+
+/* Enhanced Card Animations */
+.grid > div {
+  animation: cardSlideUp 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.grid > div:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.grid > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.grid > div:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes cardSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  60% {
+    opacity: 0.8;
+    transform: translateY(-10px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Enhanced Card Hover Effects */
+.grid > div {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.grid > div::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #f09902, #993d15, #f09902);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.grid > div:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(153, 61, 21, 0.2);
+}
+
+.grid > div:hover::before {
+  opacity: 0.8;
+  animation: borderGlow 2s ease-in-out infinite;
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Step Badge Animation */
+.absolute.top-2.right-2 {
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(153, 61, 21, 0.7);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 5px rgba(153, 61, 21, 0);
+  }
+}
+
+/* Training Image Hover Effect */
+.training-sit, .training-stay, .training-paw {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.training-sit:hover, .training-stay:hover, .training-paw:hover {
+  transform: scale(1.05);
+}
+
+.training-sit::after, .training-stay::after, .training-paw::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(240, 153, 2, 0.1), rgba(153, 61, 21, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.training-sit:hover::after, .training-stay:hover::after, .training-paw:hover::after {
+  opacity: 1;
+}
+
+/* Main Container Animation */
+main {
+  animation: mainFadeIn 1s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+@keyframes mainFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Background Pattern */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.02) 0%, transparent 30%);
+  z-index: -2;
+  animation: backgroundShift 15s ease-in-out infinite;
+}
+
+@keyframes backgroundShift {
+  0%, 100% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-20px) translateY(-15px) rotate(90deg);
+  }
+  50% {
+    transform: translateX(-40px) translateY(-30px) rotate(180deg);
+  }
+  75% {
+    transform: translateX(-20px) translateY(-15px) rotate(270deg);
+  }
+}
+
+/* Responsive Animations */
+@media (max-width: 768px) {
+  .dog-treat {
+    font-size: 35px;
+    opacity: 0.15;
+  }
+  
+  .treat-9, .treat-10, .treat-11, .treat-12 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dog-treat {
+    font-size: 25px;
+    opacity: 0.1;
+  }
+  
+  .treat-9, .treat-10, .treat-11, .treat-12 {
+    font-size: 20px;
+  }
+}
+
+</style>
+</style>
+
+<script src="js/global.js"></script>
+<script src="js/tips.js"></script>
+<script src="js/breeds.js"></script>
+
+<script>
+// ==================== PAWSOME PET TRAINING INTERACTIVE FUNCTIONALITY ====================
+
+class PetTrainingGuide {
+    constructor() {
+        this.currentTab = 'basics';
+        this.currentTraining = null;
+        this.currentStep = 0;
+        this.trainingProgress = JSON.parse(localStorage.getItem('pawsome_training_progress') || '{}');
+        this.timer = {
+            seconds: 0,
+            minutes: 0,
+            interval: null,
+            isRunning: false
+        };
+        
+        // Training data for different categories
+        this.trainingData = {
+            basics: {
+                sit: {
+                    title: 'Teaching Your Dog to Sit',
+                    description: 'Master the fundamental sitting command with your pet.',
+                    duration: '10-15 minutes',
+                    difficulty: 'Beginner',
+                    steps: [
+                        {
+                            title: 'Preparation',
+                            description: 'Get your dog\'s attention with a treat. Hold it close to their nose so they can smell it, but don\'t let them grab it yet.',
+                            tips: ['Choose high-value treats your dog loves', 'Find a quiet space with minimal distractions', 'Have your dog on a leash if they\'re easily distracted']
+                        },
+                        {
+                            title: 'Lure Position',
+                            description: 'Slowly lift the treat over your dog\'s head. As their head follows the treat, their bottom should naturally lower to the ground.',
+                            tips: ['Move the treat slowly - too fast and they might jump', 'Keep the treat close to their head', 'Be patient - some dogs take longer to understand']
+                        },
+                        {
+                            title: 'Add the Command',
+                            description: 'As soon as your dog\'s bottom touches the ground, say "Sit" clearly and give them the treat immediately.',
+                            tips: ['Say "Sit" only once, clearly', 'Timing is crucial - reward immediately', 'Use a happy, encouraging tone']
+                        },
+                        {
+                            title: 'Practice & Repeat',
+                            description: 'Repeat this process 5-10 times in short sessions. Gradually reduce the luring motion while keeping the verbal command.',
+                            tips: ['Keep training sessions short (5-10 minutes)', 'End on a positive note', 'Practice 2-3 times daily for best results']
+                        },
+                        {
+                            title: 'Mastery',
+                            description: 'Once your dog consistently sits with just the verbal command, practice in different locations and situations.',
+                            tips: ['Test in different rooms and outdoor spaces', 'Practice with mild distractions', 'Always reward good behavior']
+                        }
+                    ]
+                },
+                stay: {
+                    title: 'Teaching Your Dog to Stay',
+                    description: 'Build impulse control and patience with the stay command.',
+                    duration: '15-20 minutes',
+                    difficulty: 'Intermediate',
+                    steps: [
+                        {
+                            title: 'Master Sit First',
+                            description: 'Ensure your dog can reliably sit before teaching stay. Have them sit and stay in the sit position.',
+                            tips: ['Your dog should know "sit" well first', 'Start in a familiar, quiet environment', 'Have treats ready for rewards']
+                        },
+                        {
+                            title: 'Hand Signal',
+                            description: 'With your dog in sit position, hold your hand up in a "stop" gesture and take one small step back while saying "Stay".',
+                            tips: ['Use a clear palm-out hand signal', 'Take only one small step initially', 'Keep eye contact with your dog']
+                        },
+                        {
+                            title: 'Short Duration',
+                            description: 'Wait just 2-3 seconds, then step back to your dog, say "Good" and give a treat. Don\'t call them to you.',
+                            tips: ['Start with very short durations', 'Always return to your dog to release them', 'Never call them to break the stay']
+                        },
+                        {
+                            title: 'Increase Distance',
+                            description: 'Gradually increase the distance and duration. Take more steps back and wait longer before returning.',
+                            tips: ['Increase distance OR duration, not both at once', 'If they break stay, go back to an easier level', 'Practice the "release" word like "OK" or "Free"']
+                        },
+                        {
+                            title: 'Add Distractions',
+                            description: 'Once mastered, practice stay with mild distractions like toys or people walking by.',
+                            tips: ['Start with very mild distractions', 'Reward heavily for maintaining stay with distractions', 'Practice in different locations gradually']
+                        }
+                    ]
+                },
+                'paw-shake': {
+                    title: 'Teaching Paw Shake',
+                    description: 'A fun trick that builds on your dog\'s natural behaviors.',
+                    duration: '10-15 minutes',
+                    difficulty: 'Beginner',
+                    steps: [
+                        {
+                            title: 'Sitting Position',
+                            description: 'Start with your dog in a sitting position. This is the foundation for the paw shake trick.',
+                            tips: ['Ensure your dog is comfortable sitting', 'Have high-value treats ready', 'Choose a quiet training space']
+                        },
+                        {
+                            title: 'Lift the Paw',
+                            description: 'Gently tap or touch your dog\'s paw to encourage them to lift it. Some dogs will lift their paw naturally when curious.',
+                            tips: ['Be very gentle when touching their paw', 'If they\'re paw-shy, work on paw handling first', 'Wait for any paw movement to reward']
+                        },
+                        {
+                            title: 'Add the Command',
+                            description: 'The moment their paw comes up, say "Shake" or "Paw" and gently hold their paw while giving treats and praise.',
+                            tips: ['Choose one command word and stick with it', 'Hold the paw gently, don\'t squeeze', 'Reward immediately when paw is lifted']
+                        },
+                        {
+                            title: 'Build the Behavior',
+                            description: 'Repeat the process, gradually reducing your physical prompts while maintaining the verbal command.',
+                            tips: ['Practice 5-10 repetitions per session', 'Gradually reduce touching their paw', 'Some dogs learn this in one session!']
+                        },
+                        {
+                            title: 'Polish the Trick',
+                            description: 'Once they\'re offering their paw on command, work on duration and adding a proper "handshake" motion.',
+                            tips: ['Hold the paw for longer periods gradually', 'Practice gentle up-and-down handshake motion', 'Always end with praise and treats']
+                        }
+                    ]
+                }
+            },
+            tricks: {
+                rollover: {
+                    title: 'Teaching Roll Over',
+                    description: 'An impressive trick that builds on down and stay commands.',
+                    duration: '15-25 minutes',
+                    difficulty: 'Intermediate',
+                    steps: [
+                        {
+                            title: 'Down Position',
+                            description: 'Start with your dog in a down position. This is essential before attempting the roll over.',
+                            tips: ['Master "down" command first', 'Use a comfortable surface like carpet', 'Have plenty of high-value treats']
+                        },
+                        {
+                            title: 'Lure in Circle',
+                            description: 'Hold a treat close to your dog\'s nose and slowly move it in a circle from their nose, over their shoulder, toward their back.',
+                            tips: ['Move very slowly to avoid confusing your dog', 'Keep treat close to their body', 'Most dogs will follow with their whole body']
+                        },
+                        {
+                            title: 'Complete the Roll',
+                            description: 'Continue the circular motion until your dog rolls completely over. Say "Roll over" as they complete the motion.',
+                            tips: ['Be patient - this can take several attempts', 'Reward any movement in the right direction', 'Some dogs prefer rolling one direction over another']
+                        },
+                        {
+                            title: 'Add Verbal Command',
+                            description: 'Once they understand the motion, use less luring and more verbal commands with the hand signal.',
+                            tips: ['Gradually reduce the treat lure', 'Keep the circular hand motion as a visual cue', 'Practice on both sides']
+                        },
+                        {
+                            title: 'Perfect the Trick',
+                            description: 'Work on smooth, complete rolls with just the verbal command and minimal hand signals.',
+                            tips: ['Reward smooth, complete rolls', 'Practice in different locations', 'Show off your dog\'s new trick to friends!']
+                        }
+                    ]
+                },
+                spin: {
+                    title: 'Teaching Spin',
+                    description: 'A fun and energetic trick that dogs usually love!',
+                    duration: '10-15 minutes',
+                    difficulty: 'Beginner',
+                    steps: [
+                        {
+                            title: 'Standing Start',
+                            description: 'Have your dog stand in front of you. Hold a treat close to their nose to get their attention.',
+                            tips: ['Choose a space with room to spin', 'Use treats they can smell easily', 'Keep your dog calm but engaged']
+                        },
+                        {
+                            title: 'Lure in Circle',
+                            description: 'Slowly move the treat in a circle around your dog\'s head. They should follow the treat and turn their body.',
+                            tips: ['Move at your dog\'s pace', 'Keep the treat at nose level', 'Go the direction that feels natural for your dog']
+                        },
+                        {
+                            title: 'Complete the Spin',
+                            description: 'As your dog completes a full circle, say "Spin" and immediately give the treat and praise.',
+                            tips: ['Reward as soon as they complete the circle', 'Use an excited, happy voice', 'Some dogs spin faster than others']
+                        },
+                        {
+                            title: 'Add the Command',
+                            description: 'Repeat the process while saying "Spin" at the start of the motion. Gradually reduce the luring.',
+                            tips: ['Say "Spin" before starting the motion', 'Reduce hand luring gradually', 'Practice both directions']
+                        },
+                        {
+                            title: 'Master the Move',
+                            description: 'Work on getting consistent spins with just the verbal command and a small circular hand gesture.',
+                            tips: ['Keep sessions fun and energetic', 'Reward enthusiasm', 'Chain multiple spins together for advanced dogs']
+                        }
+                    ]
+                },
+                'play-dead': {
+                    title: 'Teaching Play Dead',
+                    description: 'A dramatic trick that\'s sure to impress everyone!',
+                    duration: '20-30 minutes',
+                    difficulty: 'Advanced',
+                    steps: [
+                        {
+                            title: 'Down and Stay',
+                            description: 'Start with your dog in a solid down position. They should be comfortable staying down for several seconds.',
+                            tips: ['Master down and stay first', 'Use a comfortable surface', 'Have patience - this is a complex trick']
+                        },
+                        {
+                            title: 'Side Position',
+                            description: 'From the down position, lure your dog to roll onto their side with a treat. Say "Bang" or "Play dead" as they move.',
+                            tips: ['Move the treat slowly from their nose toward their shoulder', 'Reward any movement toward their side', 'Choose your command word carefully']
+                        },
+                        {
+                            title: 'Hold the Position',
+                            description: 'Once on their side, encourage them to stay in that position for a few seconds before rewarding.',
+                            tips: ['Start with very short durations', 'Use calm, soothing voice to keep them relaxed', 'Reward while they\'re still in position']
+                        },
+                        {
+                            title: 'Add Drama',
+                            description: 'Work on getting your dog to lie completely flat and still when given the command. Add hand gestures like pointing.',
+                            tips: ['Use dramatic hand gestures like finger guns', 'Reward complete stillness', 'Make it fun with silly voices']
+                        },
+                        {
+                            title: 'The Grand Finale',
+                            description: 'Perfect the trick by adding a "revival" command like "Alive!" to have them get up enthusiastically.',
+                            tips: ['End with an energetic "wake up" command', 'Reward the full sequence', 'Practice the complete routine']
+                        }
+                    ]
+                }
+            },
+            advanced: {
+                'fetch-specific': {
+                    title: 'Fetch Specific Items',
+                    description: 'Train your dog to fetch specific objects by name.',
+                    duration: '25-35 minutes',
+                    difficulty: 'Advanced',
+                    steps: [
+                        {
+                            title: 'Basic Fetch',
+                            description: 'Ensure your dog has mastered basic fetch with one toy before introducing multiple objects.',
+                            tips: ['Your dog should reliably bring back toys', 'Use toys with different textures and shapes', 'Master "drop it" and "give" commands']
+                        },
+                        {
+                            title: 'Name the Toy',
+                            description: 'Start with one toy, say its name clearly before throwing: "Get the ball!" Repeat the name when they bring it back.',
+                            tips: ['Choose simple, distinct names', 'Use the same name consistently', 'Start with just one named toy']
+                        },
+                        {
+                            title: 'Add Second Item',
+                            description: 'Introduce a second toy with a very different name and appearance. Practice with both items separately first.',
+                            tips: ['Make sure the toys look very different', 'Practice with each toy individually', 'Use clear, different names like "ball" vs "rope"']
+                        },
+                        {
+                            title: 'Choice Training',
+                            description: 'Place both toys in front of your dog and ask for a specific one: "Get the ball!" Reward only when they choose correctly.',
+                            tips: ['Start with toys far apart', 'Be patient - this is complex learning', 'Reward correct choices enthusiastically']
+                        },
+                        {
+                            title: 'Multiple Objects',
+                            description: 'Gradually add more named objects. Practice daily to maintain the discrimination between items.',
+                            tips: ['Add new items slowly', 'Review old items regularly', 'Some dogs can learn 10+ item names!']
+                        }
+                    ]
+                },
+                'complex-agility': {
+                    title: 'Basic Agility Course',
+                    description: 'Create a fun backyard agility course for mental and physical stimulation.',
+                    duration: '30-45 minutes',
+                    difficulty: 'Advanced',
+                    steps: [
+                        {
+                            title: 'Individual Obstacles',
+                            description: 'Start with one obstacle at a time. Begin with simple jumps using broomsticks or low barriers.',
+                            tips: ['Start very low - height of your dog\'s elbow', 'Use positive reinforcement only', 'Let your dog go around if they\'re not ready to jump']
+                        },
+                        {
+                            title: 'Tunnel Training',
+                            description: 'Introduce a tunnel (can be made with chairs and blankets). Lure them through with treats and praise.',
+                            tips: ['Make the tunnel short and wide initially', 'Have someone on each end with treats', 'Never force them through']
+                        },
+                        {
+                            title: 'Weave Poles',
+                            description: 'Set up simple weave poles using cones or sticks. Guide your dog through the pattern slowly.',
+                            tips: ['Start with just 3-4 poles', 'Walk through the pattern with your dog', 'Reward for any weaving motion']
+                        },
+                        {
+                            title: 'Combine Obstacles',
+                            description: 'Link 2-3 obstacles together in sequence. Keep the course simple and fun.',
+                            tips: ['Start with just 2 obstacles', 'Keep distances short', 'Celebrate completion of the sequence']
+                        },
+                        {
+                            title: 'Full Course',
+                            description: 'Create a complete mini-course with 4-5 obstacles. Focus on fun and bonding, not speed or perfection.',
+                            tips: ['Change the course layout regularly', 'Always end on a positive note', 'Consider joining local agility classes']
+                        }
+                    ]
+                },
+                'emergency-recall': {
+                    title: 'Emergency Recall Training',
+                    description: 'Train a reliable recall that could save your dog\'s life in dangerous situations.',
+                    duration: '20-30 minutes',
+                    difficulty: 'Advanced',
+                    steps: [
+                        {
+                            title: 'Special Word',
+                            description: 'Choose a unique emergency recall word different from your regular "come" command. Examples: "NOW" or "URGENT".',
+                            tips: ['Choose a word you won\'t use casually', 'Make it short and sharp', 'Use ONLY for real emergencies once trained']
+                        },
+                        {
+                            title: 'High-Value Rewards',
+                            description: 'This command gets the BEST rewards: special treats, favorite toys, or exciting activities your dog loves most.',
+                            tips: ['Save the absolute best rewards for this', 'Could be cheese, chicken, or their favorite game', 'Never use this word without having amazing rewards ready']
+                        },
+                        {
+                            title: 'Practice in Easy Situations',
+                            description: 'Start practicing when your dog is already coming to you or in low-distraction environments.',
+                            tips: ['Never practice when you think they might not come', 'Always have them on a long line during training', 'Set them up for success every time']
+                        },
+                        {
+                            title: 'Gradual Distractions',
+                            description: 'Very slowly add mild distractions while maintaining the long training line for safety.',
+                            tips: ['Increase difficulty very gradually', 'If they don\'t respond immediately, go back to easier situations', 'This takes months to develop reliably']
+                        },
+                        {
+                            title: 'Proof the Behavior',
+                            description: 'Practice in various locations and situations, but always with safety measures in place.',
+                            tips: ['Never trust this off-leash until 100% reliable', 'Practice monthly to maintain the response', 'Remember: this could save your dog\'s life']
+                        }
+                    ]
+                }
+            }
+        };
+        
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.loadProgress();
+        this.updateProgressDisplay();
+        this.loadTabContent('basics'); // Load initial content
+        console.log('🐾 PAWSOME Pet Training Guide Initialized!');
+    }
+
+    setupEventListeners() {
+        // Tab switching
+        const tabButtons = document.querySelectorAll('.flex.justify-center button');
+        tabButtons.forEach((button, index) => {
+            button.addEventListener('click', () => {
+                const tabs = ['basics', 'tricks', 'advanced'];
+                this.switchTab(tabs[index], button);
+            });
+        });
+
+        // Set up initial training card buttons
+        this.setupTrainingCardListeners();
+        
+        // Modal controls
+        const closeBtn = document.getElementById('closeModal');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', () => this.closeModal());
+        }
+        
+        const nextBtn = document.getElementById('nextStep');
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => this.nextStep());
+        }
+        
+        const prevBtn = document.getElementById('prevStep');
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => this.prevStep());
+        }
+        
+        const completeBtn = document.getElementById('completeTraining');
+        if (completeBtn) {
+            completeBtn.addEventListener('click', () => this.completeTraining());
+        }
+
+        // Timer controls
+        const startTimerBtn = document.getElementById('startTimer');
+        if (startTimerBtn) {
+            startTimerBtn.addEventListener('click', () => this.startTimer());
+        }
+        
+        const pauseTimerBtn = document.getElementById('pauseTimer');
+        if (pauseTimerBtn) {
+            pauseTimerBtn.addEventListener('click', () => this.pauseTimer());
+        }
+        
+        const resetTimerBtn = document.getElementById('resetTimer');
+        if (resetTimerBtn) {
+            resetTimerBtn.addEventListener('click', () => this.resetTimer());
+        }
+
+        // Close modal on outside click
+        const modal = document.getElementById('trainingModal');
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target.id === 'trainingModal') {
+                    this.closeModal();
+                }
+            });
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('trainingModal');
+            if (modal && modal.classList.contains('show')) {
+                if (e.key === 'Escape') this.closeModal();
+                if (e.key === 'ArrowRight') this.nextStep();
+                if (e.key === 'ArrowLeft') this.prevStep();
+                if (e.key === ' ') {
+                    e.preventDefault();
+                    this.timer.isRunning ? this.pauseTimer() : this.startTimer();
+                }
+            }
+        });
+    }
+    
+    setupTrainingCardListeners() {
+        const trainingButtons = document.querySelectorAll('button');
+        trainingButtons.forEach(button => {
+            if (button.textContent.includes('Start Training')) {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const card = button.closest('.flex-col');
+                    if (card) {
+                        const titleElement = card.querySelector('h3');
+                        if (titleElement) {
+                            const title = titleElement.textContent.toLowerCase().replace(/\s+/g, '-');
+                            this.startTraining(title);
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    switchTab(tabName, buttonElement) {
+        // Update active tab styling
+        const tabButtons = document.querySelectorAll('.flex.justify-center button');
+        tabButtons.forEach(btn => {
+            btn.classList.remove('text-[#1c1c0d]', 'border-b-2', 'border-[#993d15]');
+            btn.classList.add('text-slate-500');
+        });
+        
+        buttonElement.classList.remove('text-slate-500');
+        buttonElement.classList.add('text-[#1c1c0d]', 'border-b-2', 'border-[#993d15]');
+        
+        this.currentTab = tabName;
+        this.loadTabContent(tabName);
+        
+        // Animate tab change
+        const cardsContainer = document.querySelector('.grid');
+        if (cardsContainer) {
+            cardsContainer.style.transition = 'all 0.3s ease';
+            cardsContainer.style.opacity = '0';
+            cardsContainer.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                cardsContainer.style.opacity = '1';
+                cardsContainer.style.transform = 'translateY(0)';
+            }, 150);
+        }
+    }
+
+    loadTabContent(tabName) {
+        const cardsContainer = document.querySelector('.grid');
+        if (!cardsContainer) return;
+        
+        const trainingData = this.trainingData[tabName];
+        if (!trainingData) return;
+        
+        let cardsHTML = '';
+        Object.entries(trainingData).forEach(([key, training], index) => {
+            const isCompleted = this.trainingProgress[key] === 'completed';
+            const progress = this.trainingProgress[key + '_step'] || 0;
+            const totalSteps = training.steps.length;
+            
+            cardsHTML += `
+                <div class="flex flex-col gap-4 rounded-xl border border-slate-200 bg-white p-6 shadow-sm hover:shadow-lg transition-shadow training-card ${isCompleted ? 'completed' : ''}" data-training="${key}">
+                    <div class="relative">
+                        <div class="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg training-${key.replace('-', '')}"></div>
+                        <div class="absolute top-2 right-2 bg-[#993d15] text-white text-xs font-bold px-2 py-1 rounded-full">
+                            ${isCompleted ? 'Completed! ✓' : `${progress}/${totalSteps} Steps`}
+                        </div>
+                        ${isCompleted ? '<div class="absolute inset-0 bg-green-500 bg-opacity-20 rounded-lg flex items-center justify-center"><span class="text-4xl">✅</span></div>' : ''}
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-[#1c1c0d] text-xl font-bold">${training.title}</h3>
+                        <p class="text-slate-500 text-sm mt-1">${training.description}</p>
+                        <div class="flex gap-2 mt-2">
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">${training.difficulty}</span>
+                            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">${training.duration}</span>
+                        </div>
+                        ${progress > 0 && !isCompleted ? `<div class="mt-2 w-full bg-gray-200 rounded-full h-2"><div class="bg-[#993d15] h-2 rounded-full" style="width: ${(progress/totalSteps*100)}%"></div></div>` : ''}
+                    </div>
+                    <button class="start-training-btn w-full flex items-center justify-center gap-2 rounded-full h-11 px-6 bg-[#993d15] text-white text-base font-bold hover:bg-opacity-90 transition-colors">
+                        <span>${isCompleted ? 'Review Training' : progress > 0 ? 'Continue Training' : 'Start Training'}</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+            `;
+        });
+        
+        cardsContainer.innerHTML = cardsHTML;
+        
+        // Re-attach event listeners to new buttons
+        const newButtons = document.querySelectorAll('.start-training-btn');
+        newButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const card = button.closest('.training-card');
+                if (card) {
+                    const trainingKey = card.dataset.training;
+                    this.startTraining(trainingKey);
+                }
+            });
+        });
+    }
+
+    startTraining(trainingKey) {
+        // Map common training names to data keys
+        const trainingMapping = {
+            'sit': 'sit',
+            'stay': 'stay', 
+            'paw-shake': 'paw-shake',
+            'paw shake': 'paw-shake'
+        };
+        
+        const mappedKey = trainingMapping[trainingKey] || trainingKey;
+        const training = this.trainingData[this.currentTab][mappedKey];
+        
+        if (!training) {
+            console.error('Training not found:', trainingKey, 'mapped to:', mappedKey, 'in tab:', this.currentTab);
+            // Try to find training in other tabs
+            for (const tab in this.trainingData) {
+                if (this.trainingData[tab][mappedKey]) {
+                    this.currentTab = tab;
+                    this.switchTabByName(tab);
+                    break;
+                }
+            }
+            return;
+        }
+        
+        this.currentTraining = mappedKey;
+        this.currentStep = this.trainingProgress[mappedKey + '_step'] || 0;
+        
+        this.openModal(training);
+        this.loadTrainingStep();
+    }
+    
+    switchTabByName(tabName) {
+        const tabButtons = document.querySelectorAll('.flex.justify-center button');
+        const tabIndex = ['basics', 'tricks', 'advanced'].indexOf(tabName);
+        if (tabIndex >= 0 && tabButtons[tabIndex]) {
+            this.switchTab(tabName, tabButtons[tabIndex]);
+        }
+    }
+
+    openModal(training) {
+        const modal = document.getElementById('trainingModal');
+        const modalTitle = document.getElementById('modalTitle');
+        
+        if (!modal || !modalTitle) {
+            console.error('Modal elements not found');
+            return;
+        }
+        
+        modalTitle.textContent = training.title;
+        modal.classList.remove('hidden');
+        modal.classList.add('show');
+        
+        // Animate modal open
+        setTimeout(() => {
+            const modalContent = modal.querySelector('.modal-content');
+            if (modalContent) {
+                modalContent.style.transform = 'translate(-50%, -50%) scale(1)';
+                modalContent.style.opacity = '1';
+            }
+        }, 10);
+        
+        document.body.style.overflow = 'hidden';
+    }
+
+    closeModal() {
+        const modal = document.getElementById('trainingModal');
+        if (!modal) return;
+        
+        const modalContent = modal.querySelector('.modal-content');
+        if (modalContent) {
+            modalContent.style.transform = 'translate(-50%, -50%) scale(0.9)';
+            modalContent.style.opacity = '0';
+        }
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }, 300);
+        
+        this.resetTimer();
+    }
+
+    loadTrainingStep() {
+        if (!this.currentTraining || !this.currentTab) return;
+        
+        const training = this.trainingData[this.currentTab][this.currentTraining];
+        if (!training || !training.steps[this.currentStep]) return;
+        
+        const step = training.steps[this.currentStep];
+        
+        // Update progress bar
+        const progressFill = document.getElementById('progressFill');
+        const progressText = document.getElementById('progressText');
+        
+        if (progressFill && progressText) {
+            const progress = ((this.currentStep + 1) / training.steps.length) * 100;
+            progressFill.style.width = progress + '%';
+            progressText.textContent = `Step ${this.currentStep + 1} of ${training.steps.length}`;
+        }
+        
+        // Update step content
+        const stepTitle = document.getElementById('stepTitle');
+        const stepDescription = document.getElementById('stepDescription');
+        
+        if (stepTitle) stepTitle.textContent = step.title;
+        if (stepDescription) stepDescription.textContent = step.description;
+        
+        // Update tips
+        const stepTips = document.getElementById('stepTips');
+        if (stepTips && step.tips) {
+            stepTips.innerHTML = step.tips.map(tip => `<li>${tip}</li>`).join('');
+        }
+        
+        // Update step image
+        const stepImage = document.getElementById('stepImage');
+        if (stepImage) {
+            stepImage.className = `step-image training-${this.currentTraining.replace('-', '')} step-${this.currentStep + 1}`;
+        }
+        
+        // Update navigation buttons
+        const prevBtn = document.getElementById('prevStep');
+        const nextBtn = document.getElementById('nextStep');
+        const completeBtn = document.getElementById('completeTraining');
+        
+        if (prevBtn) prevBtn.disabled = this.currentStep === 0;
+        if (nextBtn) nextBtn.classList.toggle('hidden', this.currentStep === training.steps.length - 1);
+        if (completeBtn) completeBtn.classList.toggle('hidden', this.currentStep !== training.steps.length - 1);
+        
+        // Reset timer for new step
+        this.resetTimer();
+    }
+
+    nextStep() {
+        const training = this.trainingData[this.currentTab][this.currentTraining];
+        if (this.currentStep < training.steps.length - 1) {
+            this.currentStep++;
+            this.saveProgress();
+            this.loadTrainingStep();
+            
+            // Animate step change
+            const content = document.getElementById('trainingContent');
+            content.style.opacity = '0';
+            setTimeout(() => {
+                content.style.opacity = '1';
+            }, 200);
+        }
+    }
+
+    prevStep() {
+        if (this.currentStep > 0) {
+            this.currentStep--;
+            this.saveProgress();
+            this.loadTrainingStep();
+            
+            // Animate step change
+            const content = document.getElementById('trainingContent');
+            content.style.opacity = '0';
+            setTimeout(() => {
+                content.style.opacity = '1';
+            }, 200);
+        }
+    }
+
+    completeTraining() {
+        this.trainingProgress[this.currentTraining] = 'completed';
+        this.trainingProgress[this.currentTraining + '_step'] = this.trainingData[this.currentTab][this.currentTraining].steps.length;
+        this.saveProgress();
+        
+        this.showSuccessToast(`Congratulations! You've completed ${this.trainingData[this.currentTab][this.currentTraining].title}!`);
+        
+        setTimeout(() => {
+            this.closeModal();
+            this.loadTabContent(this.currentTab);
+            this.updateProgressDisplay();
+        }, 2000);
+    }
+
+    saveProgress() {
+        this.trainingProgress[this.currentTraining + '_step'] = this.currentStep;
+        localStorage.setItem('pawsome_training_progress', JSON.stringify(this.trainingProgress));
+    }
+
+    loadProgress() {
+        const saved = localStorage.getItem('pawsome_training_progress');
+        if (saved) {
+            this.trainingProgress = JSON.parse(saved);
+        }
+    }
+
+    updateProgressDisplay() {
+        // Update overall progress (could add a progress indicator in the header)
+        const totalTrainings = Object.keys(this.trainingData.basics).length + 
+                              Object.keys(this.trainingData.tricks).length + 
+                              Object.keys(this.trainingData.advanced).length;
+        const completedTrainings = Object.values(this.trainingProgress).filter(p => p === 'completed').length;
+        const overallProgress = (completedTrainings / totalTrainings) * 100;
+        
+        console.log(`🎯 Training Progress: ${completedTrainings}/${totalTrainings} completed (${Math.round(overallProgress)}%)`);
+    }
+
+    startTimer() {
+        if (!this.timer.isRunning) {
+            this.timer.isRunning = true;
+            this.timer.interval = setInterval(() => {
+                this.timer.seconds++;
+                if (this.timer.seconds === 60) {
+                    this.timer.minutes++;
+                    this.timer.seconds = 0;
+                }
+                this.updateTimerDisplay();
+            }, 1000);
+            
+            document.getElementById('startTimer').classList.add('hidden');
+            document.getElementById('pauseTimer').classList.remove('hidden');
+        }
+    }
+
+    pauseTimer() {
+        if (this.timer.isRunning) {
+            this.timer.isRunning = false;
+            clearInterval(this.timer.interval);
+            
+            document.getElementById('startTimer').classList.remove('hidden');
+            document.getElementById('pauseTimer').classList.add('hidden');
+        }
+    }
+
+    resetTimer() {
+        this.timer.isRunning = false;
+        this.timer.seconds = 0;
+        this.timer.minutes = 0;
+        clearInterval(this.timer.interval);
+        
+        document.getElementById('startTimer').classList.remove('hidden');
+        document.getElementById('pauseTimer').classList.add('hidden');
+        
+        this.updateTimerDisplay();
+    }
+
+    updateTimerDisplay() {
+        const display = document.getElementById('timerDisplay');
+        const minutes = this.timer.minutes.toString().padStart(2, '0');
+        const seconds = this.timer.seconds.toString().padStart(2, '0');
+        display.textContent = `${minutes}:${seconds}`;
+    }
+
+    showSuccessToast(message) {
+        const toast = document.getElementById('progressToast');
+        const toastMessage = document.getElementById('toastMessage');
+        
+        if (!toast || !toastMessage) return;
+        
+        toastMessage.textContent = message;
+        toast.classList.remove('hidden');
+        toast.classList.add('show');
+        
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 300);
+        }, 3000);
+    }
+}
+
+// Initialize the training guide when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    try {
+        window.pawsomeTraining = new PetTrainingGuide();
+        console.log('🐕 PAWSOME Pet Training System Ready!');
+    } catch (error) {
+        console.error('Error initializing PAWSOME Training System:', error);
+    }
+});
+
+// Backup initialization for older browsers
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+        if (!window.pawsomeTraining) {
+            try {
+                window.pawsomeTraining = new PetTrainingGuide();
+                console.log('🐕 PAWSOME Pet Training System Ready! (Backup)');
+            } catch (error) {
+                console.error('Error in backup initialization:', error);
+            }
+        }
+    });
+} else {
+    // Document already loaded
+    try {
+        window.pawsomeTraining = new PetTrainingGuide();
+        console.log('🐕 PAWSOME Pet Training System Ready! (Immediate)');
+    } catch (error) {
+        console.error('Error in immediate initialization:', error);
+    }
+}
+
+</script>
+
+</body></html>

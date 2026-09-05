@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pet Health Calculator</title>
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+  <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="css/global.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style>
+    body {
+      margin:0;
+      font-family:"Poppins",sans-serif;
+      background:linear-gradient(135deg,#a8edea 0%, #fed6e3 100%);
+      min-height:100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    /* Enhanced floating circles background */
+    .circle {
+      position:absolute;
+      border-radius:50%;
+      background:rgba(139,69,19,0.1);
+      animation:float 8s infinite ease-in-out;
+      backdrop-filter: blur(2px);
+    }
+    .circle:nth-child(1){width:180px;height:180px;top:8%;left:12%;animation-delay:0s;}
+    .circle:nth-child(2){width:250px;height:250px;bottom:10%;right:8%;animation-delay:2s;}
+    .circle:nth-child(3){width:120px;height:120px;top:65%;left:20%;animation-delay:4s;}
+    .circle:nth-child(4){width:90px;height:90px;top:25%;right:25%;animation-delay:6s;}
+    .circle:nth-child(5){width:160px;height:160px;bottom:35%;left:5%;animation-delay:1s;}
+    
+    @keyframes float{
+      0%,100%{transform:translateY(0) rotate(0deg);}
+      33%{transform:translateY(-25px) rotate(120deg);}
+      66%{transform:translateY(-15px) rotate(240deg);}
+    }
+
+    .card {
+      position:relative;
+      background:rgba(255,255,255,0.85);
+      backdrop-filter:blur(20px);
+      padding:35px 30px;
+      border-radius:25px;
+      box-shadow:0 20px 60px rgba(139,69,19,0.2);
+      text-align:center;
+      width:400px;
+      max-width:90vw;
+      z-index:1;
+      animation:slideInScale 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      border: 3px solid rgba(139,69,19,0.1);
+      transform: translateY(50px) scale(0.9);
+      opacity: 0;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .card {
+        width: 350px;
+        padding: 25px 20px;
+        margin: 0 10px;
+      }
+      
+      .heart {
+        width: 70px;
+        height: 70px;
+      }
+      
+      .card h2 {
+        font-size: 22px;
+      }
+      
+      select, input {
+        padding: 10px 12px;
+        font-size: 13px;
+      }
+      
+      .btn {
+        padding: 12px;
+        font-size: 15px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .card {
+        width: 320px;
+        padding: 20px 15px;
+      }
+      
+      .heart {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .card h2 {
+        font-size: 20px;
+      }
+      
+      footer .grid {
+        grid-template-columns: 1fr !important;
+        gap: 6px;
+      }
+      
+      .team-member {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+    }
+
+    @keyframes slideInScale {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9) rotateX(15deg);
+      }
+      60% {
+        opacity: 0.8;
+        transform: translateY(-10px) scale(1.02) rotateX(0deg);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+      }
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #8B4513, #D2691E, #8B4513);
+      border-radius: 27px;
+      z-index: -1;
+      animation: borderGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes borderGlow {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.7; }
+    }
+
+    .card h2 {
+      color: #000000;
+      font-size: 26px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(139,69,19,0.1);
+      animation: titlePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes titlePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    .card p {
+      color:#555;
+      font-size:14px;
+      margin-bottom:20px;
+      line-height: 1.5;
+    }
+
+    label {
+      font-size:14px;
+      color:#333;
+      display:block;
+      margin-bottom:6px;
+      text-align:left;
+      font-weight: 600;
+      transform: translateX(0);
+      animation: labelSlide 0.8s ease-out forwards;
+    }
+
+    @keyframes labelSlide {
+      0% { opacity: 0; transform: translateX(-20px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    select,input {
+      width:100%;
+      padding:12px 15px;
+      margin-bottom:15px;
+      border-radius:15px;
+      border:2px solid rgba(139,69,19,0.2);
+      outline:none;
+      font-size:14px;
+      background:rgba(255,255,255,0.9);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 10px rgba(139,69,19,0.1);
+    }
+
+    select:focus, input:focus {
+      border-color: #D2691E;
+      box-shadow: 0 6px 20px rgba(139,69,19,0.15);
+      transform: translateY(-2px);
+    }
+
+    .btn {
+      width:100%;
+      padding:15px;
+      margin-top:25px;
+      border-radius:50px;
+      border:none;
+      background:linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+      color:#fff;
+      font-weight:700;
+      font-size:16px;
+      cursor:pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(139,69,19,0.3);
+      animation: buttonPulse 2s ease-in-out infinite;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    @keyframes buttonPulse {
+      0%, 100% { box-shadow: 0 8px 25px rgba(139,69,19,0.3); }
+      50% { box-shadow: 0 12px 35px rgba(139,69,19,0.4); }
+    }
+
+    .btn:hover {
+      transform:translateY(-4px) scale(1.02);
+      box-shadow:0 15px 40px rgba(139,69,19,0.4);
+    }
+
+    .btn:active {
+      transform:translateY(-2px) scale(1.01);
+    }
+
+    .result {
+      margin-top:20px;
+      padding:16px;
+      border-radius:15px;
+      font-weight:600;
+      font-size:15px;
+      display:none;
+      animation:resultSlideIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    @keyframes resultSlideIn {
+      0% { opacity: 0; transform: translateY(30px) scale(0.9); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .ok {background:#d4edda;color:#155724; border-left: 5px solid #28a745;}
+    .warn {background:#fff3cd;color:#856404; border-left: 5px solid #ffc107;}
+    .bad {background:#f8d7da;color:#721c24; border-left: 5px solid #dc3545;}
+
+    /* Enhanced red heartbeat animation */
+    .heart {
+      width:80px;
+      height:80px;
+      margin:15px auto;
+      animation:heartbeat 1s infinite;
+      filter: drop-shadow(0 4px 8px rgba(220,53,69,0.3));
+    }
+    
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      14% { transform: scale(1.2); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.15); }
+      70% { transform: scale(1); }
+      100% { transform: scale(1); }
+    }
+
+    .range {
+      margin-top:12px;
+      font-size:14px;
+      color:#555;
+      font-weight: 500;
+      padding: 8px;
+      background: rgba(139,69,19,0.1);
+      border-radius: 10px;
+      animation: rangeGlow 2s ease-in-out infinite;
+    }
+
+    @keyframes rangeGlow {
+      0%, 100% { background: rgba(139,69,19,0.1); }
+      50% { background: rgba(139,69,19,0.15); }
+    }
+
+    /* Form field animations */
+    .card > * {
+      animation-delay: calc(var(--animation-order) * 0.1s);
+    }
+
+    /* Hover effects for the card */
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 70px rgba(139,69,19,0.25);
+    }
+
+    /* Add subtle animations to form elements */
+    select, input {
+      animation: fieldFadeIn 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fieldFadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    select:nth-child(4) { animation-delay: 0.2s; }
+    input:nth-child(6) { animation-delay: 0.4s; }
+    input:nth-child(8) { animation-delay: 0.6s; }
+    input:nth-child(10) { animation-delay: 0.8s; }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-[#f09902] to-[#993d15] font-spline">
+
+<div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<header class="navbar bg-gradient-to-r from-[#f09902] to-[#993d15]">
+<div class="nav-left">
+<a href="home.html"><img src="logo/p-removebg-preview.png" alt="PAWSOME Logo" class="nav-logo"></a>
+<div class="nav-links">
+</div>
+<button id="hamburger-btn"><span class="material-symbols-outlined">menu</span></button>
+</div>
+<div class="nav-right">
+<label class="header-search">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 text-white/70"><span class="material-symbols-outlined text-lg">search</span></div>
+<input id="tips-search" class="form-input w-full rounded-full text-white focus:outline-0 focus:ring-2 focus:ring-white border-none bg-white/20 placeholder:text-white/70 pl-10 pr-4 text-base font-normal" placeholder="Search pet tips, breeds..." />
+<div id="tips-dropdown"></div>
+</label>
+<button id="nav-dropdown-btn" class="flex items-center justify-center rounded-full h-10 w-10 bg-white/20 text-white hover:bg-white/30 transition-colors ml-3"><span class="material-symbols-outlined">expand_more</span></button>
+</div>
+<div id="nav-dropdown-menu">
+<a href="aisymptomchecker.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">medical_services</span>AI Symptom Checker</a>
+<a href="bodyposture.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">accessibility</span>Body Posture</a>
+<a href="pethealthcalculator.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">calculate</span>Pet Health Calculator</a>
+<a href="petbreedselector.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">pets</span>Breed Selector</a>
+<a href="pettraininginteractive.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">school</span>Pet Training Guide</a>
+<a href="personality.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">psychology</span>Personality Quiz</a>
+<a href="healthtrack.html" class="nav-dropdown-item"><span class="material-symbols-outlined text-base">favorite</span>Health Track</a>
+</div>
+<div id="mobile-menu">
+<a href="aisymptomchecker.html" class="block py-2 px-4 text-white hover:bg-white/10">AI Symptom Checker</a>
+<a href="bodyposture.html" class="block py-2 px-4 text-white hover:bg-white/10">Body Posture</a>
+<a href="pethealthcalculator.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Health Calculator</a>
+<a href="petbreedselector.html" class="block py-2 px-4 text-white hover:bg-white/10">Breed Selector</a>
+<a href="pettraininginteractive.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Training Guide</a>
+<a href="personality.html" class="block py-2 px-4 text-white hover:bg-white/10">Personality Quiz</a>
+<a href="healthtrack.html" class="block py-2 px-4 text-white hover:bg-white/10">Health Track</a>
+</div>
+</header>
+<main class="flex-1 flex items-center justify-center py-10 px-4" style="min-height: calc(100vh - 120px);">
+<div class="w-full max-w-4xl flex items-center justify-center relative">
+  <!-- Enhanced floating background shapes -->
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+  <div class="circle"></div>
+
+  <div class="card">
+    <!-- Bright red heart -->
+    <svg class="heart" viewBox="0 0 24 24" fill="url(#heartGradient)">
+      <path d="M12 21s-8-5.5-8-10.2C4 6.4 7.6 4 10.5 6.2 12 7.6 12 7.6 12 7.6s0 0 1.5-1.4C16.4 4 20 6.4 20 10.8 20 15.5 12 21 12 21z"/>
+      <defs>
+        <linearGradient id="heartGradient" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#ff4d4f"/>
+          <stop offset="1" stop-color="#dc3545"/>
+        </linearGradient>
+      </defs>
+    </svg>
+
+    <h2>Pet Health Calculator</h2>
+    <p>Check if your pet is underweight, overweight, or healthy 🐾</p>
+
+    <label for="petType">Pet Type</label>
+    <select id="petType">
+      <option value="dog">🐶 Dog</option>
+      <option value="cat">🐱 Cat</option>
+      <option value="parrot">🦜 Parrot</option>
+      <option value="rabbit">🐇 Rabbit</option>
+      <option value="hamster">🐹 Hamster</option>
+      <option value="guinea_pig">🐭 Guinea Pig</option>
+      <option value="ferret">🦡 Ferret</option>
+      <option value="horse">🐴 Horse</option>
+      <option value="cow">🐄 Cow</option>
+      <option value="goat">🐐 Goat</option>
+      <option value="sheep">🐑 Sheep</option>
+      <option value="pig">🐖 Pig</option>
+      <option value="chicken">🐔 Chicken</option>
+      <option value="duck">🦆 Duck</option>
+      <option value="pigeon">🕊️ Pigeon</option>
+      <option value="canary">🐤 Canary</option>
+      <option value="turtle">🐢 Turtle</option>
+      <option value="snake">🐍 Snake</option>
+      <option value="lizard">🦎 Lizard</option>
+      <option value="frog">🐸 Frog</option>
+      <option value="fish">🐟 Fish</option>
+      <option value="elephant">🐘 Elephant</option>
+      <option value="camel">🐫 Camel</option>
+      <option value="donkey">🐴 Donkey</option>
+      <option value="kangaroo">🦘 Kangaroo</option>
+      <option value="monkey">🐒 Monkey</option>
+      <option value="owl">🦉 Owl</option>
+      <option value="eagle">🦅 Eagle</option>
+      <option value="peacock">🦚 Peacock</option>
+      <option value="bird">🐦 Bird (Other)</option>
+    </select>
+
+    <label for="age">Age (yrs)</label>
+    <input id="age" type="number" placeholder="e.g. 3">
+
+    <label for="height">Height (cm)</label>
+    <input id="height" type="number" placeholder="e.g. 40">
+
+    <label for="weight">Weight (kg)</label>
+    <input id="weight" type="number" placeholder="e.g. 7.5">
+
+    <button class="btn" onclick="checkHealth()">Check Health</button>
+
+    <div id="result" class="result">Result will appear here</div>
+    <div id="range" class="range"></div>
+  </div>
+
+  <script>
+    function checkHealth(){
+      const pet=document.getElementById("petType").value;
+      const height=parseFloat(document.getElementById("height").value);
+      const weight=parseFloat(document.getElementById("weight").value);
+      const result=document.getElementById("result");
+      const range=document.getElementById("range");
+
+      if(!height||!weight){
+        result.style.display="block";
+        result.className="result bad";
+        result.textContent="⚠️ Please enter valid values!";
+        range.textContent="";
+        return;
+      }
+
+      let min,max;
+
+      switch(pet){
+        case "dog":     min=height/5;   max=height/3;   break;
+        case "cat":     min=height/6;   max=height/4;   break;
+        case "parrot":  min=height/20;  max=height/10;  break;
+        case "rabbit":  min=height/12;  max=height/8;   break;
+        case "hamster": min=0.02;       max=0.25;       break;
+        case "guinea_pig": min=0.5;     max=1.5;        break;
+        case "ferret":  min=0.5;        max=2;          break;
+        case "horse":   min=height*2;   max=height*3.5; break;
+        case "cow":     min=height*2.5; max=height*4;   break;
+        case "goat":    min=height/3;   max=height/1.5; break;
+        case "sheep":   min=height/2;   max=height*2;   break;
+        case "pig":     min=height/2;   max=height*3;   break;
+        case "chicken": min=height/15;  max=height/7;   break;
+        case "duck":    min=height/12;  max=height/6;   break;
+        case "pigeon":  min=0.2;        max=0.6;        break;
+        case "canary":  min=0.015;      max=0.03;       break;
+        case "turtle":  min=height/25;  max=height/10;  break;
+        case "snake":   min=height/50;  max=height/20;  break;
+        case "lizard":  min=height/80;  max=height/30;  break;
+        case "frog":    min=height/90;  max=height/40;  break;
+        case "fish":    min=height/200; max=height/80;  break;
+        case "elephant":min=height*25;  max=height*40;  break;
+        case "camel":   min=height*3;   max=height*6;   break;
+        case "donkey":  min=height;     max=height*2.5; break;
+        case "kangaroo":min=height/2;   max=height;     break;
+        case "monkey":  min=height/6;   max=height/3;   break;
+        case "owl":     min=0.6;        max=3;          break;
+        case "eagle":   min=2;          max=7;          break;
+        case "peacock": min=3;          max=6;          break;
+        case "bird":    min=0.02;       max=0.5;        break;
+        default:        min=height/6;   max=height/4;   break;
+      }
+
+      result.style.display="block";
+
+      if(weight<min){
+        result.className="result bad";
+        result.textContent="🍗 Underweight → Needs more nutrition!";
+      } else if(weight>max){
+        result.className="result warn";
+        result.textContent="🏃 Overweight → Needs more exercise!";
+      } else {
+        result.className="result ok";
+        result.textContent="🎉 Healthy → Perfect! Keep it up!";
+      }
+
+      range.textContent="✅ Healthy range: " + min.toFixed(2) + " – " + max.toFixed(2) + " kg";
+    }
+</script>
+</div>
+</main>
+
+<!-- Enhanced Footer -->
+<footer class="bg-gradient-to-r from-[#f09902] to-[#993d15] text-white py-8 mt-auto relative overflow-hidden">
+  <!-- Moving Paw Prints Background -->
+  <div class="absolute inset-0 opacity-40">
+    <div class="paw-print paw-1">🐾</div>
+    <div class="paw-print paw-2">🐾</div>
+    <div class="paw-print paw-3">🐾</div>
+    <div class="paw-print paw-4">🐾</div>
+    <div class="paw-print paw-5">🐾</div>
+    <div class="paw-print paw-6">🐾</div>
+    <div class="paw-print paw-7">🐾</div>
+    <div class="paw-print paw-8">🐾</div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Contact Info -->
+      <div class="contact-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 contact-icon">contact_mail</span>
+          Contact Us
+        </h3>
+        <div class="space-y-3">
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">email</span>
+            <a href="mailto:pawsome@gmail.com" class="hover:text-orange-200 transition-colors">pawsome@gmail.com</a>
+          </div>
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">phone</span>
+            <a href="tel:03063063533" class="hover:text-orange-200 transition-colors">03063063533</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Members -->
+      <div class="team-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 team-icon">group</span>
+          Our Team
+        </h3>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="team-member">Sheeza</div>
+          <div class="team-member">Ashir Arif</div>
+          <div class="team-member">Ahmed Rehan</div>
+          <div class="team-member">M.Ali</div>
+          <div class="team-member">M.Waleed</div>
+          <div class="team-member">Hiba Shakeel</div>
+        </div>
+      </div>
+
+      <!-- Brand Info -->
+      <div class="brand-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 brand-icon">pets</span>
+          PAWSOME
+        </h3>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Your trusted companion for pet care, health monitoring, and breed information. 
+          Making pet ownership easier and more enjoyable.
+        </p>
+        <div class="social-links mt-4 flex space-x-3">
+          <div class="social-icon">🐾</div>
+          <div class="social-icon">❤️</div>
+          <div class="social-icon">🏠</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/20 mt-8 pt-6 text-center">
+      <p class="text-sm opacity-80">
+        © 2024 PAWSOME. Made with ❤️ for pets and their humans.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* Paw Print Moving Animation */
+.paw-print {
+  position: absolute;
+  font-size: 32px;
+  animation: pawWalk 15s linear infinite;
+  opacity: 0.8;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+.paw-1 {
+  top: 15%;
+  left: -60px;
+  animation-duration: 8s; /* Fast */
+  animation-delay: 0s;
+}
+
+.paw-2 {
+  top: 35%;
+  left: -80px;
+  animation-duration: 25s; /* Very slow */
+  animation-delay: 2s;
+  transform: rotate(25deg);
+}
+
+.paw-3 {
+  top: 55%;
+  left: -100px;
+  animation-duration: 15s; /* Medium */
+  animation-delay: 4s;
+  transform: rotate(-15deg);
+}
+
+.paw-4 {
+  top: 75%;
+  left: -70px;
+  animation-duration: 6s; /* Very fast */
+  animation-delay: 6s;
+  transform: rotate(45deg);
+}
+
+.paw-5 {
+  top: 25%;
+  right: -60px;
+  animation-duration: 30s; /* Super slow */
+  animation-delay: 1s;
+  animation-direction: reverse;
+}
+
+.paw-6 {
+  top: 45%;
+  right: -90px;
+  animation-duration: 10s; /* Fast */
+  animation-delay: 3s;
+  animation-direction: reverse;
+  transform: rotate(-30deg);
+}
+
+.paw-7 {
+  top: 65%;
+  right: -110px;
+  animation-duration: 20s; /* Slow */
+  animation-delay: 5s;
+  animation-direction: reverse;
+  transform: rotate(60deg);
+}
+
+.paw-8 {
+  top: 85%;
+  right: -80px;
+  animation-duration: 4s; /* Super fast */
+  animation-delay: 7s;
+  animation-direction: reverse;
+  transform: rotate(-45deg);
+}
+
+@keyframes pawWalk {
+  0% {
+    transform: translateX(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Footer Animations */
+.contact-section, .team-section, .brand-section {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-section { animation-delay: 0.2s; }
+.team-section { animation-delay: 0.4s; }
+.brand-section { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-icon, .team-icon, .brand-icon {
+  animation: iconBounce 2s ease-in-out infinite;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.contact-item {
+  transition: all 0.3s ease;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 4px 0;
+}
+
+.contact-item:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.contact-item a:hover {
+  color: #FFD700 !important;
+  text-shadow: 0 0 5px rgba(255,215,0,0.5);
+}
+
+.team-member {
+  padding: 10px 18px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+  animation: teamPulse 3s ease-in-out infinite;
+}
+
+.team-member:nth-child(1) { animation-delay: 0s; }
+.team-member:nth-child(2) { animation-delay: 0.6s; }
+.team-member:nth-child(3) { animation-delay: 1.2s; }
+.team-member:nth-child(4) { animation-delay: 1.8s; }
+.team-member:nth-child(5) { animation-delay: 2.4s; }
+
+@keyframes teamPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 2px 8px rgba(255,215,0,0.1); }
+  50% { transform: scale(1.02); box-shadow: 0 4px 16px rgba(255,215,0,0.2); }
+}
+
+.team-member::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.team-member::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #FFD700, #f09902, #FFD700);
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team-member:hover::before {
+  left: 100%;
+}
+
+.team-member:hover::after {
+  opacity: 1;
+  animation: borderSpin 1s linear infinite;
+}
+
+@keyframes borderSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.team-member:hover {
+  background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,153,2,0.2));
+  transform: translateY(-8px) scale(1.12) rotateZ(2deg);
+  box-shadow: 0 12px 30px rgba(240,153,2,0.4);
+  border-color: rgba(255,215,0,0.8);
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255,215,0,0.6);
+  animation: teamBounce 0.6s ease-in-out;
+}
+
+@keyframes teamBounce {
+  0% { transform: translateY(-8px) scale(1.12) rotateZ(2deg); }
+  25% { transform: translateY(-12px) scale(1.15) rotateZ(-1deg); }
+  50% { transform: translateY(-10px) scale(1.13) rotateZ(1deg); }
+  75% { transform: translateY(-11px) scale(1.14) rotateZ(-0.5deg); }
+  100% { transform: translateY(-8px) scale(1.12) rotateZ(2deg); }
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: socialFloat 4s ease-in-out infinite;
+  border: 2px solid rgba(255,255,255,0.2);
+  font-size: 18px;
+}
+
+.social-icon:nth-child(1) { animation-delay: 0s; }
+.social-icon:nth-child(2) { animation-delay: 1.3s; }
+.social-icon:nth-child(3) { animation-delay: 2.6s; }
+
+@keyframes socialFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(90deg); }
+  50% { transform: translateY(-4px) rotate(180deg); }
+  75% { transform: translateY(-12px) rotate(270deg); }
+}
+
+.social-icon:hover {
+  background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,153,2,0.2));
+  transform: translateY(-8px) scale(1.25) rotate(360deg);
+  box-shadow: 0 10px 25px rgba(240,153,2,0.4);
+  border-color: rgba(255,215,0,0.8);
+}
+
+footer h3 {
+  position: relative;
+  color: #FFD700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-weight: 700;
+}
+
+footer h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FFD700, #f09902, transparent);
+  animation: lineGrow 2s ease-out forwards;
+  border-radius: 2px;
+}
+
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 50px; }
+}
+
+/* Enhanced footer background */
+footer {
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255,215,0,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(240,153,2,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255,215,0,0.1) 0%, transparent 50%);
+  animation: backgroundPulse 6s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Bottom bar styling */
+footer .border-t {
+  border-color: rgba(255,215,0,0.3) !important;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+footer p {
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+</style>
+
+</div>
+</div>
+
+<script src="js/global.js"></script>
+<script src="js/tips.js"></script>
+<script src="js/breeds.js"></script>
+</body>
+</html>

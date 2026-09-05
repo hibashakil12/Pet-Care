@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Test - PAWSOME</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .search-container { margin: 20px 0; }
+        input { padding: 10px; width: 300px; margin-right: 10px; }
+        button { padding: 10px 20px; }
+        .results { margin-top: 20px; border: 1px solid #ccc; padding: 10px; }
+        .result-section { margin: 10px 0; }
+        .result-item { padding: 5px; border-bottom: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <h1>PAWSOME Search Test</h1>
+    
+    <div class="search-container">
+        <input type="text" id="test-search" placeholder="Search for breeds or tips...">
+        <button onclick="testSearch()">Search</button>
+    </div>
+    
+    <div id="results" class="results" style="display: none;">
+        <div id="results-content"></div>
+    </div>
+    
+    <div class="search-container">
+        <h3>Quick Tests:</h3>
+        <button onclick="testSpecific('golden retriever')">Golden Retriever</button>
+        <button onclick="testSpecific('persian')">Persian</button>
+        <button onclick="testSpecific('labrador')">Labrador</button>
+        <button onclick="testSpecific('training')">Training Tips</button>
+        <button onclick="testSpecific('nutrition')">Nutrition Tips</button>
+    </div>
+    
+    <div id="debug" style="margin-top: 20px; padding: 10px; background: #f5f5f5; border: 1px solid #ccc;">
+        <h3>Debug Info:</h3>
+        <div id="debug-content">Loading data...</div>
+    </div>
+
+    <script src="js/tips.js"></script>
+    <script src="js/global.js"></script>
+    
+    <script>
+        function updateDebugInfo() {
+            const debugContent = document.getElementById('debug-content');
+            debugContent.innerHTML = `
+                <p><strong>Data loaded:</strong></p>
+                <ul>
+                    <li>Pet Tips: ${window.petTips ? window.petTips.length : 'Not loaded'}</li>
+                    <li>Dog Breeds: ${window.dogBreeds ? window.dogBreeds.length : 'Not loaded'}</li>
+                    <li>Cat Breeds: ${window.catBreeds ? window.catBreeds.length : 'Not loaded'}</li>
+                </ul>
+                ${window.dogBreeds ? `<p><strong>Sample dog breeds:</strong> ${window.dogBreeds.slice(0, 3).map(b => b.name).join(', ')}</p>` : ''}
+                ${window.catBreeds ? `<p><strong>Sample cat breeds:</strong> ${window.catBreeds.slice(0, 3).map(b => b.name).join(', ')}</p>` : ''}
+            `;
+        }
+        
+        function testSearch() {
+            const query = document.getElementById('test-search').value;
+            testSpecific(query);
+        }
+        
+        function testSpecific(query) {
+            console.log('Testing search for:', query);
+            document.getElementById('test-search').value = query;
+            
+            const results = performSearch(query);
+            displayResults(results, query);
+        }
+        
+        function performSearch(query) {
+            const results = {
+                tips: [],
+                dogBreeds: [],
+                catBreeds: []
+            };
+            
+            const q = query.toLowerCase().trim();
+            console.log('Searching for:', q);
+            
+            // Search pet tips
+            if (window.petTips) {
+                results.tips = window.petTips.filter(tip => {
+                    return tip.title.toLowerCase().includes(q) || 
+                           tip.category.toLowerCase().includes(q) || 
+                           tip.summary.toLowerCase().includes(q) ||
+                           (tip.details && tip.details.toLowerCase().includes(q));
+                }).slice(0, 5);
+            }
+            
+            // Search dog breeds
+            if (window.dogBreeds) {
+                results.dogBreeds = window.dogBreeds.filter(breed => {
+                    if (!breed || !breed.name) return false;
+                    
+                    let nameMatch = breed.name.toLowerCase().includes(q);
+                    
+                    // Handle common breed name variations
+                    const breedLower = breed.name.toLowerCase();
+                    if (!nameMatch) {
+                        if (q.includes('golden') && breedLower.includes('golden retriever')) nameMatch = true;
+                        if (q.includes('labrador') && breedLower.includes('labrador retriever')) nameMatch = true;
+                        if (q.includes('retriever') && breedLower.includes('retriever')) nameMatch = true;
+                    }
+                    
+                    const personalityMatch = breed.personality && breed.personality.some(trait => trait.toLowerCase().includes(q));
+                    const behaviorMatch = breed.behaviors && breed.behaviors.some(behavior => behavior.toLowerCase().includes(q));
+                    
+                    return nameMatch || personalityMatch || behaviorMatch;
+                }).slice(0, 5);
+            }
+            
+            // Search cat breeds
+            if (window.catBreeds) {
+                results.catBreeds = window.catBreeds.filter(breed => {
+                    if (!breed || !breed.name) return false;
+                    
+                    let nameMatch = breed.name.toLowerCase().includes(q);
+                    
+                    // Handle common cat breed variations
+                    const breedLower = breed.name.toLowerCase();
+                    if (!nameMatch) {
+                        if (q.includes('persian') && breedLower.includes('persian')) nameMatch = true;
+                        if (q.includes('siamese') && breedLower.includes('siamese')) nameMatch = true;
+                        if (q.includes('maine') && breedLower.includes('maine coon')) nameMatch = true;
+                    }
+                    
+                    const personalityMatch = breed.personality && breed.personality.some(trait => trait.toLowerCase().includes(q));
+                    const behaviorMatch = breed.behaviors && breed.behaviors.some(behavior => behavior.toLowerCase().includes(q));
+                    
+                    return nameMatch || personalityMatch || behaviorMatch;
+                }).slice(0, 5);
+            }
+            
+            console.log('Search results:', results);
+            return results;
+        }
+        
+        function displayResults(results, query) {
+            const resultsDiv = document.getElementById('results');
+            const resultsContent = document.getElementById('results-content');
+            
+            let html = `<h3>Results for "${query}":</h3>`;
+            
+            if (results.tips.length > 0) {
+                html += `<div class="result-section">
+                    <h4>Pet Care Tips (${results.tips.length}):</h4>`;
+                results.tips.forEach(tip => {
+                    html += `<div class="result-item">
+                        <strong>${tip.title}</strong> (${tip.category})<br>
+                        <small>${tip.summary}</small>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+            
+            if (results.dogBreeds.length > 0) {
+                html += `<div class="result-section">
+                    <h4>Dog Breeds (${results.dogBreeds.length}):</h4>`;
+                results.dogBreeds.forEach(breed => {
+                    html += `<div class="result-item">
+                        <strong>${breed.name}</strong> (${breed.size})<br>
+                        <small>${breed.personality ? breed.personality.slice(0, 3).join(', ') : ''}</small>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+            
+            if (results.catBreeds.length > 0) {
+                html += `<div class="result-section">
+                    <h4>Cat Breeds (${results.catBreeds.length}):</h4>`;
+                results.catBreeds.forEach(breed => {
+                    html += `<div class="result-item">
+                        <strong>${breed.name}</strong> (${breed.size})<br>
+                        <small>${breed.personality ? breed.personality.slice(0, 3).join(', ') : ''}</small>
+                    </div>`;
+                });
+                html += '</div>';
+            }
+            
+            if (results.tips.length === 0 && results.dogBreeds.length === 0 && results.catBreeds.length === 0) {
+                html += '<p>No results found. Try searching for "golden retriever", "persian", "training", or "nutrition".</p>';
+            }
+            
+            resultsContent.innerHTML = html;
+            resultsDiv.style.display = 'block';
+        }
+        
+        // Initialize when page loads
+        setTimeout(() => {
+            updateDebugInfo();
+            console.log('Page loaded, data available:', {
+                petTips: !!window.petTips,
+                dogBreeds: !!window.dogBreeds,
+                catBreeds: !!window.catBreeds
+            });
+        }, 100);
+        
+        // Test on enter key
+        document.getElementById('test-search').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                testSearch();
+            }
+        });
+    </script>
+</body>
+</html>

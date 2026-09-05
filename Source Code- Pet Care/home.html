@@ -1,0 +1,887 @@
+<html><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Spline+Sans%3Awght%40400%3B500%3B700" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<title>PAWSOME - Your Pet's Health, Simplified</title>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<link href="favicon.png" rel="apple-touch-icon" sizes="180x180"/>
+<meta name="theme-color" content="#f09902"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="css/global.css" rel="stylesheet"/>
+<link href="css/home.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+</head>
+<body class="bg-gradient-to-br from-[#f09902] to-[#993d15]">
+
+<div class="relative flex w-full min-h-screen flex-col group/design-root overflow-x-hidden font-spline">
+<div class="layout-container flex grow flex-col">
+<header class="navbar bg-gradient-to-r from-[#f09902] to-[#993d15]">
+<div class="nav-left">
+<a href="home.html"><img src="logo/p-removebg-preview.png" alt="PAWSOME Logo" class="nav-logo"></a>
+<div class="nav-links">
+</div>
+<!-- Mobile hamburger -->
+<button id="hamburger-btn">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+<div class="nav-right">
+<label class="header-search">
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 text-white/70">
+<span class="material-symbols-outlined text-lg">search</span>
+</div>
+<input id="tips-search" class="form-input w-full rounded-full text-white focus:outline-0 focus:ring-2 focus:ring-white border-none bg-white/20 placeholder:text-white/70 pl-10 pr-4 text-base font-normal" placeholder="Search pet tips, breeds..." />
+<div id="tips-dropdown"></div>
+</label>
+<!-- Desktop dropdown -->
+<button id="nav-dropdown-btn" class="flex items-center justify-center rounded-full h-10 w-10 bg-white/20 text-white hover:bg-white/30 transition-colors ml-3">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+</div>
+<!-- Desktop Dropdown Menu -->
+<div id="nav-dropdown-menu">
+<a href="aisymptomchecker.html" class="nav-dropdown-item">
+<span class="material-symbols-outlined text-base">medical_services</span>
+AI Symptom Checker
+</a>
+<a href="bodyposture.html" class="nav-dropdown-item">
+<span class="material-symbols-outlined text-base">accessibility</span>
+Body Posture
+</a>
+<a href="pethealthcalculator.html" class="nav-dropdown-item">
+<span class="material-symbols-outlined text-base">calculate</span>
+Pet Health Calculator
+</a>
+<a href="petbreedselector.html" class="nav-dropdown-item">
+<span class="material-symbols-outlined text-base">pets</span>
+Breed Selector
+</a>
+<a href="pettraininginteractive.html" class="nav-dropdown-item">
+<span class="material-symbols-outlined text-base">school</span>
+Pet Training Guide
+</a>
+<a href="personality.html" class="nav-dropdown-item">
+<span class="material-symbols-outlined text-base">psychology</span>
+Personality Quiz
+</a>
+<a href="healthtrack.html" class="nav-dropdown-item">
+<span class="material-symbols-outlined text-base">favorite</span>
+Health Track
+</a>
+</div>
+<!-- Mobile Menu -->
+<div id="mobile-menu">
+<a href="aisymptomchecker.html" class="block py-2 px-4 text-white hover:bg-white/10">AI Symptom Checker</a>
+<a href="bodyposture.html" class="block py-2 px-4 text-white hover:bg-white/10">Body Posture</a>
+<a href="pethealthcalculator.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Health Calculator</a>
+<a href="petbreedselector.html" class="block py-2 px-4 text-white hover:bg-white/10">Breed Selector</a>
+<a href="pettraininginteractive.html" class="block py-2 px-4 text-white hover:bg-white/10">Pet Training Guide</a>
+<a href="personality.html" class="block py-2 px-4 text-white hover:bg-white/10">Personality Quiz</a>
+<a href="healthtrack.html" class="block py-2 px-4 text-white hover:bg-white/10">Health Track</a>
+</div>
+</header>
+<main class="flex flex-1 flex-col">
+<div class="px-[0rem] flex flex-1 justify-center pt-[1.5rem] pb-[0rem]">
+<div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
+<div class="@container">
+<div class="p-[0rem]">
+<div class="flex min-h-[701px] flex-col gap-8 bg-cover bg-center bg-no-repeat rounded-tl-[5rem] rounded-tr-[5rem] rounded-br-[0rem] rounded-bl-[0rem] items-center justify-center p-8 hero-banner">
+<div class="flex flex-col gap-4 text-center">
+<h1 class="text-white text-5xl font-bold leading-tight tracking-[-0.033em]">Your Pet's Health, Simplified</h1>
+<p class="text-white text-lg font-normal leading-normal max-w-2xl">Find expert advice, connect with vets, and manage your pet's care all in one place.</p>
+</div>
+<form class="flex w-full max-w-xl h-16 hero-search-container">
+<div class="relative flex w-full items-center">
+<div class="absolute inset-y-0 left-0 flex items-center pl-6 text-[#9e9d47]">
+<svg fill="currentColor" height="24px" viewBox="0 0 256 256" width="24px" xmlns="http://www.w3.org/2000/svg">
+<path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+</svg>
+</div>
+<input id="hero-search" class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-l-full text-[#1c1c0d] focus:outline-none focus:ring-2 focus:ring-[#993d15] border-none bg-white h-full placeholder:text-[#9e9d47] pl-16 pr-4 text-base font-normal leading-normal" placeholder="Search for pet care tips, breeds, or symptoms" value=""/>
+<button type="submit" class="flex items-center justify-center rounded-r-full h-full px-8 bg-[#993d15] text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-[#7a3111] transition-colors">
+<span class="truncate">Search</span>
+</button>
+<div id="hero-dropdown" class="hero-search-dropdown"></div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white/90 backdrop-blur-sm py-10">
+<div class="mx-auto max-w-[1200px] px-10">
+<section class="py-10 text-center">
+<h2 class="text-[#1c1c0d] text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-2">Pet Horoscope / Zodiac Fun Section</h2>
+<p class="text-[#5c5c52] mb-6">Select your pet's birthday to reveal their pet-themed zodiac sign and horoscope!</p>
+<div class="flex justify-center items-center gap-4 mb-8">
+<input id="zodiac-date" class="form-input rounded-md border-gray-300 shadow-sm focus:border-orange-500 focus:ring-orange-500" type="date"/>
+<button id="zodiac-btn" class="bg-[#993d15] text-white font-bold py-2 px-4 rounded-md hover:bg-[#7a3111] transition-colors">Reveal Zodiac</button>
+</div>
+<div id="zodiac-result" class="mt-4 mb-6 text-center text-[#1c1c0d]"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+<div class="flex flex-col items-center gap-4 p-6 rounded-[72px] bg-white shadow-lg">
+<img alt="Aries Pet Zodiac" class="w-24 h-24" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa4gQ7rba_wereeSg7zR_QXr9ogOFc4QM05Zw_P5PX2t36_DQyaQ7CJqTyuw_cjXLM_FMjgdvb695scQO353fVvPLcTw1zskDwsmUdSqxnzaWUaDRC-2BZTl80DQ0jOOw6lxWs7i3NqvnaDui2ucNufdeFeh6zO4eK_44t071qBHUTuLgnClVltU9RwR9ZaIyFGsWP971fXZJsdI6-Rd98xf19cnQPQQns3JlUjTdDBuNpJ6w9jnR_tpgFC3zUviLkyfeIde3RV4NS"/>
+<h3 class="text-[#1c1c0d] text-xl font-bold">Aries (Mar 21 - Apr 19)</h3>
+<p class="text-[#5c5c52]">Your energetic Aries pet is a natural leader, always ready for a new adventure. Keep them active and engaged!</p>
+</div>
+<div class="flex flex-col items-center gap-4 p-6 rounded-[72px] bg-white shadow-lg">
+<img alt="Taurus Pet Zodiac" class="w-24 h-24" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtdujz-hDXFk2F6ka-HUZvRrCSOcvTMnxIITPq3fbbu7k5wgbKifjqh5zmBDxLlZZi_LL1oLF7gj9B95ncaakpfs_p7dWfzQxCTyRhl81t5pSwWfhoWUi7OPLmLcNlPHAVMSIPDrXLBqGy502kB12B7W3UBPRxMBJfDhZk5X9TJa-_1aR-gBBdRCiAObH7rKP6zAUhR4nXz1R6S2c94gezXRVNsA_wGgMCEpKEdgYqRH9lM94Fk19AlBBoNQ2QaJCgtl3S2JO7z8L4"/>
+<h3 class="text-[#1c1c0d] text-xl font-bold">Taurus (Apr 20 - May 20)</h3>
+<p class="text-[#5c5c52]">A Taurus pet loves comfort and treats. They're loyal and cuddly, but can be a bit stubborn. Spoil them with affection!</p>
+</div>
+<div class="flex flex-col items-center gap-4 p-6 rounded-[72px] bg-white shadow-lg">
+<img alt="Gemini Pet Zodiac" class="w-24 h-24" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEBsIIkBiy3eNqlCHj5MSPGe9arw-mURNp9-6hO4-37_4_VXgUWqQUsrYSWRTTcc7oYGXBrWjsv92Ac1S6Yu8cq4a6tjfuGMMLw0rQal4CMWlrVtOO4K9J5AU6E9d2OgcoKHCrI4MYwJJw45DLsB0BeftVW__zqrpZnzpAqJsWiTVsS041HkN2yJDozF6arUOaUFyiANovhW9Xhw2zditT4SzLimCYV7eG4HFugxFywPpjES1GHM-72uEJPGI17PCNtVu5BcH6G9g2"/>
+<h3 class="text-[#1c1c0d] text-xl font-bold">Gemini (May 21 - Jun 20)</h3>
+<p class="text-[#5c5c52]">Curious and playful, your Gemini pet is always up for a game or a chat. They thrive on variety and mental stimulation.</p>
+</div>
+</div>
+</section>
+<section class="py-10 text-center">
+<h2 class="text-[#1c1c0d] text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-6">Pet Sound Interaction</h2>
+<div class="flex justify-center items-center gap-8">
+<button class="flex flex-col items-center gap-2 text-[#1c1c0d] font-semibold hover:text-[#993d15] transition-colors">
+<span class="material-symbols-outlined text-6xl">pets</span>
+<span>Bark</span>
+</button>
+<button class="flex flex-col items-center gap-2 text-[#1c1c0d] font-semibold hover:text-[#993d15] transition-colors">
+<span class="material-symbols-outlined text-6xl">cat</span>
+<span>Meow</span>
+</button>
+<button class="flex flex-col items-center gap-2 text-[#1c1c0d] font-semibold hover:text-[#993d15] transition-colors">
+<span class="material-symbols-outlined text-6xl">flutter</span>
+<span>Bird Chirp</span>
+</button>
+</div>
+</section>
+<section class="py-10 text-center bg-white rounded-[15rem] shadow-xl">
+<h2 class="text-[#1c1c0d] text-3xl font-bold leading-tight tracking-[-0.015em] px-4 pb-6">Which Pet is Right for You?</h2>
+<div class="max-w-2xl mx-auto">
+<div class="mb-6">
+<h3 class="text-xl font-semibold mb-2 text-[#1c1c0d]">1. What's your ideal weekend?</h3>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-orange-200 transition-colors">A. Hiking and exploring</button>
+<button class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-orange-200 transition-colors">B. Netflix and chill</button>
+<button class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-orange-200 transition-colors">C. Socializing with friends</button>
+</div>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-semibold mb-2 text-[#1c1c0d]">2. How much time can you dedicate to a pet daily?</h3>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-orange-200 transition-colors">A. Several hours</button>
+<button class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-orange-200 transition-colors">B. An hour or two</button>
+<button class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-md hover:bg-orange-200 transition-colors">C. Less than an hour</button>
+</div>
+</div>
+<button class="bg-[#993d15] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#7a3111] transition-colors text-lg">See My Perfect Pet!</button>
+</div>
+<div class="mt-8 text-center hidden">
+<h3 class="text-2xl font-bold text-[#1c1c0d] mb-4">Your perfect pet is a... Dog!</h3>
+<img alt="Happy dog illustration" class="w-48 h-48 mx-auto animate-bounce" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5tUHrqQtfdGj5uHsU-93rLHDfi4mNcQpAXXEPe0vXU7FrDUOANMwTNcnQhAiU2XiodIwEggwe-88OASji-o-L39PfI5iytzlbG7ctP9DeTW68c9-DZCYpUr1ba0bR_1DDopw6qosS2VgX3cYDmUW6O3Zq2fXDW9314nARjl3IQFGv9vW3ozT575w5Ocsp_z0hwWXC3FJxc4B8GnUr3fCa5g7dfAFRSGPLb6pBCQJc5luKfatYrQ3F75y5RudhGISRXVaWE_EOBkOH"/>
+<p class="text-[#5c5c52] mt-4 max-w-md mx-auto">Loyal, adventurous, and always happy to see you. A dog would be the perfect companion for your active and loving lifestyle!</p>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Enhanced Footer -->
+<footer class="bg-gradient-to-r from-[#f09902] to-[#993d15] text-white py-8 relative overflow-hidden">
+  <!-- Moving Paw Prints Background -->
+  <div class="absolute inset-0 opacity-40">
+    <div class="paw-print paw-1">🐾</div>
+    <div class="paw-print paw-2">🐾</div>
+    <div class="paw-print paw-3">🐾</div>
+    <div class="paw-print paw-4">🐾</div>
+    <div class="paw-print paw-5">🐾</div>
+    <div class="paw-print paw-6">🐾</div>
+    <div class="paw-print paw-7">🐾</div>
+    <div class="paw-print paw-8">🐾</div>
+  </div>
+  
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- Contact Info -->
+      <div class="contact-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 contact-icon">contact_mail</span>
+          Contact Us
+        </h3>
+        <div class="space-y-3">
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">email</span>
+            <a href="mailto:pawsome@gmail.com" class="hover:text-orange-200 transition-colors">pawsome@gmail.com</a>
+          </div>
+          <div class="contact-item flex items-center">
+            <span class="material-symbols-outlined mr-3 text-lg">phone</span>
+            <a href="tel:03063063533" class="hover:text-orange-200 transition-colors">03063063533</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Team Members -->
+      <div class="team-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 team-icon">group</span>
+          Our Team
+        </h3>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="team-member">Sheeza</div>
+          <div class="team-member">Ashir Arif</div>
+          <div class="team-member">Ahmed Rehan</div>
+          <div class="team-member">M.Ali</div>
+          <div class="team-member">M.Waleed</div>
+          <div class="team-member">Hiba Shakeel</div>
+        </div>
+      </div>
+
+      <!-- Brand Info -->
+      <div class="brand-section">
+        <h3 class="text-xl font-bold mb-4 flex items-center">
+          <span class="material-symbols-outlined mr-2 brand-icon">pets</span>
+          PAWSOME
+        </h3>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Your trusted companion for pet care, health monitoring, and breed information. 
+          Making pet ownership easier and more enjoyable.
+        </p>
+        <div class="social-links mt-4 flex space-x-3">
+          <div class="social-icon">🐾</div>
+          <div class="social-icon">❤️</div>
+          <div class="social-icon">🏠</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/20 mt-8 pt-6 text-center">
+      <p class="text-sm opacity-80">
+        © 2024 PAWSOME. Made with ❤️ for pets and their humans.
+      </p>
+    </div>
+  </div>
+</footer>
+</div>
+</div>
+<script src="js/global.js"></script>
+<script src="js/tips.js"></script>
+<script src="js/breeds.js"></script>
+<script>
+// URGENT FIX: Simple dropdown functionality for home.html
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownBtn = document.getElementById('nav-dropdown-btn');
+    const dropdownMenu = document.getElementById('nav-dropdown-menu');
+    
+    console.log('FIXING DROPDOWN:', dropdownBtn, dropdownMenu);
+    
+    if (dropdownBtn && dropdownMenu) {
+        dropdownBtn.onclick = function(e) {
+            e.stopPropagation();
+            console.log('DROPDOWN CLICKED!');
+            
+            if (dropdownMenu.style.display === 'block') {
+                dropdownMenu.style.display = 'none';
+                dropdownBtn.classList.remove('active');
+            } else {
+                dropdownMenu.style.display = 'block';
+                dropdownBtn.classList.add('active');
+            }
+        };
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdownMenu.contains(e.target) && !dropdownBtn.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+                dropdownBtn.classList.remove('active');
+                dropdownMenu.style.display = 'none';
+            }
+        });
+        
+        // Also close on touch events for mobile
+        document.addEventListener('touchstart', function(e) {
+            if (!dropdownMenu.contains(e.target) && !dropdownBtn.contains(e.target)) {
+                dropdownMenu.classList.remove('show');
+                dropdownBtn.classList.remove('active');
+                dropdownMenu.style.display = 'none';
+            }
+        });
+        
+        // Close dropdown on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                dropdownMenu.classList.remove('show');
+                dropdownBtn.classList.remove('active');
+                dropdownMenu.style.display = 'none';
+            }
+        });
+        
+        // Close dropdown on scroll
+        window.addEventListener('scroll', function() {
+            if (dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
+                dropdownBtn.classList.remove('active');
+                dropdownMenu.style.display = 'none';
+            }
+        });
+        
+        // Close dropdown on window resize
+        window.addEventListener('resize', function() {
+            if (dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
+                dropdownBtn.classList.remove('active');
+                dropdownMenu.style.display = 'none';
+            }
+        });
+        
+        // Close dropdown on page visibility change (tab switch, etc.)
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden && dropdownMenu.classList.contains('show')) {
+                dropdownMenu.classList.remove('show');
+                dropdownBtn.classList.remove('active');
+                dropdownMenu.style.display = 'none';
+            }
+        });
+        
+    }
+    
+    // ==================== HOME PAGE INTERACTIVE FUNCTIONALITY ====================
+    
+    // Pet Zodiac System
+    const petZodiacData = {
+        "aries": { sign: "Aries Pet 🔥", dates: "March 21 - April 19", personality: "Your energetic Aries pet is a natural leader, always ready for adventure!", traits: ["Brave", "Independent", "Energetic", "Leader"], advice: "Keep them active with plenty of exercise and mental challenges.", icon: "🐕‍🦺" },
+        "taurus": { sign: "Taurus Pet 🌱", dates: "April 20 - May 20", personality: "A Taurus pet loves comfort, treats, and cozy spots. They're loyal and cuddly!", traits: ["Loyal", "Stubborn", "Comfort-loving", "Gentle"], advice: "Spoil them with comfortable bedding and their favorite treats.", icon: "🐂" },
+        "gemini": { sign: "Gemini Pet 🌪️", dates: "May 21 - June 20", personality: "Curious and playful, your Gemini pet thrives on variety and mental stimulation!", traits: ["Curious", "Playful", "Social", "Intelligent"], advice: "Provide lots of toys and change their routine to keep them engaged.", icon: "🎭" },
+        "cancer": { sign: "Cancer Pet 🌙", dates: "June 21 - July 22", personality: "Your Cancer pet is sensitive, intuitive, and deeply bonded to family.", traits: ["Sensitive", "Intuitive", "Family-oriented", "Protective"], advice: "Create a safe, comfortable home environment and stick to routines.", icon: "🦀" },
+        "leo": { sign: "Leo Pet ☀️", dates: "July 23 - August 22", personality: "Leo pets are confident, dramatic, and love being the center of attention!", traits: ["Confident", "Dramatic", "Attention-seeking", "Loyal"], advice: "Give them plenty of praise and let them show off their tricks.", icon: "🦁" },
+        "virgo": { sign: "Virgo Pet 🌾", dates: "August 23 - September 22", personality: "Your Virgo pet is methodical, clean, and prefers routine and order.", traits: ["Methodical", "Clean", "Routine-loving", "Helpful"], advice: "Maintain consistent schedules and keep their space clean and organized.", icon: "🌿" },
+        "libra": { sign: "Libra Pet ⚖️", dates: "September 23 - October 22", personality: "Libra pets are social, balanced, and prefer harmony in their environment.", traits: ["Social", "Balanced", "Peace-loving", "Charming"], advice: "Socialize them well and avoid conflicts in the household.", icon: "🕊️" },
+        "scorpio": { sign: "Scorpio Pet 🦂", dates: "October 23 - November 21", personality: "Your intense Scorpio pet is mysterious, loyal, and deeply emotional.", traits: ["Intense", "Mysterious", "Loyal", "Emotional"], advice: "Respect their need for privacy and build deep trust through consistency.", icon: "🔮" },
+        "sagittarius": { sign: "Sagittarius Pet 🏹", dates: "November 22 - December 21", personality: "Adventurous Sagittarius pets love exploration and new experiences!", traits: ["Adventurous", "Optimistic", "Freedom-loving", "Energetic"], advice: "Take them on adventures and give them plenty of space to roam.", icon: "🏕️" },
+        "capricorn": { sign: "Capricorn Pet 🏔️", dates: "December 22 - January 19", personality: "Your Capricorn pet is disciplined, ambitious, and loves structure.", traits: ["Disciplined", "Ambitious", "Structured", "Reliable"], advice: "Provide consistent training and reward their achievements.", icon: "🎯" },
+        "aquarius": { sign: "Aquarius Pet 🌊", dates: "January 20 - February 18", personality: "Unique and independent, your Aquarius pet marches to their own beat!", traits: ["Independent", "Unique", "Intelligent", "Unconventional"], advice: "Embrace their quirks and give them intellectual challenges.", icon: "🛸" },
+        "pisces": { sign: "Pisces Pet 🐠", dates: "February 19 - March 20", personality: "Your dreamy Pisces pet is intuitive, gentle, and deeply empathetic.", traits: ["Intuitive", "Gentle", "Empathetic", "Dreamy"], advice: "Provide a calm environment and be gentle in your approach.", icon: "🌈" }
+    };
+    
+    function getZodiacSign(date) {
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        
+        if ((month == 3 && day >= 21) || (month == 4 && day <= 19)) return "aries";
+        if ((month == 4 && day >= 20) || (month == 5 && day <= 20)) return "taurus";
+        if ((month == 5 && day >= 21) || (month == 6 && day <= 20)) return "gemini";
+        if ((month == 6 && day >= 21) || (month == 7 && day <= 22)) return "cancer";
+        if ((month == 7 && day >= 23) || (month == 8 && day <= 22)) return "leo";
+        if ((month == 8 && day >= 23) || (month == 9 && day <= 22)) return "virgo";
+        if ((month == 9 && day >= 23) || (month == 10 && day <= 22)) return "libra";
+        if ((month == 10 && day >= 23) || (month == 11 && day <= 21)) return "scorpio";
+        if ((month == 11 && day >= 22) || (month == 12 && day <= 21)) return "sagittarius";
+        if ((month == 12 && day >= 22) || (month == 1 && day <= 19)) return "capricorn";
+        if ((month == 1 && day >= 20) || (month == 2 && day <= 18)) return "aquarius";
+        if ((month == 2 && day >= 19) || (month == 3 && day <= 20)) return "pisces";
+    }
+    
+    // Initialize Zodiac functionality
+    const zodiacBtn = document.getElementById('zodiac-btn');
+    const zodiacDate = document.getElementById('zodiac-date');
+    const zodiacResult = document.getElementById('zodiac-result');
+    
+    if (zodiacBtn && zodiacDate && zodiacResult) {
+        zodiacBtn.addEventListener('click', function() {
+            const dateValue = zodiacDate.value;
+            if (!dateValue) {
+                zodiacResult.innerHTML = '<div style="background: #fee; color: #c33; padding: 15px; border-radius: 10px; border: 1px solid #fcc;"><strong>Please select your pet\'s birthday!</strong> 📅</div>';
+                return;
+            }
+            
+            const date = new Date(dateValue);
+            const sign = getZodiacSign(date);
+            const zodiac = petZodiacData[sign];
+            
+            if (zodiac) {
+                const traits = zodiac.traits.map(trait => `<span style="background: #f09902; color: white; padding: 4px 8px; border-radius: 15px; font-size: 12px; margin: 2px; display: inline-block;">${trait}</span>`).join('');
+                
+                zodiacResult.innerHTML = `
+                    <div style="background: linear-gradient(135deg, #fff8e1, #ffe0b2); padding: 25px; border-radius: 15px; box-shadow: 0 8px 25px rgba(153,61,21,0.15); animation: zodiacAppear 0.6s ease-out;">
+                        <div style="text-align: center; font-size: 48px; margin-bottom: 10px;">${zodiac.icon}</div>
+                        <h3 style="color: #993d15; font-size: 24px; font-weight: bold; text-align: center; margin: 0 0 10px 0;">${zodiac.sign}</h3>
+                        <p style="color: #666; text-align: center; font-size: 14px; margin: 0 0 15px 0; font-style: italic;">${zodiac.dates}</p>
+                        <p style="color: #333; font-size: 16px; line-height: 1.6; margin: 0 0 15px 0; text-align: center;">${zodiac.personality}</p>
+                        <div style="margin: 15px 0; text-align: center;"><strong style="color: #993d15; display: block; margin-bottom: 8px;">Personality Traits:</strong><div>${traits}</div></div>
+                        <div style="background: #f0f8ff; padding: 12px; border-radius: 8px; border-left: 4px solid #2196F3; margin-top: 15px;"><strong style="color: #1976D2;">💡 Care Tip:</strong> <span style="color: #333;">${zodiac.advice}</span></div>
+                    </div>
+                `;
+                
+                if (!document.getElementById('zodiac-styles')) {
+                    const style = document.createElement('style');
+                    style.id = 'zodiac-styles';
+                    style.textContent = '@keyframes zodiacAppear { 0% { opacity: 0; transform: translateY(30px) scale(0.9); } 100% { opacity: 1; transform: translateY(0) scale(1); } }';
+                    document.head.appendChild(style);
+                }
+            }
+        });
+    }
+    
+    // Pet Quiz System
+    const perfectPetBtn = document.querySelector('button[class*="See My Perfect Pet"]');
+    if (perfectPetBtn) {
+        perfectPetBtn.addEventListener('click', function() {
+            showPetQuiz();
+        });
+    }
+    
+    function showPetQuiz() {
+        const overlay = document.createElement('div');
+        overlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); display: flex; align-items: center; justify-content: center; z-index: 10000; animation: fadeIn 0.3s ease;';
+        
+        const modal = document.createElement('div');
+        modal.style.cssText = 'background: white; border-radius: 20px; padding: 30px; max-width: 500px; max-height: 80vh; overflow-y: auto; margin: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); animation: slideIn 0.3s ease;';
+        
+        let currentQ = 0;
+        let scores = { dog: 0, cat: 0, bird: 0 };
+        
+        const questions = [
+            { q: "What's your ideal weekend?", opts: [{ t: "Hiking and exploring", s: { dog: 3, cat: 0, bird: 1 } }, { t: "Netflix and chill", s: { dog: 0, cat: 3, bird: 1 } }, { t: "Socializing with friends", s: { dog: 2, cat: 1, bird: 3 } }] },
+            { q: "How much time can you dedicate to a pet daily?", opts: [{ t: "Several hours", s: { dog: 3, cat: 1, bird: 2 } }, { t: "An hour or two", s: { dog: 1, cat: 3, bird: 1 } }, { t: "Less than an hour", s: { dog: 0, cat: 2, bird: 3 } }] }
+        ];
+        
+        const results = {
+            dog: { title: "Your perfect pet is a... Dog! 🐕", desc: "Loyal, adventurous, and always happy to see you!", img: "🐕", tips: ["Dogs need daily exercise", "They're very social animals", "Regular training is important"] },
+            cat: { title: "Your perfect pet is a... Cat! 🐱", desc: "Independent yet affectionate, perfect for your lifestyle!", img: "🐱", tips: ["Cats are low-maintenance", "Great apartment pets", "Litter training is easy"] },
+            bird: { title: "Your perfect pet is a... Bird! 🦜", desc: "Intelligent and social, they can learn to talk!", img: "🦜", tips: ["Birds are highly intelligent", "Can learn to mimic speech", "Social interaction is important"] }
+        };
+        
+        function renderQ() {
+            const q = questions[currentQ];
+            modal.innerHTML = `
+                <div style="text-align: center; margin-bottom: 20px;"><h2 style="color: #993d15; font-size: 24px; margin: 0 0 10px 0;">Find Your Perfect Pet</h2>
+                <div style="background: #f0f0f0; height: 6px; border-radius: 3px; margin-bottom: 20px;"><div style="background: #f09902; height: 100%; width: ${((currentQ + 1) / questions.length) * 100}%; border-radius: 3px; transition: width 0.3s ease;"></div></div>
+                <p style="color: #666; font-size: 14px; margin: 0;">Question ${currentQ + 1} of ${questions.length}</p></div>
+                <h3 style="color: #333; font-size: 20px; text-align: center; margin-bottom: 25px;">${q.q}</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    ${q.opts.map((opt, i) => `<button onclick="selectAns(${i})" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); border: 2px solid #dee2e6; border-radius: 12px; padding: 15px 20px; font-size: 16px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='linear-gradient(135deg, #f09902, #e8890a)'; this.style.color='white';" onmouseout="this.style.background='linear-gradient(135deg, #f8f9fa, #e9ecef)'; this.style.color='#333';">${opt.t}</button>`).join('')}
+                </div>
+                <button onclick="closeQuiz()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #999;">&times;</button>
+            `;
+        }
+        
+        function showRes() {
+            const maxScore = Math.max(...Object.values(scores));
+            const winner = Object.keys(scores).find(pet => scores[pet] === maxScore);
+            const result = results[winner];
+            
+            modal.innerHTML = `
+                <div style="text-align: center;"><div style="font-size: 80px; margin-bottom: 20px;">${result.img}</div>
+                <h2 style="color: #993d15; font-size: 28px; margin: 0 0 15px 0;">${result.title}</h2>
+                <p style="color: #333; font-size: 16px; line-height: 1.6; margin-bottom: 20px;">${result.desc}</p>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 20px;"><h3 style="color: #993d15; font-size: 18px; margin: 0 0 15px 0;">💡 Pet Care Tips:</h3>
+                <ul style="text-align: left; color: #666; margin: 0; padding-left: 20px;">${result.tips.map(tip => `<li style="margin-bottom: 8px;">${tip}</li>`).join('')}</ul></div>
+                <div style="display: flex; gap: 10px; justify-content: center;"><button onclick="restartQuiz()" style="background: #f09902; color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: bold; cursor: pointer;">Take Quiz Again</button>
+                <button onclick="closeQuiz()" style="background: #6c757d; color: white; border: none; padding: 12px 24px; border-radius: 25px; font-weight: bold; cursor: pointer;">Close</button></div></div>
+                <button onclick="closeQuiz()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 24px; cursor: pointer; color: #999;">&times;</button>
+            `;
+        }
+        
+        window.selectAns = function(i) {
+            const q = questions[currentQ];
+            const opt = q.opts[i];
+            Object.keys(opt.s).forEach(pet => scores[pet] += opt.s[pet]);
+            currentQ++;
+            if (currentQ < questions.length) setTimeout(() => renderQ(), 150); else setTimeout(() => showRes(), 150);
+        };
+        
+        window.restartQuiz = function() {
+            currentQ = 0; scores = { dog: 0, cat: 0, bird: 0 }; renderQ();
+        };
+        
+        window.closeQuiz = function() {
+            overlay.remove(); delete window.selectAns; delete window.restartQuiz; delete window.closeQuiz;
+        };
+        
+        renderQ();
+        overlay.appendChild(modal);
+        document.body.appendChild(overlay);
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) window.closeQuiz(); });
+    }
+    
+    // Pet Sound Interaction
+    const soundButtons = document.querySelectorAll('button[class*="flex flex-col items-center"]');
+    soundButtons.forEach(btn => {
+        const txt = btn.textContent.trim();
+        if (txt.includes('Bark') || txt.includes('Meow') || txt.includes('Bird Chirp')) {
+            btn.addEventListener('click', function() {
+                btn.style.transform = 'scale(1.1)'; btn.style.transition = 'transform 0.2s ease';
+                setTimeout(() => btn.style.transform = 'scale(1)', 200);
+                
+                const feedback = document.createElement('div');
+                feedback.style.cssText = 'position: fixed; top: 20px; right: 20px; background: rgba(240,153,2,0.9); color: white; padding: 10px 15px; border-radius: 8px; font-weight: bold; z-index: 10000; animation: fadeInOut 2s ease;';
+                
+                let emoji = '🔊', msg = 'Sound played!';
+                if (txt.includes('Bark')) { emoji = '🐕'; msg = 'Woof! Woof!'; }
+                else if (txt.includes('Meow')) { emoji = '🐱'; msg = 'Meow! Purr!'; }
+                else if (txt.includes('Bird Chirp')) { emoji = '🐦'; msg = 'Tweet! Chirp!'; }
+                
+                feedback.innerHTML = `${emoji} ${msg}`;
+                
+                if (!document.getElementById('sound-styles')) {
+                    const style = document.createElement('style');
+                    style.id = 'sound-styles';
+                    style.textContent = '@keyframes fadeInOut { 0% { opacity: 0; transform: translateX(100px); } 15%, 85% { opacity: 1; transform: translateX(0); } 100% { opacity: 0; transform: translateX(100px); } }';
+                    document.head.appendChild(style);
+                }
+                
+                document.body.appendChild(feedback);
+                setTimeout(() => feedback.remove(), 2000);
+            });
+        }
+    });
+    
+    console.log('🏠 Home page interactive features initialized!');
+});
+</script>
+
+<style>
+/* Ensure proper scrolling */
+html, body {
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Paw Print Moving Animation */
+.paw-print {
+  position: absolute;
+  font-size: 32px;
+  animation: pawWalk 15s linear infinite;
+  opacity: 0.8;
+  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+}
+
+.paw-1 {
+  top: 15%;
+  left: -60px;
+  animation-duration: 8s;
+  animation-delay: 0s;
+}
+
+.paw-2 {
+  top: 35%;
+  left: -80px;
+  animation-duration: 25s;
+  animation-delay: 2s;
+  transform: rotate(25deg);
+}
+
+.paw-3 {
+  top: 55%;
+  left: -100px;
+  animation-duration: 15s;
+  animation-delay: 4s;
+  transform: rotate(-15deg);
+}
+
+.paw-4 {
+  top: 75%;
+  left: -70px;
+  animation-duration: 6s;
+  animation-delay: 6s;
+  transform: rotate(45deg);
+}
+
+.paw-5 {
+  top: 25%;
+  right: -60px;
+  animation-duration: 30s;
+  animation-delay: 1s;
+  animation-direction: reverse;
+}
+
+.paw-6 {
+  top: 45%;
+  right: -90px;
+  animation-duration: 10s;
+  animation-delay: 3s;
+  animation-direction: reverse;
+  transform: rotate(-30deg);
+}
+
+.paw-7 {
+  top: 65%;
+  right: -110px;
+  animation-duration: 20s;
+  animation-delay: 5s;
+  animation-direction: reverse;
+  transform: rotate(60deg);
+}
+
+.paw-8 {
+  top: 85%;
+  right: -80px;
+  animation-duration: 4s;
+  animation-delay: 7s;
+  animation-direction: reverse;
+  transform: rotate(-45deg);
+}
+
+@keyframes pawWalk {
+  0% {
+    transform: translateX(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(calc(100vw + 200px)) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Footer Animations */
+.contact-section, .team-section, .brand-section {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-section { animation-delay: 0.2s; }
+.team-section { animation-delay: 0.4s; }
+.brand-section { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-icon, .team-icon, .brand-icon {
+  animation: iconBounce 2s ease-in-out infinite;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.contact-item {
+  transition: all 0.3s ease;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin: 4px 0;
+}
+
+.contact-item:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateX(8px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.contact-item a:hover {
+  color: #FFD700 !important;
+  text-shadow: 0 0 5px rgba(255,215,0,0.5);
+}
+
+.team-member {
+  padding: 10px 18px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+  border-radius: 25px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+  animation: teamPulse 3s ease-in-out infinite;
+}
+
+.team-member:nth-child(1) { animation-delay: 0s; }
+.team-member:nth-child(2) { animation-delay: 0.6s; }
+.team-member:nth-child(3) { animation-delay: 1.2s; }
+.team-member:nth-child(4) { animation-delay: 1.8s; }
+.team-member:nth-child(5) { animation-delay: 2.4s; }
+
+@keyframes teamPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 2px 8px rgba(255,215,0,0.1); }
+  50% { transform: scale(1.02); box-shadow: 0 4px 16px rgba(255,215,0,0.2); }
+}
+
+.team-member::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.team-member::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #FFD700, #f09902, #FFD700);
+  border-radius: 27px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.team-member:hover::before {
+  left: 100%;
+}
+
+.team-member:hover::after {
+  opacity: 1;
+  animation: borderSpin 1s linear infinite;
+}
+
+@keyframes borderSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.team-member:hover {
+  background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,153,2,0.2));
+  transform: translateY(-8px) scale(1.12) rotateZ(2deg);
+  box-shadow: 0 12px 30px rgba(240,153,2,0.4);
+  border-color: rgba(255,215,0,0.8);
+  color: #FFD700;
+  text-shadow: 0 0 8px rgba(255,215,0,0.6);
+  animation: teamBounce 0.6s ease-in-out;
+}
+
+@keyframes teamBounce {
+  0% { transform: translateY(-8px) scale(1.12) rotateZ(2deg); }
+  25% { transform: translateY(-12px) scale(1.15) rotateZ(-1deg); }
+  50% { transform: translateY(-10px) scale(1.13) rotateZ(1deg); }
+  75% { transform: translateY(-11px) scale(1.14) rotateZ(-0.5deg); }
+  100% { transform: translateY(-8px) scale(1.12) rotateZ(2deg); }
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: socialFloat 4s ease-in-out infinite;
+  border: 2px solid rgba(255,255,255,0.2);
+  font-size: 18px;
+}
+
+.social-icon:nth-child(1) { animation-delay: 0s; }
+.social-icon:nth-child(2) { animation-delay: 1.3s; }
+.social-icon:nth-child(3) { animation-delay: 2.6s; }
+
+@keyframes socialFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(90deg); }
+  50% { transform: translateY(-4px) rotate(180deg); }
+  75% { transform: translateY(-12px) rotate(270deg); }
+}
+
+.social-icon:hover {
+  background: linear-gradient(135deg, rgba(255,215,0,0.3), rgba(255,153,2,0.2));
+  transform: translateY(-8px) scale(1.25) rotate(360deg);
+  box-shadow: 0 10px 25px rgba(240,153,2,0.4);
+  border-color: rgba(255,215,0,0.8);
+}
+
+footer h3 {
+  position: relative;
+  color: #FFD700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  font-weight: 700;
+}
+
+footer h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FFD700, #f09902, transparent);
+  animation: lineGrow 2s ease-out forwards;
+  border-radius: 2px;
+}
+
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 50px; }
+}
+
+/* Enhanced footer background */
+footer {
+  position: relative;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(255,215,0,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(240,153,2,0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 80%, rgba(255,215,0,0.1) 0%, transparent 50%);
+  animation: backgroundPulse 6s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* Bottom bar styling */
+footer .border-t {
+  border-color: rgba(255,215,0,0.3) !important;
+  background: rgba(0,0,0,0.1);
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 15px;
+}
+
+footer p {
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 6px;
+  }
+  
+  .team-member {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+</style>
+
+</body>
+</html>

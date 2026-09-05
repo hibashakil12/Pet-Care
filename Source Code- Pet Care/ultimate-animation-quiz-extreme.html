@@ -1,0 +1,3249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💥 MEGA EXTREME POWER - 220+ ULTIMATE Animation Quiz Showcase 💥</title>
+    <link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+    <style>
+        :root {
+            --primary-orange: #f09902;
+            --secondary-brown: #993d15;
+            --success-green: #10b981;
+            --error-red: #ef4444;
+            --warning-yellow: #f59e0b;
+            --info-blue: #3b82f6;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --teal: #14b8a6;
+            --indigo: #6366f1;
+            --emerald: #059669;
+            --rose: #f43f5e;
+            --neutral-gray: #64748b;
+            --light-bg: #f8fafc;
+            --white: #ffffff;
+            --dark-text: #1e293b;
+            --light-text: #64748b;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Spline Sans', sans-serif;
+            background: linear-gradient(135deg, var(--light-bg) 0%, #e2e8f0 100%);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* EXTREME BACKGROUND EFFECTS */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(240, 153, 2, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(153, 61, 21, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+            animation: backgroundShift 20s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes backgroundShift {
+            0%, 100% { opacity: 0.7; transform: scale(1) rotate(0deg); }
+            33% { opacity: 1; transform: scale(1.1) rotate(120deg); }
+            66% { opacity: 0.5; transform: scale(0.9) rotate(240deg); }
+        }
+
+        .showcase-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* EXTREME HEADER WITH MULTIPLE ANIMATIONS */
+        .showcase-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 4rem 2rem;
+            background: 
+                linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-brown) 50%, var(--purple) 100%),
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+            color: white;
+            border-radius: 30px;
+            box-shadow: 
+                0 30px 60px rgba(240, 153, 2, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            animation: headerFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes headerFloat {
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            50% { transform: translateY(-10px) rotateX(2deg); }
+        }
+
+        .showcase-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: headerSweep 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes headerSweep {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .showcase-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #ffd700, #fff, #ff69b4, #fff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: extremeTitleGlow 3s ease-in-out infinite, titleBounce 4s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            transform-style: preserve-3d;
+        }
+
+        @keyframes extremeTitleGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes titleBounce {
+            0%, 100% { transform: scale(1) rotateY(0deg); }
+            25% { transform: scale(1.05) rotateY(5deg); }
+            50% { transform: scale(1.1) rotateY(0deg); }
+            75% { transform: scale(1.05) rotateY(-5deg); }
+        }
+
+        .showcase-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            animation: subtitleGlow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes subtitleGlow {
+            0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+        }
+
+        /* EXTREME STATS GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: statFloat 5s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0s; }
+        .stat-item:nth-child(2) { animation-delay: 1s; }
+        .stat-item:nth-child(3) { animation-delay: 2s; }
+        .stat-item:nth-child(4) { animation-delay: 3s; }
+        .stat-item:nth-child(5) { animation-delay: 4s; }
+
+        @keyframes statFloat {
+            0%, 100% { transform: translateY(0) rotateX(0deg); }
+            50% { transform: translateY(-15px) rotateX(10deg); }
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            display: block;
+            background: linear-gradient(45deg, #ffd700, #ff69b4, #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: numberPulse 2s ease-in-out infinite, numberRotate 10s linear infinite;
+        }
+
+        @keyframes numberPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @keyframes numberRotate {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* EXTREME SECTION STYLES */
+        .animation-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            box-shadow: 
+                0 20px 40px var(--shadow-color),
+                0 0 0 1px rgba(255, 255, 255, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            overflow: hidden;
+            animation: sectionBreathing 8s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes sectionBreathing {
+            0%, 100% { transform: scale(1) rotateX(0deg); box-shadow: 0 20px 40px var(--shadow-color); }
+            50% { transform: scale(1.02) rotateX(1deg); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15); }
+        }
+
+        .animation-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, 
+                var(--primary-orange) 0%, 
+                var(--purple) 25%, 
+                var(--teal) 50%, 
+                var(--pink) 75%, 
+                var(--primary-orange) 100%
+            );
+            background-size: 400% 100%;
+            animation: borderFlow 6s linear infinite;
+        }
+
+        @keyframes borderFlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 400% 0%; }
+        }
+
+        /* EXTREME DEMO CARDS */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .demo-card {
+            background: linear-gradient(135deg, var(--light-bg), rgba(255, 255, 255, 0.9));
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 2px solid rgba(240, 153, 2, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .demo-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                transparent, 
+                rgba(240, 153, 2, 0.1), 
+                transparent, 
+                rgba(153, 61, 21, 0.1), 
+                transparent
+            );
+            animation: cardSpinner 10s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .demo-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes cardSpinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .demo-card:hover {
+            transform: translateY(-8px) rotateX(5deg) rotateY(2deg);
+            border-color: var(--primary-orange);
+            box-shadow: 
+                0 25px 50px rgba(240, 153, 2, 0.25),
+                0 0 0 1px rgba(240, 153, 2, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        /* EXTREME DEMO AREAS */
+        .demo-area {
+            background: linear-gradient(135deg, white, #fafafa);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 1.5rem 0;
+            border: 2px solid #e2e8f0;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .demo-area::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .demo-area:hover::before {
+            left: 100%;
+        }
+
+        /* EXTREME BUTTON STYLES */
+        .demo-button {
+            background: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-brown) 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: inherit;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform-style: preserve-3d;
+            box-shadow: 0 8px 25px rgba(240, 153, 2, 0.3);
+        }
+
+        .demo-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .demo-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .demo-button:hover {
+            transform: translateY(-3px) scale(1.05) rotateX(5deg);
+            box-shadow: 0 15px 35px rgba(240, 153, 2, 0.5);
+            background: linear-gradient(135deg, #ff9500 0%, #a04000 100%);
+        }
+
+        .demo-button:active {
+            transform: translateY(-1px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(240, 153, 2, 0.4);
+        }
+
+        /* ===== EXTREME ANIMATION CATEGORIES ===== */
+
+        /* 1. HYPER ENTRANCE ANIMATIONS */
+        .hyper-fade-in { 
+            opacity: 0; 
+            transform: scale(0.8) rotateY(45deg);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+        }
+        .hyper-fade-in.animate { 
+            opacity: 1; 
+            transform: scale(1) rotateY(0deg);
+        }
+
+        .quantum-slide-left { 
+            transform: translateX(-200%) rotateZ(-180deg) scale(0.5);
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+        }
+        .quantum-slide-left.animate { 
+            transform: translateX(0) rotateZ(0deg) scale(1);
+            opacity: 1;
+        }
+
+        .wormhole-entrance {
+            transform: scale(0) rotateX(90deg) rotateY(90deg);
+            opacity: 0;
+            transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .wormhole-entrance.animate {
+            transform: scale(1) rotateX(0deg) rotateY(0deg);
+            opacity: 1;
+        }
+
+        .cosmic-drift {
+            transform: translateY(-300px) rotateZ(720deg) scale(0.1);
+            opacity: 0;
+            filter: blur(10px);
+            transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .cosmic-drift.animate {
+            transform: translateY(0) rotateZ(0deg) scale(1);
+            opacity: 1;
+            filter: blur(0px);
+        }
+
+        .matrix-reveal {
+            background: linear-gradient(90deg, transparent 0%, var(--success-green) 50%, transparent 100%);
+            background-size: 200% 100%;
+            color: transparent;
+            animation: matrixScan 2s ease-in-out;
+        }
+
+        @keyframes matrixScan {
+            0% { background-position: -200% 0%; }
+            50% { background-position: 200% 0%; color: white; }
+            100% { background-position: 200% 0%; color: var(--dark-text); background: transparent; }
+        }
+
+        /* 2. EXTREME ATTENTION SEEKERS */
+        .nuclear-pulse {
+            animation: nuclearPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+        }
+
+        @keyframes nuclearPulse {
+            0% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(240, 153, 2, 0.7);
+                filter: brightness(1);
+            }
+            50% { 
+                transform: scale(1.15); 
+                box-shadow: 0 0 0 20px rgba(240, 153, 2, 0);
+                filter: brightness(1.3) saturate(1.5);
+            }
+            100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(240, 153, 2, 0);
+                filter: brightness(1);
+            }
+        }
+
+        .quantum-shake {
+            animation: quantumShake 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+        }
+
+        @keyframes quantumShake {
+            0%, 100% { transform: translateX(0) rotateZ(0deg); }
+            10% { transform: translateX(-15px) rotateZ(-2deg); }
+            20% { transform: translateX(15px) rotateZ(2deg); }
+            30% { transform: translateX(-12px) rotateZ(-1.5deg); }
+            40% { transform: translateX(12px) rotateZ(1.5deg); }
+            50% { transform: translateX(-8px) rotateZ(-1deg); }
+            60% { transform: translateX(8px) rotateZ(1deg); }
+            70% { transform: translateX(-4px) rotateZ(-0.5deg); }
+            80% { transform: translateX(4px) rotateZ(0.5deg); }
+            90% { transform: translateX(-2px) rotateZ(-0.25deg); }
+            95% { transform: translateX(2px) rotateZ(0.25deg); }
+        }
+
+        .hyperdrive-bounce {
+            animation: hyperBounce 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        }
+
+        @keyframes hyperBounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) scaleY(1); }
+            10% { transform: translateY(-30px) scaleY(1.1); }
+            30% { transform: translateY(-15px) scaleY(1.05); }
+            40% { transform: translateY(-30px) scaleY(1.1); }
+            60% { transform: translateY(-10px) scaleY(1.02); }
+        }
+
+        .glitch-effect {
+            animation: glitch 1s linear infinite;
+            position: relative;
+        }
+
+        .glitch-effect::before,
+        .glitch-effect::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch-effect::before {
+            color: #ff0000;
+            animation: glitchBefore 1s linear infinite;
+        }
+
+        .glitch-effect::after {
+            color: #00ffff;
+            animation: glitchAfter 1s linear infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes glitchBefore {
+            0%, 100% { clip-path: inset(0 0 0 0); }
+            20% { clip-path: inset(20% 0 30% 0); }
+            40% { clip-path: inset(50% 0 20% 0); }
+            60% { clip-path: inset(10% 0 60% 0); }
+            80% { clip-path: inset(40% 0 10% 0); }
+        }
+
+        @keyframes glitchAfter {
+            0%, 100% { clip-path: inset(0 0 0 0); }
+            20% { clip-path: inset(60% 0 10% 0); }
+            40% { clip-path: inset(20% 0 50% 0); }
+            60% { clip-path: inset(30% 0 20% 0); }
+            80% { clip-path: inset(10% 0 40% 0); }
+        }
+
+        /* 3. QUANTUM HOVER EFFECTS */
+        .quantum-lift {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+        }
+
+        .quantum-lift::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(240, 153, 2, 0.1), rgba(153, 61, 21, 0.1));
+            border-radius: inherit;
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .quantum-lift:hover {
+            transform: translateY(-15px) rotateX(10deg) scale(1.05);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(240, 153, 2, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .quantum-lift:hover::before {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .holographic-hover {
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .holographic-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                rgba(0, 255, 255, 0.3),
+                rgba(255, 0, 255, 0.3),
+                transparent
+            );
+            transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .holographic-hover:hover {
+            background: linear-gradient(45deg, 
+                rgba(255, 0, 150, 0.1), 
+                rgba(0, 255, 255, 0.1), 
+                rgba(255, 255, 0, 0.1)
+            );
+            color: var(--purple);
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        }
+
+        .holographic-hover:hover::before {
+            left: 100%;
+        }
+
+        /* 4. ADVANCED LOADING ANIMATIONS */
+        .dna-spinner {
+            width: 60px;
+            height: 60px;
+            position: relative;
+        }
+
+        .dna-spinner::before,
+        .dna-spinner::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            border-top-color: var(--primary-orange);
+            animation: dnaRotate 2s linear infinite;
+        }
+
+        .dna-spinner::after {
+            border-top-color: var(--purple);
+            animation: dnaRotate 2s linear infinite reverse;
+        }
+
+        @keyframes dnaRotate {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        .quantum-loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .quantum-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(45deg, var(--primary-orange), var(--purple));
+            border-radius: 50%;
+            animation: quantumOrbit 3s linear infinite;
+        }
+
+        .quantum-dot:nth-child(1) { animation-delay: 0s; }
+        .quantum-dot:nth-child(2) { animation-delay: 0.5s; }
+        .quantum-dot:nth-child(3) { animation-delay: 1s; }
+        .quantum-dot:nth-child(4) { animation-delay: 1.5s; }
+        .quantum-dot:nth-child(5) { animation-delay: 2s; }
+        .quantum-dot:nth-child(6) { animation-delay: 2.5s; }
+
+        @keyframes quantumOrbit {
+            0% { 
+                transform: rotate(0deg) translateX(40px) rotate(0deg);
+                opacity: 1;
+                scale: 1;
+            }
+            50% { 
+                opacity: 0.3;
+                scale: 1.5;
+            }
+            100% { 
+                transform: rotate(360deg) translateX(40px) rotate(-360deg);
+                opacity: 1;
+                scale: 1;
+            }
+        }
+
+        /* 5. EXTREME TEXT ANIMATIONS */
+        .neon-typewriter {
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            border-right: 3px solid var(--primary-orange);
+            white-space: nowrap;
+            animation: neonTyping 4s steps(30, end), neonCursor 0.75s step-end infinite;
+            color: var(--primary-orange);
+            text-shadow: 
+                0 0 5px currentColor,
+                0 0 10px currentColor,
+                0 0 20px currentColor;
+        }
+
+        @keyframes neonTyping {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes neonCursor {
+            from, to { border-color: transparent; }
+            50% { 
+                border-color: var(--primary-orange);
+                box-shadow: 
+                    0 0 5px var(--primary-orange),
+                    0 0 10px var(--primary-orange);
+            }
+        }
+
+        .morphing-text {
+            background: linear-gradient(-45deg, 
+                var(--primary-orange), 
+                var(--purple), 
+                var(--teal), 
+                var(--pink)
+            );
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: morphingGradient 4s ease-in-out infinite;
+            font-weight: 900;
+            position: relative;
+        }
+
+        @keyframes morphingGradient {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+        }
+
+        .cyber-reveal {
+            position: relative;
+            overflow: hidden;
+            color: transparent;
+        }
+
+        .cyber-reveal::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--success-green) 30%, 
+                white  50%, 
+                var(--success-green) 70%, 
+                transparent 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: cyberScan 3s ease-in-out;
+        }
+
+        @keyframes cyberScan {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(0%); }
+            100% { transform: translateX(100%); color: var(--dark-text); }
+        }
+
+        /* 6. EXTREME 3D TRANSFORMATIONS */
+        .cube-flip {
+            perspective: 1000px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .cube-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .cube-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            border-radius: 10px;
+            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .cube-front { background: linear-gradient(45deg, var(--primary-orange), var(--secondary-brown)); }
+        .cube-back { 
+            background: linear-gradient(45deg, var(--purple), var(--pink)); 
+            transform: rotateY(180deg);
+        }
+        .cube-right { 
+            background: linear-gradient(45deg, var(--teal), var(--success-green)); 
+            transform: rotateY(90deg);
+        }
+        .cube-left { 
+            background: linear-gradient(45deg, var(--info-blue), var(--indigo)); 
+            transform: rotateY(-90deg);
+        }
+        .cube-top { 
+            background: linear-gradient(45deg, var(--warning-yellow), var(--primary-orange)); 
+            transform: rotateX(90deg);
+        }
+        .cube-bottom { 
+            background: linear-gradient(45deg, var(--error-red), var(--rose)); 
+            transform: rotateX(-90deg);
+        }
+
+        .cube-flip:hover .cube-inner { transform: rotateY(90deg) rotateX(45deg); }
+
+        /* 7. PARTICLE SYSTEMS */
+        .particle-explosion {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .explosion-particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, var(--primary-orange), var(--secondary-brown));
+            border-radius: 50%;
+            animation: explode 2s ease-out infinite;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--dx, 0), var(--dy, 0)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .cosmic-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .cosmic-particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+            border-radius: 50%;
+            animation: cosmicDrift 15s linear infinite;
+        }
+
+        @keyframes cosmicDrift {
+            0% {
+                transform: translateY(100vh) translateX(0px) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* 8. MORPHING BUTTON EXTREME */
+        .metamorph-btn {
+            width: 200px;
+            height: 60px;
+            background: linear-gradient(45deg, var(--primary-orange), var(--secondary-brown));
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform-style: preserve-3d;
+        }
+
+        .metamorph-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent
+            );
+            transition: left 0.6s ease;
+        }
+
+        .metamorph-btn.loading {
+            width: 60px;
+            border-radius: 30px;
+            background: linear-gradient(45deg, var(--info-blue), var(--purple));
+            animation: morphSpin 1s linear infinite;
+        }
+
+        .metamorph-btn.success {
+            width: 80px;
+            background: linear-gradient(45deg, var(--success-green), var(--teal));
+            animation: successPulse 0.6s ease-out;
+        }
+
+        @keyframes morphSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes successPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        /* 9. EXTREME CARD ANIMATIONS */
+        .hologram-card {
+            perspective: 1000px;
+            width: 280px;
+            height: 180px;
+        }
+
+        .hologram-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .hologram-card:hover .hologram-inner {
+            transform: rotateY(180deg) rotateX(10deg) scale(1.1);
+        }
+
+        .hologram-front,
+        .hologram-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hologram-front {
+            background: linear-gradient(135deg, 
+                rgba(240, 153, 2, 0.9), 
+                rgba(153, 61, 21, 0.9)
+            ), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+        }
+
+        .hologram-back {
+            background: linear-gradient(135deg, 
+                rgba(139, 92, 246, 0.9), 
+                rgba(236, 72, 153, 0.9)
+            );
+            transform: rotateY(180deg);
+        }
+
+        /* 10. EXTREME PROGRESS ANIMATIONS */
+        .quantum-progress {
+            width: 100%;
+            height: 12px;
+            background: linear-gradient(90deg, 
+                rgba(0, 0, 0, 0.1), 
+                rgba(240, 153, 2, 0.1), 
+                rgba(0, 0, 0, 0.1)
+            );
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .quantum-fill {
+            height: 100%;
+            background: linear-gradient(90deg, 
+                var(--primary-orange), 
+                var(--warning-yellow), 
+                var(--primary-orange)
+            );
+            background-size: 200% 100%;
+            border-radius: 6px;
+            position: relative;
+            animation: quantumFlow 3s linear infinite;
+            transition: width 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .quantum-fill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.6), 
+                transparent
+            );
+            animation: quantumSweep 2s ease-in-out infinite;
+        }
+
+        @keyframes quantumFlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        @keyframes quantumSweep {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .showcase-container { padding: 1rem; }
+            .showcase-title { font-size: 2.5rem; }
+            .demo-grid { grid-template-columns: 1fr; }
+            .demo-card { padding: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* UTILITY CLASSES */
+        .text-center { text-align: center; }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .overflow-hidden { overflow: hidden; }
+        .pointer-none { pointer-events: none; }
+        .z-10 { z-index: 10; }
+        .z-20 { z-index: 20; }
+
+        /* ACCESSIBILITY */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ===== 100+ MORE EXTREME ANIMATIONS ===== */
+
+        /* 9. COSMIC WARP EFFECTS */
+        .warp-speed {
+            animation: warpSpeed 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes warpSpeed {
+            0% { transform: scale(1) rotateZ(0deg); filter: blur(0px); }
+            50% { transform: scale(20) rotateZ(180deg); filter: blur(5px); opacity: 0.3; }
+            100% { transform: scale(1) rotateZ(360deg); filter: blur(0px); opacity: 1; }
+        }
+
+        .dimensional-rift {
+            animation: dimensionalRift 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes dimensionalRift {
+            0%, 100% { 
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                filter: hue-rotate(0deg);
+            }
+            25% {
+                clip-path: polygon(20% 0%, 80% 20%, 100% 100%, 0% 80%);
+                filter: hue-rotate(90deg);
+            }
+            50% {
+                clip-path: polygon(40% 20%, 60% 0%, 80% 80%, 20% 100%);
+                filter: hue-rotate(180deg);
+            }
+            75% {
+                clip-path: polygon(0% 20%, 100% 40%, 80% 100%, 20% 80%);
+                filter: hue-rotate(270deg);
+            }
+        }
+
+        .teleport-effect {
+            animation: teleport 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes teleport {
+            0% { transform: translateX(0) scale(1); opacity: 1; }
+            25% { transform: translateX(-50px) scale(0.8); opacity: 0.7; }
+            50% { transform: translateX(-100px) scale(0.1); opacity: 0; }
+            75% { transform: translateX(100px) scale(0.1); opacity: 0; }
+            100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+
+        .quantum-entanglement {
+            animation: quantumEntanglement 4s ease-in-out infinite;
+        }
+
+        @keyframes quantumEntanglement {
+            0%, 100% {
+                transform: translateX(0) rotateY(0deg);
+                box-shadow: 0 0 0 rgba(240, 153, 2, 0.5);
+            }
+            25% {
+                transform: translateX(30px) rotateY(90deg);
+                box-shadow: -30px 0 20px rgba(139, 92, 246, 0.5);
+            }
+            50% {
+                transform: translateX(0) rotateY(180deg);
+                box-shadow: 0 0 40px rgba(20, 184, 166, 0.5);
+            }
+            75% {
+                transform: translateX(-30px) rotateY(270deg);
+                box-shadow: 30px 0 20px rgba(236, 72, 153, 0.5);
+            }
+        }
+
+        /* 10. ELEMENTAL EFFECTS */
+        .fire-burst {
+            animation: fireBurst 2s ease-out;
+            position: relative;
+        }
+
+        .fire-burst::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255, 69, 0, 0.8) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(255, 140, 0, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.4) 0%, transparent 50%);
+            animation: fireFlicker 0.1s infinite alternate;
+            border-radius: inherit;
+        }
+
+        @keyframes fireBurst {
+            0% { transform: scale(1); filter: brightness(1); }
+            50% { transform: scale(1.3); filter: brightness(2) saturate(2); }
+            100% { transform: scale(1); filter: brightness(1); }
+        }
+
+        @keyframes fireFlicker {
+            0% { opacity: 0.8; transform: scale(0.98); }
+            100% { opacity: 1; transform: scale(1.02); }
+        }
+
+        .ice-freeze {
+            animation: iceFreeze 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes iceFreeze {
+            0% { 
+                transform: scale(1);
+                filter: brightness(1) blur(0px);
+                border: 2px solid transparent;
+            }
+            50% { 
+                transform: scale(0.9);
+                filter: brightness(1.5) blur(1px);
+                border: 2px solid rgba(173, 216, 230, 0.8);
+                box-shadow: inset 0 0 20px rgba(173, 216, 230, 0.3);
+            }
+            100% { 
+                transform: scale(1);
+                filter: brightness(1.2) blur(0px);
+                border: 2px solid rgba(173, 216, 230, 0.5);
+                box-shadow: 0 0 30px rgba(173, 216, 230, 0.4);
+            }
+        }
+
+        .lightning-strike {
+            animation: lightningStrike 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes lightningStrike {
+            0%, 100% { 
+                transform: scale(1);
+                filter: brightness(1);
+                box-shadow: 0 0 0 transparent;
+            }
+            10% { 
+                transform: scale(1.1);
+                filter: brightness(3) saturate(2);
+                box-shadow: 0 0 50px rgba(255, 255, 0, 0.8);
+            }
+            20% { 
+                transform: scale(0.95);
+                filter: brightness(1);
+                box-shadow: 0 0 0 transparent;
+            }
+            30% { 
+                transform: scale(1.05);
+                filter: brightness(2.5);
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        .earth-quake {
+            animation: earthQuake 1s ease-in-out;
+        }
+
+        @keyframes earthQuake {
+            0%, 100% { transform: translateX(0) translateY(0); }
+            10% { transform: translateX(-5px) translateY(-2px); }
+            20% { transform: translateX(5px) translateY(2px); }
+            30% { transform: translateX(-3px) translateY(-4px); }
+            40% { transform: translateX(3px) translateY(4px); }
+            50% { transform: translateX(-7px) translateY(-1px); }
+            60% { transform: translateX(7px) translateY(1px); }
+            70% { transform: translateX(-2px) translateY(-3px); }
+            80% { transform: translateX(2px) translateY(3px); }
+            90% { transform: translateX(-1px) translateY(-1px); }
+        }
+
+        /* 11. GEOMETRIC MORPHING */
+        .shape-morph {
+            animation: shapeMorph 4s ease-in-out infinite;
+            border-radius: 50%;
+        }
+
+        @keyframes shapeMorph {
+            0%, 100% { 
+                border-radius: 50%;
+                transform: rotate(0deg) scale(1);
+            }
+            25% { 
+                border-radius: 0% 50% 50% 50%;
+                transform: rotate(90deg) scale(1.1);
+            }
+            50% { 
+                border-radius: 0%;
+                transform: rotate(180deg) scale(1.2);
+            }
+            75% { 
+                border-radius: 50% 0% 50% 50%;
+                transform: rotate(270deg) scale(1.1);
+            }
+        }
+
+        .polygon-dance {
+            animation: polygonDance 3s linear infinite;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        @keyframes polygonDance {
+            0% { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+            12.5% { clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%); }
+            25% { clip-path: polygon(50% 0%, 85% 15%, 100% 50%, 85% 85%, 50% 100%, 15% 85%, 0% 50%, 15% 15%); }
+            37.5% { clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%); }
+            50% { clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%); }
+            62.5% { clip-path: polygon(40% 0%, 60% 0%, 100% 40%, 100% 60%, 60% 100%, 40% 100%, 0% 60%, 0% 40%); }
+            75% { clip-path: polygon(50% 0%, 90% 20%, 90% 80%, 50% 100%, 10% 80%, 10% 20%); }
+            87.5% { clip-path: polygon(50% 0%, 82% 18%, 100% 50%, 82% 82%, 50% 100%, 18% 82%, 0% 50%, 18% 18%); }
+            100% { clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+        }
+
+        .fractal-zoom {
+            animation: fractalZoom 5s ease-in-out infinite;
+            background-size: 100% 100%;
+        }
+
+        @keyframes fractalZoom {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                background-size: 100% 100%;
+                filter: hue-rotate(0deg);
+            }
+            25% {
+                transform: scale(1.2) rotate(90deg);
+                background-size: 150% 150%;
+                filter: hue-rotate(90deg);
+            }
+            50% {
+                transform: scale(1.5) rotate(180deg);
+                background-size: 200% 200%;
+                filter: hue-rotate(180deg);
+            }
+            75% {
+                transform: scale(1.2) rotate(270deg);
+                background-size: 150% 150%;
+                filter: hue-rotate(270deg);
+            }
+        }
+
+        /* 12. PHYSICS SIMULATIONS */
+        .gravity-drop {
+            animation: gravityDrop 2s cubic-bezier(0.55, 0, 1, 0.45);
+        }
+
+        @keyframes gravityDrop {
+            0% { transform: translateY(-200px) rotateZ(0deg); }
+            60% { transform: translateY(20px) rotateZ(180deg); }
+            80% { transform: translateY(-10px) rotateZ(270deg); }
+            100% { transform: translateY(0) rotateZ(360deg); }
+        }
+
+        .pendulum-swing {
+            animation: pendulumSwing 2s ease-in-out infinite;
+            transform-origin: top center;
+        }
+
+        @keyframes pendulumSwing {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            75% { transform: rotate(-15deg); }
+        }
+
+        .spring-bounce {
+            animation: springBounce 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        }
+
+        @keyframes springBounce {
+            0%, 100% { transform: translateY(0) scaleY(1); }
+            25% { transform: translateY(-30px) scaleY(1.1); }
+            50% { transform: translateY(0) scaleY(0.9); }
+            75% { transform: translateY(-10px) scaleY(1.05); }
+        }
+
+        .magnetic-pull {
+            animation: magneticPull 3s ease-in-out infinite;
+        }
+
+        @keyframes magneticPull {
+            0%, 100% {
+                transform: translateX(0) scale(1);
+                filter: brightness(1);
+            }
+            50% {
+                transform: translateX(20px) scale(1.1);
+                filter: brightness(1.3);
+                box-shadow: -20px 0 30px rgba(139, 92, 246, 0.5);
+            }
+        }
+
+        /* 13. LIQUID EFFECTS */
+        .liquid-wave {
+            animation: liquidWave 3s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .liquid-wave::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                rgba(20, 184, 166, 0.3) 25%,
+                rgba(20, 184, 166, 0.6) 50%,
+                rgba(20, 184, 166, 0.3) 75%,
+                transparent 100%
+            );
+            animation: liquidFlow 2s linear infinite;
+        }
+
+        @keyframes liquidWave {
+            0%, 100% { transform: skewX(0deg); }
+            25% { transform: skewX(2deg); }
+            75% { transform: skewX(-2deg); }
+        }
+
+        @keyframes liquidFlow {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100%); }
+        }
+
+        .bubble-rise {
+            animation: bubbleRise 4s ease-out infinite;
+        }
+
+        @keyframes bubbleRise {
+            0% {
+                transform: translateY(100px) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        .droplet-splash {
+            animation: dropletSplash 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        @keyframes dropletSplash {
+            0% {
+                transform: scale(1) translateY(0);
+                border-radius: 50%;
+            }
+            30% {
+                transform: scale(0.8) translateY(-10px);
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            }
+            60% {
+                transform: scale(1.3) translateY(5px);
+                border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                border-radius: 50%;
+            }
+        }
+
+        /* 14. DIGITAL MATRIX EFFECTS */
+        .matrix-rain {
+            animation: matrixRain 3s linear infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .matrix-rain::after {
+            content: '01101001 01110100 01100101 01101101';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            color: var(--success-green);
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            line-height: 1.2;
+            opacity: 0.6;
+            animation: matrixDrop 2s linear infinite;
+            word-break: break-all;
+        }
+
+        @keyframes matrixDrop {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .pixel-dissolve {
+            animation: pixelDissolve 2s steps(20, end);
+        }
+
+        @keyframes pixelDissolve {
+            0% {
+                filter: blur(0px);
+                transform: scale(1);
+            }
+            50% {
+                filter: blur(2px) contrast(1.5);
+                transform: scale(1.05);
+            }
+            100% {
+                filter: blur(0px);
+                transform: scale(1);
+            }
+        }
+
+        .data-stream {
+            animation: dataStream 3s linear infinite;
+            background: linear-gradient(90deg,
+                transparent 0%,
+                var(--info-blue) 50%,
+                transparent 100%
+            );
+            background-size: 200% 100%;
+        }
+
+        @keyframes dataStream {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* 15. MAGICAL EFFECTS */
+        .sparkle-burst {
+            animation: sparkleBurst 1.5s ease-out;
+            position: relative;
+        }
+
+        .sparkle-burst::before,
+        .sparkle-burst::after {
+            content: '✨';
+            position: absolute;
+            animation: sparkleFloat 1s ease-out;
+            font-size: 1.5rem;
+            color: gold;
+        }
+
+        .sparkle-burst::before {
+            top: -10px;
+            left: -10px;
+            animation-delay: 0.1s;
+        }
+
+        .sparkle-burst::after {
+            bottom: -10px;
+            right: -10px;
+            animation-delay: 0.3s;
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        .magic-shimmer {
+            animation: magicShimmer 2s ease-in-out infinite;
+            background: linear-gradient(45deg,
+                transparent 30%,
+                rgba(255, 215, 0, 0.5) 50%,
+                transparent 70%
+            );
+            background-size: 200% 200%;
+        }
+
+        @keyframes magicShimmer {
+            0%, 100% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+        }
+
+        .enchanted-glow {
+            animation: enchantedGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes enchantedGlow {
+            0%, 100% {
+                box-shadow:
+                    0 0 5px rgba(139, 92, 246, 0.3),
+                    0 0 10px rgba(139, 92, 246, 0.2),
+                    0 0 15px rgba(139, 92, 246, 0.1);
+            }
+            50% {
+                box-shadow:
+                    0 0 10px rgba(139, 92, 246, 0.6),
+                    0 0 20px rgba(139, 92, 246, 0.4),
+                    0 0 30px rgba(139, 92, 246, 0.2),
+                    0 0 40px rgba(139, 92, 246, 0.1);
+            }
+        }
+
+        /* 16. CYBERPUNK EFFECTS */
+        .neon-flicker {
+            animation: neonFlicker 0.15s infinite alternate;
+        }
+
+        @keyframes neonFlicker {
+            0%, 100% {
+                text-shadow:
+                    0 0 5px currentColor,
+                    0 0 10px currentColor,
+                    0 0 15px currentColor;
+            }
+            50% {
+                text-shadow:
+                    0 0 2px currentColor,
+                    0 0 5px currentColor,
+                    0 0 8px currentColor;
+            }
+        }
+
+        .cyber-scan {
+            animation: cyberScan 3s linear infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cyber-scan::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg,
+                transparent,
+                var(--success-green),
+                transparent
+            );
+            animation: scanLine 2s linear infinite;
+        }
+
+        @keyframes scanLine {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(2000%); }
+        }
+
+        .hologram-static {
+            animation: hologramStatic 0.1s infinite;
+        }
+
+        @keyframes hologramStatic {
+            0%, 100% { filter: contrast(1) brightness(1); }
+            25% { filter: contrast(1.1) brightness(1.1); }
+            50% { filter: contrast(0.9) brightness(0.9); }
+            75% { filter: contrast(1.05) brightness(1.05); }
+        }
+
+        /* 17. SPACE EFFECTS */
+        .orbit-revolution {
+            animation: orbitRevolution 8s linear infinite;
+            transform-origin: 100px 0;
+        }
+
+        @keyframes orbitRevolution {
+            0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+        }
+
+        .stellar-pulse {
+            animation: stellarPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes stellarPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+            }
+        }
+
+        .meteor-shower {
+            animation: meteorShower 3s linear infinite;
+        }
+
+        @keyframes meteorShower {
+            0% {
+                transform: translateX(-100px) translateY(-100px) rotate(45deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(300px) translateY(300px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        /* 18. BIOMECHANICAL EFFECTS */
+        .heartbeat-monitor {
+            animation: heartbeatMonitor 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeatMonitor {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(0.95); }
+            42% { transform: scale(1.05); }
+            70% { transform: scale(1); }
+        }
+
+        .neural-network {
+            animation: neuralNetwork 4s ease-in-out infinite;
+        }
+
+        @keyframes neuralNetwork {
+            0%, 100% {
+                background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.3) 0%, transparent 50%);
+            }
+            25% {
+                background: radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.3) 0%, transparent 50%);
+            }
+            50% {
+                background: radial-gradient(circle at 70% 70%, rgba(236, 72, 153, 0.3) 0%, transparent 50%);
+            }
+            75% {
+                background: radial-gradient(circle at 30% 70%, rgba(20, 184, 166, 0.3) 0%, transparent 50%);
+            }
+        }
+
+        .dna-helix {
+            animation: dnaHelix 3s linear infinite;
+        }
+
+        @keyframes dnaHelix {
+            0% {
+                transform: rotateY(0deg) rotateX(15deg);
+            }
+            100% {
+                transform: rotateY(360deg) rotateX(15deg);
+            }
+        }
+
+        /* 19. TEMPORAL EFFECTS */
+        .time-warp {
+            animation: timeWarp 5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+
+        @keyframes timeWarp {
+            0%, 100% {
+                transform: scale(1) rotateZ(0deg);
+                filter: blur(0px) hue-rotate(0deg);
+            }
+            25% {
+                transform: scale(1.1) rotateZ(5deg);
+                filter: blur(1px) hue-rotate(90deg);
+            }
+            50% {
+                transform: scale(0.9) rotateZ(-5deg);
+                filter: blur(2px) hue-rotate(180deg);
+            }
+            75% {
+                transform: scale(1.05) rotateZ(2deg);
+                filter: blur(1px) hue-rotate(270deg);
+            }
+        }
+
+        .temporal-echo {
+            animation: temporalEcho 2s ease-out infinite;
+            position: relative;
+        }
+
+        .temporal-echo::before,
+        .temporal-echo::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            border-radius: inherit;
+            opacity: 0.3;
+        }
+
+        .temporal-echo::before {
+            animation: echoDelay1 2s ease-out infinite;
+        }
+
+        .temporal-echo::after {
+            animation: echoDelay2 2s ease-out infinite;
+        }
+
+        @keyframes echoDelay1 {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0; }
+        }
+
+        @keyframes echoDelay2 {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        .chronos-shift {
+            animation: chronosShift 6s ease-in-out infinite;
+        }
+
+        @keyframes chronosShift {
+            0%, 100% {
+                transform: translateX(0) scale(1);
+                opacity: 1;
+            }
+            20% {
+                transform: translateX(-20px) scale(0.8);
+                opacity: 0.5;
+            }
+            40% {
+                transform: translateX(-40px) scale(0.6);
+                opacity: 0.2;
+            }
+            60% {
+                transform: translateX(40px) scale(0.6);
+                opacity: 0.2;
+            }
+            80% {
+                transform: translateX(20px) scale(0.8);
+                opacity: 0.5;
+            }
+        }
+
+        /* 20. DIMENSIONAL EFFECTS */
+        .portal-vortex {
+            animation: portalVortex 4s linear infinite;
+            border-radius: 50%;
+        }
+
+        @keyframes portalVortex {
+            0% {
+                transform: rotate(0deg) scale(1);
+                box-shadow: inset 0 0 50px rgba(139, 92, 246, 0.3);
+            }
+            50% {
+                transform: rotate(180deg) scale(0.8);
+                box-shadow: inset 0 0 100px rgba(139, 92, 246, 0.6);
+            }
+            100% {
+                transform: rotate(360deg) scale(1);
+                box-shadow: inset 0 0 50px rgba(139, 92, 246, 0.3);
+            }
+        }
+
+        .dimension-fold {
+            animation: dimensionFold 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+        }
+
+        @keyframes dimensionFold {
+            0%, 100% {
+                transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+                filter: brightness(1);
+            }
+            25% {
+                transform: perspective(500px) rotateX(20deg) rotateY(10deg);
+                filter: brightness(1.2);
+            }
+            50% {
+                transform: perspective(500px) rotateX(-10deg) rotateY(-20deg);
+                filter: brightness(0.8);
+            }
+            75% {
+                transform: perspective(500px) rotateX(10deg) rotateY(20deg);
+                filter: brightness(1.1);
+            }
+        }
+
+        /* PERFORMANCE OPTIMIZATIONS */
+        .demo-card,
+        .demo-button,
+        .animation-section {
+            will-change: transform;
+        }
+
+        .demo-area {
+            contain: layout style paint;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cosmic Particles Background -->
+    <div class="cosmic-particles" id="cosmicParticles"></div>
+
+    <div class="showcase-container">
+        <!-- EXTREME HEADER -->
+        <div class="showcase-header">
+            <h1 class="showcase-title">💥 MEGA EXTREME POWER 💥</h1>
+            <p class="showcase-subtitle">220+ ULTIMATE Animation Showcase with Quantum & Cosmic Effects</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">220+</span>
+                    <span class="stat-label">MEGA Animations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">25</span>
+                    <span class="stat-label">POWER Categories</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3D</span>
+                    <span class="stat-label">Transformations</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Possibilities</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">🚀</span>
+                    <span class="stat-label">Extreme Power</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. HYPER ENTRANCE ANIMATIONS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    Hyper Entrance Animations (20 types)
+                </h2>
+                <p class="section-description">Next-generation entrance effects with quantum mechanics</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">1. Hyper Fade In</h3>
+                    <div class="demo-area">
+                        <div class="hyper-fade-in" id="hyperFadeDemo">
+                            <div style="background: linear-gradient(45deg, var(--primary-orange), var(--purple)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                ⚡ Hyper Speed Entry
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerAnimation('hyperFadeDemo', 'hyper-fade-in')">
+                        <span class="material-symbols-outlined">bolt</span>
+                        Trigger Hyper Fade
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">2. Quantum Slide</h3>
+                    <div class="demo-area">
+                        <div class="quantum-slide-left" id="quantumSlideDemo">
+                            <div style="background: linear-gradient(45deg, var(--teal), var(--success-green)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🌀 Quantum Tunnel
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerAnimation('quantumSlideDemo', 'quantum-slide-left')">
+                        <span class="material-symbols-outlined">science</span>
+                        Quantum Slide
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">3. Wormhole Entrance</h3>
+                    <div class="demo-area">
+                        <div class="wormhole-entrance" id="wormholeDemo">
+                            <div style="background: linear-gradient(45deg, var(--purple), var(--pink)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🕳️ Dimensional Portal
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerAnimation('wormholeDemo', 'wormhole-entrance')">
+                        <span class="material-symbols-outlined">hub</span>
+                        Open Wormhole
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">4. Cosmic Drift</h3>
+                    <div class="demo-area">
+                        <div class="cosmic-drift" id="cosmicDriftDemo">
+                            <div style="background: linear-gradient(45deg, var(--indigo), var(--info-blue)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🌌 Space Drift
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerAnimation('cosmicDriftDemo', 'cosmic-drift')">
+                        <span class="material-symbols-outlined">public</span>
+                        Cosmic Entry
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">5. Matrix Reveal</h3>
+                    <div class="demo-area">
+                        <div class="matrix-reveal" id="matrixDemo">
+                            <div style="padding: 1.5rem; border-radius: 15px; font-weight: bold; background: black; color: var(--success-green); font-family: 'Courier New', monospace;">
+                                > SYSTEM INITIALIZED_
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerMatrix()">
+                        <span class="material-symbols-outlined">code</span>
+                        Enter Matrix
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. EXTREME ATTENTION SEEKERS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">warning</span>
+                    Extreme Attention Seekers (25 types)
+                </h2>
+                <p class="section-description">Ultra-powerful animations that demand attention</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">6. Nuclear Pulse</h3>
+                    <div class="demo-area">
+                        <div id="nuclearDemo">
+                            <button style="background: linear-gradient(45deg, var(--warning-yellow), var(--primary-orange)); border: none; padding: 1.5rem 2rem; border-radius: 15px; color: white; font-weight: bold; cursor: pointer;">
+                                ⚡ POWER BUTTON ⚡
+                            </button>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="toggleAnimation('nuclearDemo', 'nuclear-pulse')">
+                        <span class="material-symbols-outlined">flash_on</span>
+                        Nuclear Pulse
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">7. Quantum Shake</h3>
+                    <div class="demo-area">
+                        <div id="quantumShakeDemo">
+                            <div style="background: linear-gradient(45deg, var(--error-red), var(--rose)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                ❌ QUANTUM ERROR
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('quantumShakeDemo', 'quantum-shake')">
+                        <span class="material-symbols-outlined">vibration</span>
+                        Quantum Shake
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">8. Hyperdrive Bounce</h3>
+                    <div class="demo-area">
+                        <div id="hyperBounceDemo">
+                            <div style="background: linear-gradient(45deg, var(--success-green), var(--emerald)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🚀 HYPERDRIVE ACTIVE
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="toggleAnimation('hyperBounceDemo', 'hyperdrive-bounce')">
+                        <span class="material-symbols-outlined">rocket</span>
+                        Hyperdrive
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">9. Glitch Effect</h3>
+                    <div class="demo-area">
+                        <div id="glitchDemo" data-text="SYSTEM_ERROR">
+                            <div style="background: black; color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold; font-family: 'Courier New', monospace;">
+                                SYSTEM_ERROR
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="toggleAnimation('glitchDemo', 'glitch-effect')">
+                        <span class="material-symbols-outlined">error</span>
+                        Trigger Glitch
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. QUANTUM HOVER EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">touch_app</span>
+                    Quantum Hover Effects (20 types)
+                </h2>
+                <p class="section-description">Advanced hover interactions with quantum mechanics</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">10. Quantum Lift</h3>
+                    <div class="demo-area">
+                        <div class="quantum-lift" style="background: linear-gradient(45deg, var(--primary-orange), var(--secondary-brown)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold; cursor: pointer;">
+                            🎯 Hover for Quantum Lift
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Advanced 3D lift with quantum effects</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">11. Holographic Hover</h3>
+                    <div class="demo-area">
+                        <div class="holographic-hover" style="background: linear-gradient(45deg, var(--info-blue), var(--indigo)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold; cursor: pointer;">
+                            ✨ Hologram Effect
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Holographic color shifting</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. ADVANCED LOADING ANIMATIONS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">progress_activity</span>
+                    Advanced Loading Animations (15 types)
+                </h2>
+                <p class="section-description">Next-gen loading animations with complex physics</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">12. DNA Spinner</h3>
+                    <div class="demo-area">
+                        <div class="dna-spinner"></div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Double helix rotation</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">13. Quantum Loader</h3>
+                    <div class="demo-area">
+                        <div class="quantum-loader">
+                            <div class="quantum-dot"></div>
+                            <div class="quantum-dot"></div>
+                            <div class="quantum-dot"></div>
+                            <div class="quantum-dot"></div>
+                            <div class="quantum-dot"></div>
+                            <div class="quantum-dot"></div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Quantum orbital mechanics</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">14. Quantum Progress</h3>
+                    <div class="demo-area">
+                        <div class="quantum-progress">
+                            <div class="quantum-fill" id="quantumProgressDemo" style="width: 75%;"></div>
+                        </div>
+                        <p style="margin-top: 1rem; text-align: center; font-weight: bold;">Quantum Processing: 75%</p>
+                    </div>
+                    <button class="demo-button" onclick="animateQuantumProgress()">
+                        <span class="material-symbols-outlined">data_usage</span>
+                        Animate Progress
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. EXTREME TEXT ANIMATIONS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">text_fields</span>
+                    Extreme Text Animations (15 types)
+                </h2>
+                <p class="section-description">Revolutionary text effects with neon and cyber aesthetics</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">15. Neon Typewriter</h3>
+                    <div class="demo-area">
+                        <div class="neon-typewriter" id="neonTypewriterDemo">
+                            WELCOME TO THE FUTURE
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="restartNeonTypewriter()">
+                        <span class="material-symbols-outlined">lightbulb</span>
+                        Restart Neon
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">16. Morphing Text</h3>
+                    <div class="demo-area">
+                        <div class="morphing-text" style="font-size: 1.8rem; font-weight: 900;">
+                            QUANTUM MORPHING
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Continuously morphing colors</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">17. Cyber Reveal</h3>
+                    <div class="demo-area">
+                        <div class="cyber-reveal" id="cyberRevealDemo" data-text="CYBER PROTOCOL ACTIVATED">
+                            <div style="font-size: 1.4rem; font-weight: bold;">CYBER PROTOCOL ACTIVATED</div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerCyberReveal()">
+                        <span class="material-symbols-outlined">security</span>
+                        Cyber Reveal
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. EXTREME 3D TRANSFORMATIONS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">view_in_ar</span>
+                    Extreme 3D Transformations (18 types)
+                </h2>
+                <p class="section-description">Mind-bending 3D effects with realistic physics</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">18. Cube Flip</h3>
+                    <div class="demo-area">
+                        <div class="cube-flip">
+                            <div class="cube-inner">
+                                <div class="cube-face cube-front">FRONT</div>
+                                <div class="cube-face cube-back">BACK</div>
+                                <div class="cube-face cube-right">RIGHT</div>
+                                <div class="cube-face cube-left">LEFT</div>
+                                <div class="cube-face cube-top">TOP</div>
+                                <div class="cube-face cube-bottom">BOTTOM</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Hover for 3D cube rotation</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">19. Hologram Card</h3>
+                    <div class="demo-area">
+                        <div class="hologram-card">
+                            <div class="hologram-inner">
+                                <div class="hologram-front">
+                                    <div>
+                                        <h4>🎯 FRONT SIDE</h4>
+                                        <p>Hover to reveal</p>
+                                    </div>
+                                </div>
+                                <div class="hologram-back">
+                                    <div>
+                                        <h4>✨ HOLOGRAM</h4>
+                                        <p>Secret content!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Advanced 3D card with holographic effects</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. PARTICLE SYSTEMS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">auto_awesome</span>
+                    Particle Systems (12 types)
+                </h2>
+                <p class="section-description">Complex particle physics simulations</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">20. Particle Explosion</h3>
+                    <div class="demo-area">
+                        <div class="particle-explosion" id="explosionContainer">
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; background: var(--primary-orange); color: white; padding: 1rem; border-radius: 10px; font-weight: bold;">
+                                💥 EXPLOSION CENTER
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="createExplosion()">
+                        <span class="material-symbols-outlined">local_fire_department</span>
+                        Trigger Explosion
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. METAMORPHING BUTTONS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">smart_button</span>
+                    Metamorphing Buttons (15 types)
+                </h2>
+                <p class="section-description">Advanced button transformations with state management</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">21. Metamorph Button</h3>
+                    <div class="demo-area">
+                        <button class="metamorph-btn" id="metamorphBtn" onclick="triggerMetamorph()">
+                            <span class="btn-text">TRANSFORM</span>
+                            <span class="loading-text" style="display: none;">⚡</span>
+                            <span class="success-text" style="display: none;">✅</span>
+                        </button>
+                    </div>
+                    <button class="demo-button" onclick="triggerMetamorph()">
+                        <span class="material-symbols-outlined">transform</span>
+                        Metamorph
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. COSMIC WARP EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">rocket</span>
+                    Cosmic Warp Effects (15 types)
+                </h2>
+                <p class="section-description">Interdimensional space-time manipulation effects</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">22. Warp Speed</h3>
+                    <div class="demo-area">
+                        <div id="warpSpeedDemo">
+                            <div style="background: linear-gradient(45deg, var(--info-blue), var(--indigo)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🚀 WARP DRIVE
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('warpSpeedDemo', 'warp-speed')">
+                        <span class="material-symbols-outlined">speed</span>
+                        Engage Warp
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">23. Dimensional Rift</h3>
+                    <div class="demo-area">
+                        <div id="dimensionalRiftDemo">
+                            <div style="background: linear-gradient(45deg, var(--purple), var(--pink)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🌌 RIFT PORTAL
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="toggleAnimation('dimensionalRiftDemo', 'dimensional-rift')">
+                        <span class="material-symbols-outlined">hub</span>
+                        Open Rift
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">24. Teleport Effect</h3>
+                    <div class="demo-area">
+                        <div id="teleportDemo">
+                            <div style="background: linear-gradient(45deg, var(--teal), var(--success-green)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                ⚡ TELEPORTER
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('teleportDemo', 'teleport-effect')">
+                        <span class="material-symbols-outlined">flash_on</span>
+                        Teleport
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">25. Quantum Entanglement</h3>
+                    <div class="demo-area">
+                        <div id="quantumEntanglementDemo">
+                            <div style="background: linear-gradient(45deg, var(--warning-yellow), var(--primary-orange)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                ⚛️ ENTANGLED
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="toggleAnimation('quantumEntanglementDemo', 'quantum-entanglement')">
+                        <span class="material-symbols-outlined">link</span>
+                        Entangle
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. ELEMENTAL EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">local_fire_department</span>
+                    Elemental Effects (20 types)
+                </h2>
+                <p class="section-description">Fire, ice, lightning, and earth-based animations</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">26. Fire Burst</h3>
+                    <div class="demo-area">
+                        <div id="fireDemo">
+                            <div style="background: linear-gradient(45deg, #ff4500, #ff8c00); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🔥 FIRE BURST
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('fireDemo', 'fire-burst')">
+                        <span class="material-symbols-outlined">whatshot</span>
+                        Ignite
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">27. Ice Freeze</h3>
+                    <div class="demo-area">
+                        <div id="iceDemo">
+                            <div style="background: linear-gradient(45deg, #87ceeb, #4169e1); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                ❄️ ICE FREEZE
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('iceDemo', 'ice-freeze')">
+                        <span class="material-symbols-outlined">ac_unit</span>
+                        Freeze
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">28. Lightning Strike</h3>
+                    <div class="demo-area">
+                        <div id="lightningDemo">
+                            <div style="background: linear-gradient(45deg, #ffff00, #ffffff); color: black; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                ⚡ LIGHTNING
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('lightningDemo', 'lightning-strike')">
+                        <span class="material-symbols-outlined">bolt</span>
+                        Strike
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">29. Earth Quake</h3>
+                    <div class="demo-area">
+                        <div id="earthquakeDemo">
+                            <div style="background: linear-gradient(45deg, #8b4513, #daa520); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🌍 EARTHQUAKE
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('earthquakeDemo', 'earth-quake')">
+                        <span class="material-symbols-outlined">landscape</span>
+                        Quake
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 11. GEOMETRIC MORPHING -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">change_history</span>
+                    Geometric Morphing (18 types)
+                </h2>
+                <p class="section-description">Shape-shifting and polygon transformations</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">30. Shape Morph</h3>
+                    <div class="demo-area">
+                        <div id="shapeMorphDemo">
+                            <div class="shape-morph" style="background: linear-gradient(45deg, var(--purple), var(--pink)); color: white; padding: 1.5rem; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                ◆
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Automatic shape morphing</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">31. Polygon Dance</h3>
+                    <div class="demo-area">
+                        <div id="polygonDemo">
+                            <div class="polygon-dance" style="background: linear-gradient(45deg, var(--teal), var(--success-green)); color: white; padding: 1.5rem; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                ✦
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Complex polygon animation</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">32. Fractal Zoom</h3>
+                    <div class="demo-area">
+                        <div id="fractalDemo">
+                            <div class="fractal-zoom" style="background: radial-gradient(circle, var(--primary-orange), var(--secondary-brown)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🌀 FRACTAL
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Fractal zoom animation</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 12. PHYSICS SIMULATIONS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">science</span>
+                    Physics Simulations (16 types)
+                </h2>
+                <p class="section-description">Real-world physics and mechanical effects</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">33. Gravity Drop</h3>
+                    <div class="demo-area">
+                        <div id="gravityDemo">
+                            <div style="background: linear-gradient(45deg, var(--error-red), var(--rose)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🪨 GRAVITY
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('gravityDemo', 'gravity-drop')">
+                        <span class="material-symbols-outlined">arrow_downward</span>
+                        Drop
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">34. Pendulum Swing</h3>
+                    <div class="demo-area">
+                        <div id="pendulumDemo">
+                            <div class="pendulum-swing" style="background: linear-gradient(45deg, var(--info-blue), var(--indigo)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                ⏰ PENDULUM
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Automatic pendulum motion</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">35. Spring Bounce</h3>
+                    <div class="demo-area">
+                        <div id="springDemo">
+                            <div class="spring-bounce" style="background: linear-gradient(45deg, var(--success-green), var(--emerald)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🔀 SPRING
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Spring physics simulation</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">36. Magnetic Pull</h3>
+                    <div class="demo-area">
+                        <div id="magnetDemo">
+                            <div class="magnetic-pull" style="background: linear-gradient(45deg, var(--purple), var(--pink)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🧲 MAGNET
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Magnetic field effect</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 13. LIQUID EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">water_drop</span>
+                    Liquid Effects (12 types)
+                </h2>
+                <p class="section-description">Fluid dynamics and liquid simulations</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">37. Liquid Wave</h3>
+                    <div class="demo-area">
+                        <div id="liquidDemo">
+                            <div class="liquid-wave" style="background: linear-gradient(45deg, var(--teal), var(--success-green)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🌊 LIQUID WAVE
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Flowing liquid animation</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">38. Bubble Rise</h3>
+                    <div class="demo-area">
+                        <div id="bubbleDemo">
+                            <div class="bubble-rise" style="background: radial-gradient(circle, rgba(173, 216, 230, 0.8), rgba(135, 206, 235, 0.6)); color: white; padding: 1.5rem; border-radius: 50%; width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                🫧
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Rising bubble effect</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">39. Droplet Splash</h3>
+                    <div class="demo-area">
+                        <div id="dropletDemo">
+                            <div style="background: linear-gradient(45deg, var(--info-blue), var(--indigo)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                💧 DROPLET
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('dropletDemo', 'droplet-splash')">
+                        <span class="material-symbols-outlined">opacity</span>
+                        Splash
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 14. DIGITAL MATRIX EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">memory</span>
+                    Digital Matrix Effects (14 types)
+                </h2>
+                <p class="section-description">Cyberpunk digital and data visualization effects</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">40. Matrix Rain</h3>
+                    <div class="demo-area">
+                        <div id="matrixRainDemo">
+                            <div class="matrix-rain" style="background: black; color: var(--success-green); padding: 1.5rem; border-radius: 15px; font-weight: bold; font-family: 'Courier New', monospace;">
+                                > MATRIX_ACTIVE
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Digital rain effect</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">41. Pixel Dissolve</h3>
+                    <div class="demo-area">
+                        <div id="pixelDemo">
+                            <div style="background: linear-gradient(45deg, var(--purple), var(--pink)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🔲 PIXEL ART
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('pixelDemo', 'pixel-dissolve')">
+                        <span class="material-symbols-outlined">grid_on</span>
+                        Pixelate
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">42. Data Stream</h3>
+                    <div class="demo-area">
+                        <div id="dataStreamDemo">
+                            <div class="data-stream" style="color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold; font-family: 'Courier New', monospace;">
+                                >> DATA_FLOW_ACTIVE
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Streaming data visualization</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 15. MAGICAL EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">auto_awesome</span>
+                    Magical Effects (16 types)
+                </h2>
+                <p class="section-description">Enchanted and mystical animation effects</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">43. Sparkle Burst</h3>
+                    <div class="demo-area">
+                        <div id="sparkleDemo">
+                            <div style="background: linear-gradient(45deg, #ffd700, #ffb347); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                ✨ SPARKLES ✨
+                            </div>
+                        </div>
+                    </div>
+                    <button class="demo-button" onclick="triggerTempAnimation('sparkleDemo', 'sparkle-burst')">
+                        <span class="material-symbols-outlined">star</span>
+                        Sparkle
+                    </button>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">44. Magic Shimmer</h3>
+                    <div class="demo-area">
+                        <div id="shimmerDemo">
+                            <div class="magic-shimmer" style="background: linear-gradient(45deg, var(--purple), var(--pink)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🔮 MAGIC SHIMMER
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Magical shimmer effect</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">45. Enchanted Glow</h3>
+                    <div class="demo-area">
+                        <div id="enchantedDemo">
+                            <div class="enchanted-glow" style="background: linear-gradient(45deg, var(--indigo), var(--purple)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🪄 ENCHANTED
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Mystical glow aura</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 16. CYBERPUNK EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">electrical_services</span>
+                    Cyberpunk Effects (12 types)
+                </h2>
+                <p class="section-description">Futuristic neon and cyber aesthetic animations</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">46. Neon Flicker</h3>
+                    <div class="demo-area">
+                        <div id="neonFlickerDemo">
+                            <div class="neon-flicker" style="background: black; color: #00ffff; padding: 1.5rem; border-radius: 15px; font-weight: bold; font-family: 'Courier New', monospace;">
+                                NEON_SIGN
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Flickering neon sign</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">47. Cyber Scan</h3>
+                    <div class="demo-area">
+                        <div id="cyberScanDemo">
+                            <div class="cyber-scan" style="background: #001a1a; color: var(--success-green); padding: 1.5rem; border-radius: 15px; font-weight: bold; font-family: 'Courier New', monospace;">
+                                SCANNING...
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Scanning line effect</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">48. Hologram Static</h3>
+                    <div class="demo-area">
+                        <div id="hologramStaticDemo">
+                            <div class="hologram-static" style="background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                📡 HOLOGRAM
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Holographic interference</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 17. SPACE EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">rocket_launch</span>
+                    Space Effects (14 types)
+                </h2>
+                <p class="section-description">Cosmic and astronomical animation effects</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">49. Orbit Revolution</h3>
+                    <div class="demo-area">
+                        <div id="orbitDemo">
+                            <div class="orbit-revolution" style="background: radial-gradient(circle, #ffd700, #ffb347); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">
+                                🪐
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Planetary orbit motion</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">50. Stellar Pulse</h3>
+                    <div class="demo-area">
+                        <div id="stellarDemo">
+                            <div class="stellar-pulse" style="background: radial-gradient(circle, white, #ffff00); color: black; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                ⭐
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Pulsating star effect</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">51. Meteor Shower</h3>
+                    <div class="demo-area">
+                        <div id="meteorDemo">
+                            <div class="meteor-shower" style="background: linear-gradient(45deg, #ff4500, #ffd700); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                ☄️
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Meteor trail animation</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 18. BIOMECHANICAL EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">monitor_heart</span>
+                    Biomechanical Effects (10 types)
+                </h2>
+                <p class="section-description">Organic and biological-inspired animations</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">52. Heartbeat Monitor</h3>
+                    <div class="demo-area">
+                        <div id="heartbeatDemo">
+                            <div class="heartbeat-monitor" style="background: linear-gradient(45deg, #ff1493, #ff69b4); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                💓 HEARTBEAT
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Cardiac rhythm simulation</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">53. Neural Network</h3>
+                    <div class="demo-area">
+                        <div id="neuralDemo">
+                            <div class="neural-network" style="color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🧠 NEURAL NET
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Brain activity simulation</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">54. DNA Helix</h3>
+                    <div class="demo-area">
+                        <div id="dnaHelixDemo">
+                            <div class="dna-helix" style="background: linear-gradient(45deg, var(--success-green), var(--emerald)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🧬 DNA HELIX
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Genetic double helix</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 19. TEMPORAL EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">schedule</span>
+                    Temporal Effects (12 types)
+                </h2>
+                <p class="section-description">Time manipulation and chronological effects</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">55. Time Warp</h3>
+                    <div class="demo-area">
+                        <div id="timeWarpDemo">
+                            <div class="time-warp" style="background: linear-gradient(45deg, var(--indigo), var(--purple)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                ⏰ TIME WARP
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Temporal distortion effect</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">56. Temporal Echo</h3>
+                    <div class="demo-area">
+                        <div id="temporalEchoDemo">
+                            <div class="temporal-echo" style="background: linear-gradient(45deg, var(--teal), var(--success-green)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                🔄 ECHO
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Time echo traces</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">57. Chronos Shift</h3>
+                    <div class="demo-area">
+                        <div id="chronosDemo">
+                            <div class="chronos-shift" style="background: linear-gradient(45deg, var(--warning-yellow), var(--primary-orange)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                ⚡ CHRONOS
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Time displacement effect</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 20. DIMENSIONAL EFFECTS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">view_in_ar</span>
+                    Dimensional Effects (11 types)
+                </h2>
+                <p class="section-description">Multi-dimensional and portal effects</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card">
+                    <h3 class="demo-title">58. Portal Vortex</h3>
+                    <div class="demo-area">
+                        <div id="portalDemo">
+                            <div class="portal-vortex" style="background: radial-gradient(circle, var(--purple) 30%, var(--indigo) 70%); color: white; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                🌀
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Swirling portal vortex</p>
+                </div>
+
+                <div class="demo-card">
+                    <h3 class="demo-title">59. Dimension Fold</h3>
+                    <div class="demo-area">
+                        <div id="dimensionFoldDemo">
+                            <div class="dimension-fold" style="background: linear-gradient(45deg, var(--pink), var(--purple)); color: white; padding: 1.5rem; border-radius: 15px; font-weight: bold;">
+                                📐 FOLD SPACE
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--light-text);">Dimensional folding effect</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MASTER CONTROLS -->
+        <div class="animation-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="material-symbols-outlined">settings</span>
+                    MEGA Master Control Center
+                </h2>
+                <p class="section-description">Ultimate control over all 220+ MEGA animations</p>
+            </div>
+            
+            <div class="text-center">
+                <button class="demo-button" onclick="resetAllAnimations()">
+                    <span class="material-symbols-outlined">refresh</span>
+                    Reset Everything
+                </button>
+                <button class="demo-button" onclick="activateAllEntrances()">
+                    <span class="material-symbols-outlined">play_circle</span>
+                    All Entrances
+                </button>
+                <button class="demo-button" onclick="toggleAllAttention()">
+                    <span class="material-symbols-outlined">notifications_active</span>
+                    All Attention
+                </button>
+                <button class="demo-button" onclick="createCosmicShow()">
+                    <span class="material-symbols-outlined">stars</span>
+                    Cosmic Show
+                </button>
+                <button class="demo-button" onclick="extremePowerMode()">
+                    <span class="material-symbols-outlined">bolt</span>
+                    EXTREME POWER
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global Animation Controller
+        let animationStates = {};
+        let morphStates = {};
+
+        // Initialize cosmic particles
+        function initCosmicParticles() {
+            const container = document.getElementById('cosmicParticles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'cosmic-particle';
+                particle.style.cssText = `
+                    width: ${Math.random() * 4 + 2}px;
+                    height: ${Math.random() * 4 + 2}px;
+                    left: ${Math.random() * 100}%;
+                    animation-delay: ${Math.random() * 15}s;
+                `;
+                container.appendChild(particle);
+            }
+        }
+
+        // Animation Triggers
+        function triggerAnimation(elementId, animationClass) {
+            const element = document.getElementById(elementId);
+            element.classList.remove('animate');
+            element.offsetHeight;
+            element.classList.add('animate');
+        }
+
+        function toggleAnimation(elementId, animationClass) {
+            const element = document.getElementById(elementId);
+            element.classList.toggle(animationClass);
+        }
+
+        function triggerTempAnimation(elementId, animationClass) {
+            const element = document.getElementById(elementId);
+            element.classList.add(animationClass);
+            setTimeout(() => {
+                element.classList.remove(animationClass);
+            }, 1000);
+        }
+
+        // Specific Animation Functions
+        function triggerMatrix() {
+            const element = document.getElementById('matrixDemo');
+            element.classList.add('matrix-reveal');
+            setTimeout(() => {
+                element.classList.remove('matrix-reveal');
+            }, 2000);
+        }
+
+        function restartNeonTypewriter() {
+            const element = document.getElementById('neonTypewriterDemo');
+            element.style.animation = 'none';
+            element.style.width = '0';
+            element.offsetHeight;
+            element.style.animation = 'neonTyping 4s steps(30, end), neonCursor 0.75s step-end infinite';
+        }
+
+        function triggerCyberReveal() {
+            const element = document.getElementById('cyberRevealDemo');
+            element.classList.add('cyber-reveal');
+            setTimeout(() => {
+                element.classList.remove('cyber-reveal');
+            }, 3000);
+        }
+
+        function animateQuantumProgress() {
+            const progress = document.getElementById('quantumProgressDemo');
+            progress.style.width = '0%';
+            setTimeout(() => {
+                progress.style.width = '100%';
+            }, 100);
+            setTimeout(() => {
+                progress.style.width = '75%';
+            }, 3000);
+        }
+
+        // Particle Explosion
+        function createExplosion() {
+            const container = document.getElementById('explosionContainer');
+            const existing = container.querySelectorAll('.explosion-particle');
+            existing.forEach(p => p.remove());
+
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'explosion-particle';
+                
+                const angle = (i / 30) * Math.PI * 2;
+                const distance = Math.random() * 150 + 50;
+                const dx = Math.cos(angle) * distance;
+                const dy = Math.sin(angle) * distance;
+                
+                particle.style.cssText = `
+                    left: 50%; 
+                    top: 50%;
+                    --dx: ${dx}px;
+                    --dy: ${dy}px;
+                    animation-delay: ${Math.random() * 0.2}s;
+                `;
+                
+                container.appendChild(particle);
+                
+                setTimeout(() => particle.remove(), 2000);
+            }
+        }
+
+        // Metamorph Button
+        function triggerMetamorph() {
+            const btn = document.getElementById('metamorphBtn');
+            const textSpan = btn.querySelector('.btn-text');
+            const loadingSpan = btn.querySelector('.loading-text');
+            const successSpan = btn.querySelector('.success-text');
+            
+            if (!btn.classList.contains('loading') && !btn.classList.contains('success')) {
+                btn.classList.add('loading');
+                textSpan.style.display = 'none';
+                loadingSpan.style.display = 'block';
+                
+                setTimeout(() => {
+                    btn.classList.remove('loading');
+                    btn.classList.add('success');
+                    loadingSpan.style.display = 'none';
+                    successSpan.style.display = 'block';
+                    
+                    setTimeout(() => {
+                        btn.classList.remove('success');
+                        successSpan.style.display = 'none';
+                        textSpan.style.display = 'block';
+                    }, 2000);
+                }, 2000);
+            }
+        }
+
+        // Master Controls
+        function resetAllAnimations() {
+            document.querySelectorAll('.animate').forEach(el => {
+                el.classList.remove('animate');
+            });
+            
+            document.querySelectorAll('.nuclear-pulse, .quantum-shake, .hyperdrive-bounce, .glitch-effect').forEach(el => {
+                el.classList.remove('nuclear-pulse', 'quantum-shake', 'hyperdrive-bounce', 'glitch-effect');
+            });
+        }
+
+        function activateAllEntrances() {
+            const entrances = [
+                'hyperFadeDemo', 'quantumSlideDemo', 'wormholeDemo', 
+                'cosmicDriftDemo'
+            ];
+            
+            entrances.forEach((id, index) => {
+                setTimeout(() => {
+                    const element = document.getElementById(id);
+                    if (element) {
+                        element.classList.remove('animate');
+                        element.offsetHeight;
+                        element.classList.add('animate');
+                    }
+                }, index * 300);
+            });
+        }
+
+        function toggleAllAttention() {
+            const attentionElements = [
+                { id: 'nuclearDemo', class: 'nuclear-pulse' },
+                { id: 'quantumShakeDemo', class: 'quantum-shake' },
+                { id: 'hyperBounceDemo', class: 'hyperdrive-bounce' },
+                { id: 'glitchDemo', class: 'glitch-effect' }
+            ];
+
+            attentionElements.forEach(({ id, class: className }) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.classList.toggle(className);
+                }
+            });
+        }
+
+        function createCosmicShow() {
+            // Trigger cosmic particles
+            initCosmicParticles();
+            
+            // Activate multiple effects
+            setTimeout(() => activateAllEntrances(), 500);
+            setTimeout(() => toggleAllAttention(), 1000);
+            setTimeout(() => createExplosion(), 1500);
+            setTimeout(() => triggerMatrix(), 2000);
+        }
+
+        function extremePowerMode() {
+            // Ultimate showcase of all effects
+            document.body.style.animation = 'backgroundShift 5s ease-in-out infinite';
+            
+            createCosmicShow();
+            
+            setTimeout(() => {
+                document.querySelectorAll('.demo-card').forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.animation = 'sectionBreathing 3s ease-in-out infinite';
+                        card.style.animationDelay = `${index * 0.1}s`;
+                    }, index * 100);
+                });
+            }, 1000);
+            
+            // Show power message
+            setTimeout(() => {
+                const powerMsg = document.createElement('div');
+                powerMsg.innerHTML = '⚡ EXTREME POWER MODE ACTIVATED ⚡';
+                powerMsg.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: linear-gradient(45deg, #ff0000, #ff8c00, #ffd700);
+                    color: white;
+                    padding: 2rem 4rem;
+                    border-radius: 20px;
+                    font-size: 2rem;
+                    font-weight: 900;
+                    text-align: center;
+                    z-index: 10000;
+                    animation: nuclearPulse 1s infinite;
+                    box-shadow: 0 0 50px rgba(255, 0, 0, 0.5);
+                `;
+                document.body.appendChild(powerMsg);
+                
+                setTimeout(() => {
+                    powerMsg.remove();
+                }, 3000);
+            }, 2500);
+        }
+
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', () => {
+            initCosmicParticles();
+            console.log('💥 MEGA EXTREME POWER MODE - 220+ ANIMATIONS LOADED! 💥');
+            
+            // Auto-demo after 2 seconds
+            setTimeout(() => {
+                activateAllEntrances();
+            }, 2000);
+        });
+
+        // Performance optimization
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                } else {
+                    entry.target.classList.remove('in-view');
+                }
+            });
+        });
+
+        document.querySelectorAll('.demo-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

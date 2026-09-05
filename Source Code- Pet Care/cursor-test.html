@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PAWSOME Cursor & Search Test</title>
+    <link href="css/global.css" rel="stylesheet"/>
+    <link href="css/animations.css" rel="stylesheet"/>
+    <style>
+        body { 
+            padding: 20px; 
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to-br, #f09902, #993d15);
+            min-height: 100vh;
+        }
+        .test-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        button, input {
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #f09902;
+            color: white;
+            cursor: url('./cursors/cursor.png'), pointer;
+        }
+        .search-input {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🐾 PAWSOME Cursor & Search Test</h1>
+        
+        <div class="test-section">
+            <h2>Cursor Test</h2>
+            <p>Move your mouse around - you should see the custom cursor.png</p>
+            <button>Hover over me!</button>
+            <button>Click me!</button>
+            <input type="text" placeholder="Type here">
+        </div>
+
+        <div class="test-section">
+            <h2>Search Test</h2>
+            <label>Navbar Search (tips-search):</label>
+            <input id="tips-search" class="search-input" placeholder="Search pet tips, breeds...">
+            <div id="tips-dropdown" style="position: relative; background: white; border: 1px solid #ccc; display: none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Hero Search Test</h2>
+            <label>Hero Search (hero-search):</label>
+            <input id="hero-search" class="search-input" placeholder="Search for pet care tips, breeds, or symptoms">
+            <div id="hero-dropdown" style="position: relative; background: white; border: 1px solid #ccc; display: none;"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Status</h2>
+            <div id="status">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Include all necessary scripts -->
+    <script src="js/global.js"></script>
+    <script src="js/tips.js"></script>
+    <script src="js/breeds.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const status = document.getElementById('status');
+            let messages = [];
+            
+            // Check cursor
+            const computedStyle = window.getComputedStyle(document.body);
+            const cursor = computedStyle.cursor;
+            if (cursor.includes('cursor.png')) {
+                messages.push('✅ Cursor.png detected');
+            } else {
+                messages.push('❌ Cursor.png not detected: ' + cursor);
+            }
+            
+            // Check search data
+            setTimeout(() => {
+                if (window.petTips && window.petTips.length > 0) {
+                    messages.push('✅ Pet tips loaded: ' + window.petTips.length + ' tips');
+                } else {
+                    messages.push('❌ Pet tips not loaded');
+                }
+                
+                if (window.dogBreeds && window.dogBreeds.length > 0) {
+                    messages.push('✅ Dog breeds loaded: ' + window.dogBreeds.length + ' breeds');
+                } else {
+                    messages.push('❌ Dog breeds not loaded');
+                }
+                
+                if (window.catBreeds && window.catBreeds.length > 0) {
+                    messages.push('✅ Cat breeds loaded: ' + window.catBreeds.length + ' breeds');
+                } else {
+                    messages.push('❌ Cat breeds not loaded');
+                }
+                
+                status.innerHTML = messages.join('<br>');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
